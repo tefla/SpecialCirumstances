@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwe4bf5388nse"]
+
+[ext_resource type="Texture2D" uid="uid://bdoa0omefmwou" path="res://Assets/tilesheet.png" id="1_krskd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctcl8"]
+atlas = ExtResource("1_krskd")
+region = Rect2(4.05807, 518.209, 55.902, 53.2401)
+
+[node name="MoveAction" type="PanelContainer"]
+offset_left = 129.0
+offset_right = 129.0
+offset_bottom = 53.0
+
+[node name="Items" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Items"]
+layout_mode = 2
+text = "Move To"
+
+[node name="SelectPosition" type="TextureRect" parent="Items"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ctcl8")

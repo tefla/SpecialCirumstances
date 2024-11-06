@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bwo6s4advsld7"]
+
+[sub_resource type="GDScript" id="GDScript_pvj2f"]
+script/source = "
+extends Resource
+
+@export var health: int = 100
+
+"
+
+[resource]
+script = SubResource("GDScript_pvj2f")
+health = 100

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://eyjao2ky0fku"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_630np"]
+[ext_resource type="PackedScene" uid="uid://bfeebesnnu1x1" path="res://Scenes/Level1.tscn" id="1_fl7hy"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="2_lktu3"]
+[ext_resource type="PackedScene" uid="uid://cy30xxeibl4ms" path="res://Scenes/Player.tscn" id="4_fyugo"]
+[ext_resource type="PackedScene" uid="uid://ceowdcmcqhhc5" path="res://Scenes/InfoPanel.tscn" id="5_oh6pm"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_630np")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(8, 4)
+script = ExtResource("2_lktu3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="InfoPanel" parent="Camera2D/CanvasLayer" instance=ExtResource("5_oh6pm")]
+
+[node name="Level1" parent="." instance=ExtResource("1_fl7hy")]
+position = Vector2(-410, -252)
+
+[node name="Player" parent="." instance=ExtResource("4_fyugo")]
+position = Vector2(-410, -252)

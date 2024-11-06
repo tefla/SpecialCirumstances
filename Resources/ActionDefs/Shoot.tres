@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ActionDef" load_steps=2 format=3 uid="uid://cdga2ixd7hl76"]
+
+[ext_resource type="Script" path="res://Scripts/action_resource.gd" id="1_kutiy"]
+
+[resource]
+script = ExtResource("1_kutiy")
+name = "Phew Phew"
