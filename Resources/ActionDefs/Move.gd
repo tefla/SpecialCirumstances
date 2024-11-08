@@ -1,2 +1,2 @@
-extends ActionDef
+extends ActionResource
 class_name MoveDef

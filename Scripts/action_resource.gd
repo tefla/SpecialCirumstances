@@ -1,16 +1,13 @@
 extends Resource
-class_name ActionDef
+class_name ActionResource
 
-@export var name = "Default Action Def"
+@export var name = "Default Action Resource"
 @export var action_ui: Resource
+@export var action_script: Resource
 
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func create():
+	var inst = action_script.new()
+	inst.instance_ui = action_ui.instantiate()
+	return inst
+	
+	

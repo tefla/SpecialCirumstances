@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://eyjao2ky0fku"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_qgg8q"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="2_fuk7w"]
+[ext_resource type="PackedScene" uid="uid://ceowdcmcqhhc5" path="res://Scenes/InfoPanel.tscn" id="3_y3ahf"]
+[ext_resource type="PackedScene" uid="uid://bfeebesnnu1x1" path="res://Scenes/Level1.tscn" id="4_mmr57"]
+[ext_resource type="PackedScene" uid="uid://cy30xxeibl4ms" path="res://Scenes/Player.tscn" id="5_gj66s"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_488gv"]
+vertices = PackedVector2Array(2625.94, 987.93, -1774.35, 961.047, -1856.64, -1353.05, 2613.05, -1377.94)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1867, -1363, 2623, -1388, 2636, 998, -1784, 971)])
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_qgg8q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(8, 4)
+script = ExtResource("2_fuk7w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="InfoPanel" parent="Camera2D/CanvasLayer" instance=ExtResource("3_y3ahf")]
+
+[node name="Level1" parent="." instance=ExtResource("4_mmr57")]
+position = Vector2(-410, -252)
+
+[node name="Player" parent="." instance=ExtResource("5_gj66s")]
+position = Vector2(-410, -252)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_488gv")
