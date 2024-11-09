@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://djcjiymsjibh"]
+
+[ext_resource type="Script" path="res://Unit/Components/CPU/cpu_interface.gd" id="1_x52rc"]
+[ext_resource type="Script" path="res://Unit/Components/CPU/program.gd" id="2_24doy"]
+
+[node name="CPU Interface" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_x52rc")
+
+[node name="Header" type="Label" parent="."]
+layout_mode = 2
+text = "CPU Properties"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Available Commands" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Move" type="Button" parent="HBoxContainer/Available Commands"]
+layout_mode = 2
+text = "Move"
+
+[node name="Attack" type="Button" parent="HBoxContainer/Available Commands"]
+layout_mode = 2
+text = "Attack"
+
+[node name="Program" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_24doy")
+
+[node name="Controls" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Play" type="Button" parent="Controls"]
+layout_mode = 2
+text = "Play"
+
+[node name="Pause" type="Button" parent="Controls"]
+layout_mode = 2
+text = "Pause"
+
+[node name="Stop" type="Button" parent="Controls"]
+layout_mode = 2
+text = "Stop
+"

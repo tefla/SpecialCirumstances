@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy30xxeibl4ms"]
+
+[ext_resource type="Texture2D" uid="uid://baancq43r3ffy" path="res://Map/Player.tres" id="1_pb0xj"]
+[ext_resource type="Script" path="res://Unit/Unit.gd" id="1_x564y"]
+[ext_resource type="Script" path="res://Unit/Components/Motor/Motor.gd" id="2_4u53j"]
+[ext_resource type="Script" path="res://Unit/Components/CPU/CPU.gd" id="3_5o3vk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6uul"]
+size = Vector2(28, 28)
+
+[node name="Unit" type="CharacterBody2D"]
+editor_description = "Da Player!"
+collision_layer = 2
+input_pickable = true
+motion_mode = 1
+script = ExtResource("1_x564y")
+components_resources = Array[Resource]([ExtResource("3_5o3vk"), ExtResource("2_4u53j")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e6uul")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pb0xj")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 33.81
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

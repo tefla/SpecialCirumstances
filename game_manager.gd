@@ -1,8 +1,8 @@
 extends Node
 
-var selected: Player
+var selected: Unit
 
-signal selection_changed(selected: Player)
+signal selection_changed(selected: Unit)
 
 
 func set_selected(unit):
