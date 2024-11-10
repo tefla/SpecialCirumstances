@@ -6,6 +6,8 @@ var command
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	x.value = command.target_position.x
+	y.value = command.target_position.y
 	y.value_changed.connect(_update_command)
 	x.value_changed.connect(_update_command)
 

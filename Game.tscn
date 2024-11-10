@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://eyjao2ky0fku"]
+[gd_scene load_steps=8 format=3 uid="uid://eyjao2ky0fku"]
 
 [ext_resource type="PackedScene" uid="uid://cr2bsr17fewrr" path="res://UI/InfoPanel.tscn" id="1_autge"]
+[ext_resource type="Script" path="res://Unit/Components/CPU/CPU.gd" id="4_lkc31"]
 [ext_resource type="PackedScene" uid="uid://bfeebesnnu1x1" path="res://Map/Level1.tscn" id="4_mmr57"]
+[ext_resource type="Script" path="res://Unit/Components/Motor/Motor.gd" id="5_fq0h0"]
 [ext_resource type="PackedScene" uid="uid://cy30xxeibl4ms" path="res://Unit/Unit.tscn" id="5_gj66s"]
+[ext_resource type="Script" path="res://Unit/Components/Scanner/Scanner.gd" id="6_5go7n"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_488gv"]
 vertices = PackedVector2Array(2625.94, 987.93, -1774.35, 961.047, -1856.64, -1353.05, 2613.05, -1377.94)
@@ -23,6 +26,7 @@ position = Vector2(-410, -252)
 
 [node name="Player" parent="." instance=ExtResource("5_gj66s")]
 position = Vector2(-410, -252)
+components_resources = Array[Resource]([ExtResource("4_lkc31"), ExtResource("5_fq0h0"), ExtResource("6_5go7n")])
 unit_name = "Unit 1"
 
 [node name="Unit" parent="." instance=ExtResource("5_gj66s")]
@@ -31,3 +35,15 @@ unit_name = "Unit 2"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_488gv")
+
+[node name="Unit2" parent="." instance=ExtResource("5_gj66s")]
+position = Vector2(-135, 251)
+unit_name = "Unit 2"
+
+[node name="Unit3" parent="." instance=ExtResource("5_gj66s")]
+position = Vector2(-135, 114)
+unit_name = "Unit 2"
+
+[node name="Unit4" parent="." instance=ExtResource("5_gj66s")]
+position = Vector2(-401, 0)
+unit_name = "Unit 2"

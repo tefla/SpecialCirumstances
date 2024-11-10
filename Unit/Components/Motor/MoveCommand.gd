@@ -3,7 +3,7 @@ class_name MoveCommand
 
 
 
-var target_position: Vector2 = Vector2.ZERO
+var target_position: Vector2 = Vector2(randi() % 2000 - 1000, randi() % 400 - 200)
 
 func _to_string() -> String:
 	return "<MoveCommand: MOVE TO [%s, %s] [Unit: %s, Parent: %s]>" % [target_position.x, target_position.y, unit, parent_component]

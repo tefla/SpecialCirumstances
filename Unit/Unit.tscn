@@ -23,8 +23,11 @@ shape = SubResource("RectangleShape2D_e6uul")
 texture = ExtResource("1_pb0xj")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 20.0
 avoidance_enabled = true
-radius = 30.15
+radius = 12.75
+neighbor_distance = 218.31
+debug_enabled = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
