@@ -23,6 +23,11 @@ position = Vector2(-410, -252)
 
 [node name="Player" parent="." instance=ExtResource("5_gj66s")]
 position = Vector2(-410, -252)
+unit_name = "Unit 1"
+
+[node name="Unit" parent="." instance=ExtResource("5_gj66s")]
+position = Vector2(-135, 0)
+unit_name = "Unit 2"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_488gv")

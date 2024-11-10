@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 
 func on_selection_changed(unit):
 	if unit:
-		for panel in unit.generate_panel():
-			
+		for child in %List.get_children(): %List.remove_child(child)
+		visible = true
+		for panel in unit.panels:
 			%List.add_child(panel)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://djcjiymsjibh"]
+[gd_scene load_steps=2 format=3 uid="uid://djcjiymsjibh"]
 
 [ext_resource type="Script" path="res://Unit/Components/CPU/cpu_interface.gd" id="1_x52rc"]
-[ext_resource type="Script" path="res://Unit/Components/CPU/program.gd" id="2_24doy"]
 
 [node name="CPU Interface" type="VBoxContainer"]
 anchors_preset = 15
@@ -32,10 +31,9 @@ text = "Move"
 layout_mode = 2
 text = "Attack"
 
-[node name="Program" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Program" type="Control" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("2_24doy")
 
 [node name="Controls" type="HBoxContainer" parent="."]
 layout_mode = 2
