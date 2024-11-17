@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgug2ii8xy8hx"]
+[gd_scene load_steps=2 format=3 uid="uid://cgug2ii8xy8hx"]
 
 [ext_resource type="Script" path="res://Unit/Components/Motor/move_editor.gd" id="1_osur1"]
-[ext_resource type="PackedScene" uid="uid://bflfcb5dv65nf" path="res://StateManager/state_machine.tscn" id="2_0kgms"]
 
 [node name="MoveEditor" type="HBoxContainer"]
 anchors_preset = 8
@@ -42,5 +41,3 @@ layout_mode = 2
 min_value = -1000.0
 max_value = 1000.0
 update_on_text_changed = true
-
-[node name="StateMachine" parent="." instance=ExtResource("2_0kgms")]
