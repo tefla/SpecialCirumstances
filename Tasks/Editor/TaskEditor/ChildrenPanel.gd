@@ -1,6 +1,8 @@
 extends Control
 class_name ChildrenPanel
 
+signal child_added(child: Task)
+
 @onready var taskEditorScene = preload("TaskEditor.tscn")
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
@@ -9,5 +11,7 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	if data is Task:
 		var newTaskEditor = taskEditorScene.instantiate()
-		newTaskEditor.task = data.duplicate()
+		var newTask = data.duplicate()
+		child_added.emit(newTask)
+		newTaskEditor.task = newTask
 		add_child(newTaskEditor)

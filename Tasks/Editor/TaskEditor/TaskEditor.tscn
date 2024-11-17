@@ -32,7 +32,6 @@ theme_override_constants/margin_left = 20
 
 [node name="Children" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 script = ExtResource("3_ni5i8")

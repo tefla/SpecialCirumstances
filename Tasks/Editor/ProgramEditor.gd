@@ -9,5 +9,10 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	if data is Task:
 		var newTaskEditor = taskEditorScene.instantiate()
 		newTaskEditor.task = data.duplicate()
-		$Program.add_child(newTaskEditor)
+		%Program.add_child(newTaskEditor)
 		 
+
+
+func _on_debug_button_pressed() -> void:
+	for child in %Program.get_children():
+		child.task._debug() # Replace with function body.

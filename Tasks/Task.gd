@@ -13,3 +13,9 @@ class_name Task
 
 func _exec():
 	pass
+
+
+func _debug(depth = 0):
+	print("=> %s Name: %s" % [" ".repeat(depth), name])
+	for child in children:
+		child._debug(depth+1)

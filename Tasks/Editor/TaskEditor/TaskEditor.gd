@@ -13,3 +13,7 @@ func _ready() -> void:
 		%Children.visible = true
 	else:
 		%Children.visible = false
+	%Children.child_added.connect(_child_added_to_task)
+	
+func _child_added_to_task(_task: Task):
+	task.children.append(_task)
