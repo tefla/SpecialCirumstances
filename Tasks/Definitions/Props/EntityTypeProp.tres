@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EntityTypeProp" load_steps=3 format=3 uid="uid://bnghvhmfdmyxb"]
+
+[ext_resource type="PackedScene" uid="uid://y2yj1vfwp4bt" path="res://Tasks/Definitions/Props/Editors/EntityType.tscn" id="1_5faxw"]
+[ext_resource type="Script" path="res://Tasks/Definitions/Props/EntityTypeProp.gd" id="2_hadgp"]
+
+[resource]
+script = ExtResource("2_hadgp")
+name = "Entity Type Prop"
+editor = ExtResource("1_5faxw")

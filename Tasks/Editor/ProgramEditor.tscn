@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsf5esydys6aq"]
+[gd_scene load_steps=6 format=3 uid="uid://dsf5esydys6aq"]
 
 [ext_resource type="Script" path="res://Tasks/Editor/PaletteItem.gd" id="1_c0ewk"]
-[ext_resource type="Resource" uid="uid://buy3x7tr70j0y" path="res://Tasks/MoveTo.tres" id="2_2td6i"]
-[ext_resource type="Resource" uid="uid://d023pmap6p05r" path="res://Tasks/Do.tres" id="3_3wbps"]
+[ext_resource type="Resource" uid="uid://buy3x7tr70j0y" path="res://Tasks/Definitions/MoveTo.tres" id="2_2td6i"]
+[ext_resource type="Resource" uid="uid://d023pmap6p05r" path="res://Tasks/Definitions/Do.tres" id="3_3wbps"]
+[ext_resource type="Resource" uid="uid://dqu2v6s1dmiv" path="res://Tasks/Definitions/FindNearest.tres" id="3_d1mpc"]
 [ext_resource type="Script" path="res://Tasks/Editor/ProgramEditor.gd" id="4_mkyr6"]
 
 [node name="ProgramEditor" type="VBoxContainer"]
@@ -25,6 +26,12 @@ layout_mode = 2
 text = "Move To"
 script = ExtResource("1_c0ewk")
 task = ExtResource("2_2td6i")
+
+[node name="FindNearest" type="Button" parent="MainPanel/Palette"]
+layout_mode = 2
+text = "Find Nearest"
+script = ExtResource("1_c0ewk")
+task = ExtResource("3_d1mpc")
 
 [node name="Do" type="Button" parent="MainPanel/Palette"]
 layout_mode = 2

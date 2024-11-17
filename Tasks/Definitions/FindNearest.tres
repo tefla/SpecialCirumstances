@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FindNearest" load_steps=5 format=3 uid="uid://dqu2v6s1dmiv"]
+
+[ext_resource type="Script" path="res://Tasks/Task.gd" id="1_spnxt"]
+[ext_resource type="Script" path="res://Tasks/TaskProperty.gd" id="2_otb0t"]
+[ext_resource type="Script" path="res://Tasks/Definitions/FindNearest.gd" id="3_61t3f"]
+[ext_resource type="Resource" uid="uid://bnghvhmfdmyxb" path="res://Tasks/Definitions/Props/EntityTypeProp.tres" id="3_rvsop"]
+
+[resource]
+script = ExtResource("3_61t3f")
+name = "Find Nearest"
+properties = Array[ExtResource("2_otb0t")]([ExtResource("3_rvsop")])
+canHaveChildren = false
+children = Array[ExtResource("1_spnxt")]([])

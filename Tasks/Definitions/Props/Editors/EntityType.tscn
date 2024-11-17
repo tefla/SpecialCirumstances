@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://y2yj1vfwp4bt"]
+
+[ext_resource type="Texture2D" uid="uid://n5ugt708d7kc" path="res://Assets/Icons/tile_0265.png" id="1_l3eus"]
+[ext_resource type="Texture2D" uid="uid://dydqxe4lfmuwf" path="res://Assets/Icons/tile_0266.png" id="2_8e4ew"]
+[ext_resource type="Texture2D" uid="uid://b5xj32t5w8tql" path="res://Assets/Icons/tile_0267.png" id="3_2iuou"]
+
+[node name="EntityType" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tree" type="CheckButton" parent="."]
+layout_mode = 2
+icon = ExtResource("1_l3eus")
+
+[node name="Unit" type="CheckButton" parent="."]
+layout_mode = 2
+icon = ExtResource("2_8e4ew")
+
+[node name="Hippy" type="CheckButton" parent="."]
+layout_mode = 2
+icon = ExtResource("3_2iuou")

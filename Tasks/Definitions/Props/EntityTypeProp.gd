@@ -1,0 +1,2 @@
+extends TaskProperty
+class_name EntityTypeProp
