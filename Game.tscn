@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://eyjao2ky0fku"]
+[gd_scene load_steps=11 format=3 uid="uid://eyjao2ky0fku"]
 
 [ext_resource type="PackedScene" uid="uid://cr2bsr17fewrr" path="res://UI/InfoPanel.tscn" id="1_autge"]
 [ext_resource type="Script" path="res://Game.gd" id="1_mjcl4"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="2_0hcwk"]
 [ext_resource type="PackedScene" uid="uid://2exh5qya8ayq" path="res://UI/Toolbar.tscn" id="2_5tslf"]
 [ext_resource type="Script" path="res://Unit/Components/CPU/CPU.gd" id="4_lkc31"]
 [ext_resource type="PackedScene" uid="uid://bfeebesnnu1x1" path="res://Map/Level1.tscn" id="4_mmr57"]
@@ -19,6 +20,7 @@ script = ExtResource("1_mjcl4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, 4)
+script = ExtResource("2_0hcwk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
