@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://eyjao2ky0fku"]
+[gd_scene load_steps=10 format=3 uid="uid://eyjao2ky0fku"]
 
 [ext_resource type="PackedScene" uid="uid://cr2bsr17fewrr" path="res://UI/InfoPanel.tscn" id="1_autge"]
+[ext_resource type="Script" path="res://Game.gd" id="1_mjcl4"]
+[ext_resource type="PackedScene" uid="uid://2exh5qya8ayq" path="res://UI/Toolbar.tscn" id="2_5tslf"]
 [ext_resource type="Script" path="res://Unit/Components/CPU/CPU.gd" id="4_lkc31"]
 [ext_resource type="PackedScene" uid="uid://bfeebesnnu1x1" path="res://Map/Level1.tscn" id="4_mmr57"]
 [ext_resource type="Script" path="res://Unit/Components/Motor/Motor.gd" id="5_fq0h0"]
@@ -13,6 +15,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1867, -1363, 2623, -1388, 2636, 998, -1784, 971)])
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_mjcl4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, 4)
@@ -20,6 +23,18 @@ position = Vector2(8, 4)
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
 [node name="InfoPanel" parent="Camera2D/CanvasLayer" instance=ExtResource("1_autge")]
+
+[node name="Toolbar" parent="Camera2D/CanvasLayer" instance=ExtResource("2_5tslf")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -24.0
+offset_right = 54.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="Level1" parent="." instance=ExtResource("4_mmr57")]
 position = Vector2(-410, -252)

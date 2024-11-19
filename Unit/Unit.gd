@@ -62,17 +62,17 @@ func _process(delta: float) -> void:
 		modulate = Color.WHITE 
 	
 	# Apply any process methods to components
-	
-func _input(event: InputEvent) -> void:
-	#print(event)
-	if event.is_action_released("Click"):
-		if is_inside:
-			selected = true
-			GameManager.set_selected(self)
-		else:
-			selected = false
-			GameManager.deselect()
-			
+	#
+#func _input(event: InputEvent) -> void:
+	##print(event)
+	#if event.is_action_released("Click"):
+		#if is_inside:
+			#selected = true
+			#GameManager.set_selected(self)
+		#else:
+			#selected = false
+			#GameManager.deselect()
+		#get_viewport().set_input_as_handled()
 
 		
 func _on_mouse_entered() -> void:

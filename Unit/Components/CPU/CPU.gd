@@ -35,5 +35,4 @@ func get_commands():
 	component_ui.set_available_commands(commands)
 
 func tick():
-	print("Tick")
 	program.step()
