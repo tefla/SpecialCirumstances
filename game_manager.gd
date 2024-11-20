@@ -6,19 +6,23 @@ enum SelectionMode {
 signal selection_mode_changed(mode: SelectionMode)
 var selection_mode = SelectionMode.NONE
 
-var selected: Unit
+var selected: Array[Unit] = []
 
-signal selection_changed(selected: Unit)
+signal selection_changed(selected: Array[Unit])
 
 func set_selection_mode(mode: SelectionMode):
 	selection_mode = mode
 	selection_mode_changed.emit(mode)
 	
-func set_selected(unit):
-	selected = unit	
+func set_selected(units: Array[Unit]):
+	for unit in selected:
+		unit.deselect()
+	selected = units	
+	for unit in selected:
+		unit.select()
 	selection_changed.emit(selected)	
 func deselect():
-	selected = null
+	selected = []
 	selection_changed.emit(selected)
 	
 # Called when the node enters the scene tree for the first time.

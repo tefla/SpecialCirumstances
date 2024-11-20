@@ -33,6 +33,11 @@ func _ready():
 	# Make sure to not await during _ready.
 	actor_setup.call_deferred()
 	generate_panel()
+	
+func deselect():
+	$Polygon2D.visible = false;
+func select():
+	$Polygon2D.visible = true;
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame

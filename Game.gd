@@ -3,7 +3,7 @@ extends Node2D
 var selection_started = false
 var selection_start: Vector2
 var selection_end: Vector2
-
+var selection_rect: Rect2
 
 func checkMouseModeActions():
 	if Input.is_action_just_pressed("MouseModeNone"):
@@ -25,9 +25,16 @@ func mouseModeRender(event: InputEvent):
 			elif event.is_action_released("LeftMouseButton") and selection_started == true:
 				selection_end = get_global_mouse_position()
 				selection_started = false
+				GameManager.set_selected(units_in_selection_rect(selection_rect))
 			else:
 				selection_end = get_global_mouse_position()
-			queue_redraw()	
+			queue_redraw()
+func units_in_selection_rect(rect: Rect2) -> Array:
+	var units: Array[Unit] = []
+	for unit in get_tree().get_nodes_in_group("units"):
+		if rect.has_point(unit.global_position):
+			units.append(unit)
+	return units
 func _input(event: InputEvent) -> void:
 	checkMouseModeActions()
 	mouseModeRender(event)
@@ -35,5 +42,5 @@ func _draw() -> void:
 	if selection_started:
 		var width = selection_end.x - selection_start.x
 		var height = selection_end.y - selection_start.y
-		var selection_rect = Rect2(selection_start.x, selection_start.y, width, height)
+		selection_rect = Rect2(selection_start.x, selection_start.y, width, height)
 		draw_rect(selection_rect, Color.AQUA)

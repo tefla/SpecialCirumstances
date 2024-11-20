@@ -10,9 +10,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func on_selection_changed(unit):
-	if unit:
-		for child in %List.get_children(): %List.remove_child(child)
-		visible = true
-		for panel in unit.panels:
-			%List.add_child(panel)
+func on_selection_changed(units):
+	pass

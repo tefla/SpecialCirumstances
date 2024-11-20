@@ -19,6 +19,10 @@ config/icon="res://Assets/icon.svg"
 
 GameManager="*res://game_manager.gd"
 
+[global_group]
+
+units=""
+
 [input]
 
 LeftMouseButton={
