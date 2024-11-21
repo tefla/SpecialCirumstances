@@ -29,9 +29,18 @@ func mouseModeRender(event: InputEvent):
 			else:
 				selection_end = get_global_mouse_position()
 			queue_redraw()
+		GameManager.SelectionMode.SINGLE:
+			# Get Node2D under mouse
+			if Input.is_action_just_released("LeftMouseButton"):
+				var query: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
+				query.set_position(get_global_mouse_position())
+				var results = get_world_2d().direct_space_state.intersect_point(query)
+				print(results)
+				if results.size() > 0:
+					GameManager.set_selected([results[0].collider])
 func units_in_selection_rect(rect: Rect2) -> Array:
-	var units: Array[Unit] = []
-	for unit in get_tree().get_nodes_in_group("units"):
+	var units: Array[Node2D] = []
+	for unit in get_tree().get_nodes_in_group("selectable"):
 		if rect.has_point(unit.global_position):
 			units.append(unit)
 	return units

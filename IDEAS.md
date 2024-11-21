@@ -309,22 +309,22 @@ In addition to upgrading themselves, the player can now create steampunk-style l
 - **Mechanical Parts:**
   - **Description:** Gears, springs, and pistons found in the environment or crafted.
   - **Sources:**
-    - Salvaged from ancient machinery in ruins.
-    - Crafted from metal scraps and mineral ores.
+	- Salvaged from ancient machinery in ruins.
+	- Crafted from metal scraps and mineral ores.
 
 - **Programming Cores:**
   - **Description:** Basic AI units that can be programmed.
   - **Sources:**
-    - Extracted from defeated security drones.
-    - Crafted using advanced circuitry and encrypted data cores.
+	- Extracted from defeated security drones.
+	- Crafted using advanced circuitry and encrypted data cores.
 
 **2. New Biomes**
 
 - **Clockwork Factory Ruins:**
   - **Description:** Abandoned facilities filled with steampunk machinery.
   - **Resources:**
-    - High-quality mechanical parts.
-    - Schematics for advanced robot designs.
+	- High-quality mechanical parts.
+	- Schematics for advanced robot designs.
 
 ---
 
@@ -335,14 +335,14 @@ In addition to upgrading themselves, the player can now create steampunk-style l
 - **Basic Robot Frame:**
   - **Function:** The foundational structure for lesser robots.
   - **Materials Needed:**
-    - Metal Scraps
-    - Mechanical Parts
+	- Metal Scraps
+	- Mechanical Parts
 
 - **Advanced Robot Frame:**
   - **Function:** Supports more complex components and functions.
   - **Materials Needed:**
-    - Mineral Ores
-    - High-quality Mechanical Parts
+	- Mineral Ores
+	- High-quality Mechanical Parts
 
 **2. Robot Components**
 
@@ -370,14 +370,14 @@ In addition to upgrading themselves, the player can now create steampunk-style l
 - **Simple Command Module:**
   - **Function:** Assigns basic tasks (e.g., follow, collect, defend).
   - **Materials Needed:**
-    - Programming Core
-    - Basic CPU Core
+	- Programming Core
+	- Basic CPU Core
 
 - **Advanced Programming Module:**
   - **Function:** Allows for conditional commands and routines.
   - **Materials Needed:**
-    - Advanced AI Core
-    - Encrypted Data Cores
+	- Advanced AI Core
+	- Encrypted Data Cores
 
 ---
 
@@ -596,4 +596,3 @@ In addition to upgrading themselves, the player can now create steampunk-style l
 - **Enhanced Exploration:**
   - Use robots to safely explore hazardous areas.
   - Robots can access areas the player cannot, bringing back valuable data.
-

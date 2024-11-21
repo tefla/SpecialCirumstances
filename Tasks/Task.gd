@@ -16,6 +16,10 @@ func _exec():
 
 
 func _debug(depth = 0):
-	print("=> %s Name: %s" % [" ".repeat(depth), name])
+	var props = ""
+	for prop in properties:
+		props += prop.debug()
+	print("=> %s Name: %s [%s]" % [" ".repeat(depth), name, props])
+	
 	for child in children:
 		child._debug(depth+1)

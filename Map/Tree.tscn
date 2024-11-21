@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5vda0"]
 radius = 28.0179
 
-[node name="Tree" type="StaticBody2D"]
+[node name="Tree" type="StaticBody2D" groups=["selectable"]]
 script = ExtResource("1_227ad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

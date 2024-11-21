@@ -7,7 +7,8 @@ class_name TaskEditor
 func _ready() -> void:
 	$Header/Name.text = task.name
 	for prop in task.properties:
-		var newPropEditor = prop.editor.instantiate()
+		var newPropEditor = prop.create_editor()
+		
 		%Parameters.add_child(newPropEditor)
 	if task.canHaveChildren:
 		%Children.visible = true
