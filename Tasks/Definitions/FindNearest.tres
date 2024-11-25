@@ -8,6 +8,6 @@
 [resource]
 script = ExtResource("3_61t3f")
 name = "Find Nearest"
-properties = Array[ExtResource("2_otb0t")]([ExtResource("3_rvsop")])
+default_properties = Array[ExtResource("2_otb0t")]([ExtResource("3_rvsop")])
 canHaveChildren = false
 children = Array[ExtResource("1_spnxt")]([])

@@ -3,14 +3,21 @@ class_name Task
 
 
 @export var name = "Base Task"
-@export var properties: Array[TaskProperty] = []
+@export var default_properties: Array[TaskProperty] = []
 
 #region Children
 @export var canHaveChildren: bool = false
 @export var children: Array[Task] = []
 #endregion
 
+var properties: Array[TaskProperty] = []
 
+func create():
+	var new_self = duplicate()
+	
+	for prop in new_self.default_properties:
+		new_self.properties.append(prop.duplicate())
+	return new_self
 func _exec():
 	pass
 

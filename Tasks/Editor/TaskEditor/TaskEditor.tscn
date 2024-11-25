@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs6amnx2lvmbh"]
+[gd_scene load_steps=5 format=3 uid="uid://bs6amnx2lvmbh"]
 
 [ext_resource type="Script" path="res://Tasks/Editor/TaskEditor/TaskEditor.gd" id="1_xe5rw"]
 [ext_resource type="Resource" uid="uid://buy3x7tr70j0y" path="res://Tasks/Definitions/MoveTo.tres" id="2_l7ddv"]
+[ext_resource type="PackedScene" uid="uid://b2gak6oxix4gp" path="res://UI/DragDrop/DropZone.tscn" id="3_44raf"]
 [ext_resource type="Script" path="res://Tasks/Editor/TaskEditor/ChildrenPanel.gd" id="3_ni5i8"]
 
 [node name="TaskEditor" type="VBoxContainer"]
@@ -11,6 +12,9 @@ offset_bottom = 47.0
 grow_horizontal = 2
 script = ExtResource("1_xe5rw")
 task = ExtResource("2_l7ddv")
+
+[node name="DropZoneHead" parent="." instance=ExtResource("3_44raf")]
+layout_mode = 2
 
 [node name="Header" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -35,3 +39,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 script = ExtResource("3_ni5i8")
+
+[node name="DropZoneFoot" parent="." instance=ExtResource("3_44raf")]
+layout_mode = 2

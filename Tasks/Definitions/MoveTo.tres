@@ -8,6 +8,6 @@
 [resource]
 script = ExtResource("3_u77hd")
 name = "Move To"
-properties = Array[ExtResource("2_wu50x")]([ExtResource("3_6xrmv")])
+default_properties = Array[ExtResource("2_wu50x")]([ExtResource("3_6xrmv")])
 canHaveChildren = false
 children = Array[ExtResource("1_1eaia")]([])
