@@ -8,7 +8,7 @@ var selected: bool = false
 #
 #var is_inside = false
 #
-#@export var components_resources: Array[Resource] = []
+@export var components: Array[Component] = []
 ## var components: Array[BaseComponent] = []
 #
 #var panels = []
@@ -74,8 +74,31 @@ func _process(delta: float) -> void:
 		#get_viewport().set_input_as_handled()
 
 		
-#func generate_panel():
-	#for comp in components:
-		#if comp.features & BaseComponent.Features.component_ui:
-			#print("Generate UI for: %s [%s]" % [comp.name, comp.description])
-			#panels.append(comp.create())
+func generate_panels():
+	var panels = []
+	for comp in components:
+		if comp.features & Component.ComponentFeatures.UI_PROVIDER:
+			print("Generate UI for: %s" % [comp.get_class()])
+			panels.append(comp.get_ui())
+	return panels
+func populate_block_palette():
+	var blocks = []
+	for comp in components:
+		if comp.features & Component.ComponentFeatures.BLOCK_PROVIDER:
+			print("Generate BLOCK_PROVIDER for: %s" % [comp.get_class()])
+			for block in comp.get_blocks():
+				blocks.append(block)
+	
+	var memComp = get_component(MemoryComponent)
+	var palette = memComp.get_ui().palette
+	for child in palette.get_children():
+		palette.remove_child(child)
+	for block in blocks:
+		var l = Label.new()
+		l.text = block
+		palette.add_child(l)
+	
+func get_component(componentType):
+	for comp in components:
+		if is_instance_of(comp, componentType):
+			return comp

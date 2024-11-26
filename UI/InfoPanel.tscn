@@ -4,16 +4,16 @@
 
 [node name="InfoPanel" type="Control"]
 layout_mode = 3
-anchors_preset = 6
+anchors_preset = 11
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -608.0
-offset_top = -250.0
-offset_bottom = 250.0
+anchor_bottom = 1.0
+offset_left = -552.0
+offset_right = -2.0
 grow_horizontal = 0
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_q5cyp")
 
 [node name="Panel" type="Panel" parent="."]
