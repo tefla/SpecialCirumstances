@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu1uf3cx55xxp"]
+
+[ext_resource type="Texture2D" uid="uid://bbm27w8vtcaku" path="res://Assets/block.png" id="1_10idg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5djo2"]
+texture = ExtResource("1_10idg")
+texture_margin_left = 9.0
+texture_margin_top = 5.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+region_rect = Rect2(0, 0, 61, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fsaiy"]
+texture = ExtResource("1_10idg")
+texture_margin_left = 13.0
+texture_margin_top = 15.0
+texture_margin_right = 6.0
+texture_margin_bottom = 11.0
+region_rect = Rect2(0, 18, 61, 7)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62t4q"]
+texture = ExtResource("1_10idg")
+texture_margin_left = 11.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 7.0
+region_rect = Rect2(0, 51, 61, 11)
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 179.0
+offset_bottom = 493.0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer2" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5djo2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Move to"
+
+[node name="Label2" type="Label" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "POS"
+
+[node name="MarginContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fsaiy")
+
+[node name="Test" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Test"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/Test/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Test/PanelContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/Test/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "POS"
+
+[node name="Label3" type="Label" parent="MarginContainer/Test/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "POS"
+
+[node name="Label4" type="Label" parent="MarginContainer/Test/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "POS"
+
+[node name="Label5" type="Label" parent="MarginContainer/Test/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "POS"
+
+[node name="Label6" type="Label" parent="MarginContainer/Test/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "POS"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_62t4q")
