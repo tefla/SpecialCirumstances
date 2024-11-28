@@ -1,5 +1,5 @@
 @tool
-extends Container
+extends BaseBlock
 class_name FunctionBlock
 
 
@@ -13,5 +13,12 @@ func _process(delta: float) -> void:
 	pass
 
 func add_child_block():
-	print("Hi")
-	pass
+	print("Can't add children to function blocks")
+
+func _get_drag_data(at_position: Vector2) -> Variant:
+	print("Hi?")
+	var data = {
+		"node": self
+	}
+	set_drag_preview(duplicate())
+	return data

@@ -1,6 +1,5 @@
-@tool
 extends Container
-class_name FunctionBlock
+class_name BaseBlock
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,8 +9,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-func add_child_block():
-	print("Hi")
 	pass
