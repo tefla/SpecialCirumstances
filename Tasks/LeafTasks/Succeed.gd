@@ -1,0 +1,9 @@
+extends Task
+
+class_name Succeed
+
+
+func _init() -> void:
+	name = "Succeed"
+func run():
+	success()

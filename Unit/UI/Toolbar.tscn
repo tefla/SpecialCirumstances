@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://2exh5qya8ayq"]
 
 [ext_resource type="Texture2D" uid="uid://blswwjk0g2nyh" path="res://Assets/Icons/tile_0539.png" id="1_3inm6"]
-[ext_resource type="Script" path="res://UI/toolbar.gd" id="1_kjtgd"]
+[ext_resource type="Script" path="res://Unit/UI/toolbar.gd" id="1_kjtgd"]
 [ext_resource type="Texture2D" uid="uid://b5r24f2p54ig7" path="res://Assets/Icons/tile_0540.png" id="2_4aiyv"]
 [ext_resource type="Texture2D" uid="uid://n5ugt708d7kc" path="res://Assets/Icons/tile_0265.png" id="3_sd1hh"]
 [ext_resource type="Texture2D" uid="uid://dydqxe4lfmuwf" path="res://Assets/Icons/tile_0266.png" id="4_g2f6k"]

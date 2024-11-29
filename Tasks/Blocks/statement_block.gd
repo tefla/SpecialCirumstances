@@ -15,11 +15,16 @@ func _process(delta: float) -> void:
 
 func add_child_block(block: BaseBlock):
 	%BlockChildren.add_child(block)
-	pass
-func _get_drag_data(at_position: Vector2) -> Variant:
-	print("Hi")
-	var data = {
-		"node": self
-	}
-	set_drag_preview(duplicate())
-	return data
+
+#func _get_drag_data(at_position: Vector2) -> Variant:
+#	pass
+	#print("Hi")
+	#var data = {
+		#"node": self
+	#}
+	#set_drag_preview(duplicate())
+	#return data
+func set_task(task: Task):
+	_task = task
+	for sub_task in _task.children:
+		add_child_block(sub_task.get_block())

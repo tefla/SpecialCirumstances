@@ -1,6 +1,6 @@
 @tool
 extends BaseBlock
-class_name FunctionBlock
+class_name BlockFunction
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,10 +15,6 @@ func _process(delta: float) -> void:
 func add_child_block():
 	print("Can't add children to function blocks")
 
-func _get_drag_data(at_position: Vector2) -> Variant:
-	print("Hi?")
-	var data = {
-		"node": self
-	}
-	set_drag_preview(duplicate())
-	return data
+func set_task(task: Task):
+	_task = task
+	%Name.text = _task.name

@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://eyjao2ky0fku"]
 
-[ext_resource type="PackedScene" uid="uid://cr2bsr17fewrr" path="res://UI/InfoPanel.tscn" id="1_autge"]
+[ext_resource type="PackedScene" uid="uid://cr2bsr17fewrr" path="res://Unit/UI/InfoPanel.tscn" id="1_autge"]
 [ext_resource type="Script" path="res://Game.gd" id="1_mjcl4"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="2_0hcwk"]
-[ext_resource type="PackedScene" uid="uid://2exh5qya8ayq" path="res://UI/Toolbar.tscn" id="2_5tslf"]
+[ext_resource type="PackedScene" uid="uid://2exh5qya8ayq" path="res://Unit/UI/Toolbar.tscn" id="2_5tslf"]
 [ext_resource type="PackedScene" uid="uid://cy30xxeibl4ms" path="res://Unit/Unit.tscn" id="5_gj66s"]
 [ext_resource type="Script" path="res://Unit/CPUComponent.gd" id="6_ekkr6"]
 [ext_resource type="Script" path="res://Unit/Component.gd" id="6_wrhhl"]

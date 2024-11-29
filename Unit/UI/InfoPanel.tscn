@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cr2bsr17fewrr"]
 
-[ext_resource type="Script" path="res://UI/info_panel.gd" id="1_q5cyp"]
+[ext_resource type="Script" path="res://Unit/UI/info_panel.gd" id="1_q5cyp"]
 
 [node name="InfoPanel" type="Control"]
 layout_mode = 3

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://53qsp2e2qm"]
 
-[ext_resource type="Script" path="res://function_block.gd" id="1_vwo8l"]
-[ext_resource type="StyleBox" uid="uid://uxq4c8d8dwmm" path="res://UI/function.tres" id="2_opsgw"]
+[ext_resource type="Script" path="res://Tasks/Blocks/function_block.gd" id="1_vwo8l"]
+[ext_resource type="StyleBox" uid="uid://uxq4c8d8dwmm" path="res://Unit/UI/function.tres" id="2_opsgw"]
 
 [node name="VBoxContainer" type="VBoxContainer"]
 offset_left = 13.0
@@ -14,6 +14,7 @@ script = ExtResource("1_vwo8l")
 
 [node name="MarginContainer2" type="PanelContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 1
 theme_override_styles/panel = ExtResource("2_opsgw")
 
@@ -21,6 +22,7 @@ theme_override_styles/panel = ExtResource("2_opsgw")
 layout_mode = 2
 
 [node name="Name" type="Label" parent="MarginContainer2/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 text = "Move to"
