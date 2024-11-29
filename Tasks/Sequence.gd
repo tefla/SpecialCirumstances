@@ -12,9 +12,10 @@ func _init() -> void:
 	canHaveChildren = true
 	
 func run():
-	if status in [FRESH, RUNNING]:
-		children[current_child].run()
+	if status == FRESH:
 		running()
+	elif status == RUNNING:
+		children[current_child].run()
 
 func child_success():
 	current_child += 1

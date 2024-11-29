@@ -1,28 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://eyjao2ky0fku"]
+[gd_scene load_steps=8 format=3 uid="uid://eyjao2ky0fku"]
 
 [ext_resource type="PackedScene" uid="uid://cr2bsr17fewrr" path="res://Unit/UI/InfoPanel.tscn" id="1_autge"]
 [ext_resource type="Script" path="res://Game.gd" id="1_mjcl4"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="2_0hcwk"]
 [ext_resource type="PackedScene" uid="uid://2exh5qya8ayq" path="res://Unit/UI/Toolbar.tscn" id="2_5tslf"]
 [ext_resource type="PackedScene" uid="uid://cy30xxeibl4ms" path="res://Unit/Unit.tscn" id="5_gj66s"]
-[ext_resource type="Script" path="res://Unit/CPUComponent.gd" id="6_ekkr6"]
-[ext_resource type="Script" path="res://Unit/Component.gd" id="6_wrhhl"]
-[ext_resource type="Script" path="res://Unit/MemoryComponent.gd" id="8_alifk"]
-[ext_resource type="Script" path="res://Unit/MotorComponent.gd" id="9_pe4na"]
 [ext_resource type="PackedScene" uid="uid://bh7w2p2iryckw" path="res://Map/Tree.tscn" id="10_3agf8"]
-[ext_resource type="Script" path="res://Unit/ScannerComponent.gd" id="10_qjv8c"]
-
-[sub_resource type="Resource" id="Resource_wmckq"]
-script = ExtResource("6_ekkr6")
-
-[sub_resource type="Resource" id="Resource_j3kyc"]
-script = ExtResource("8_alifk")
-
-[sub_resource type="Resource" id="Resource_utdx6"]
-script = ExtResource("9_pe4na")
-
-[sub_resource type="Resource" id="Resource_bjud5"]
-script = ExtResource("10_qjv8c")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_488gv"]
 vertices = PackedVector2Array(2625.94, 987.93, -1774.35, 961.047, -1856.64, -1353.05, 2613.05, -1377.94)
@@ -54,7 +37,6 @@ grow_vertical = 0
 
 [node name="Unit" parent="." instance=ExtResource("5_gj66s")]
 position = Vector2(-135, 0)
-components = Array[ExtResource("6_wrhhl")]([SubResource("Resource_wmckq"), SubResource("Resource_j3kyc"), SubResource("Resource_utdx6"), SubResource("Resource_bjud5")])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_488gv")

@@ -5,12 +5,18 @@ extends Node2D
 func _ready() -> void:
 	task.tree = task
 	var ui = task.get_block()
-	$TaskList.add_child(ui)
+	%TaskList.add_child(ui)
 	task.start()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#if task.status not in [task.FAILED, task.CANCELLED, task.SUCCEEDED]:
-	print(task.status)
+	pass
+
+
+func _on_step_pressed() -> void:
 	task.run()
-	print(task.status)
+
+
+func _on_reset_pressed() -> void:
+	task.start() # Replace with function body.
