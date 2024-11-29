@@ -11,7 +11,7 @@ var canHaveChildren: bool = false
 @export var children: Array[Task] = []
 #endregion
 
-var properties: Array[TaskProperty] = []
+var properties: Dictionary = {}
 
 # States
 enum {
@@ -26,6 +26,9 @@ var control = null
 var tree = null
 # var guard = null
 var status = FRESH
+
+func get_task_name():
+	return name
 	
 # Final methods
 func running():

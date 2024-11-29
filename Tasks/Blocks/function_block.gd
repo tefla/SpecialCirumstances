@@ -9,5 +9,7 @@ func add_child_block():
 func set_task(task: Task):
 	_task = task
 	%Name.text = _task.name
+	
 func _process(delta: float) -> void:
-	%Status.visible = _task.status == Task.RUNNING
+	if _task:
+		%Status.visible = _task.status == Task.RUNNING

@@ -1,4 +1,4 @@
-extends Task
+extends StructureTask
 
 # All children must run successfully
 

@@ -1,8 +1,7 @@
 extends Container
 class_name BaseBlock
 
-var _task: Task
-
+var _task: Task 
 func set_task(task: Task):
 	print("Shoun't be called")
 	
@@ -16,7 +15,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	return _task
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	return true
+	return data is StructureTask
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	# If we drop a task on a function, add it as a sibling
