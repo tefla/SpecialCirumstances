@@ -7,12 +7,14 @@ class_name Sequence
 var current_child = 0
 
 func _init() -> void:
-	block = preload("res://Tasks/Blocks/NewBlockStatement.tscn")
+	block = preload("Blocks/BlockStatement.tscn")
+	name = "Sequence"
 	canHaveChildren = true
 	
 func run():
-	children[current_child].run()
-	running()
+	if status in [FRESH, RUNNING]:
+		children[current_child].run()
+		running()
 
 func child_success():
 	current_child += 1

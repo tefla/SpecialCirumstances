@@ -1,44 +1,35 @@
-[gd_scene load_steps=12 format=3 uid="uid://3n7ipgfj5xvh"]
+[gd_scene load_steps=11 format=3 uid="uid://3n7ipgfj5xvh"]
 
 [ext_resource type="Script" path="res://TaskTest.gd" id="1_t3p00"]
 [ext_resource type="Script" path="res://Tasks/Task.gd" id="2_o3aat"]
 [ext_resource type="Script" path="res://Tasks/TaskProperty.gd" id="3_s5atu"]
 [ext_resource type="Script" path="res://Tasks/LeafTasks/Succeed.gd" id="4_74auw"]
 [ext_resource type="Script" path="res://Tasks/Sequence.gd" id="6_avs1s"]
+[ext_resource type="Script" path="res://Tasks/UntilSuccess.gd" id="6_q6lj6"]
 
-[sub_resource type="Resource" id="Resource_miq2x"]
+[sub_resource type="Resource" id="Resource_xtl8c"]
 script = ExtResource("4_74auw")
 default_properties = Array[ExtResource("3_s5atu")]([])
 children = Array[ExtResource("2_o3aat")]([])
 
-[sub_resource type="Resource" id="Resource_8hm01"]
+[sub_resource type="Resource" id="Resource_jsqlc"]
 script = ExtResource("4_74auw")
 default_properties = Array[ExtResource("3_s5atu")]([])
 children = Array[ExtResource("2_o3aat")]([])
 
-[sub_resource type="Resource" id="Resource_1lpmt"]
-script = ExtResource("4_74auw")
-default_properties = Array[ExtResource("3_s5atu")]([])
-children = Array[ExtResource("2_o3aat")]([])
-
-[sub_resource type="Resource" id="Resource_3if4m"]
+[sub_resource type="Resource" id="Resource_5rh7u"]
 script = ExtResource("6_avs1s")
 default_properties = Array[ExtResource("3_s5atu")]([])
-children = Array[ExtResource("2_o3aat")]([SubResource("Resource_miq2x"), SubResource("Resource_8hm01"), SubResource("Resource_1lpmt")])
+children = Array[ExtResource("2_o3aat")]([SubResource("Resource_xtl8c"), SubResource("Resource_jsqlc")])
 
-[sub_resource type="Resource" id="Resource_ulm8p"]
-script = ExtResource("6_avs1s")
+[sub_resource type="Resource" id="Resource_su4vd"]
+script = ExtResource("6_q6lj6")
 default_properties = Array[ExtResource("3_s5atu")]([])
-children = Array[ExtResource("2_o3aat")]([SubResource("Resource_3if4m")])
-
-[sub_resource type="Resource" id="Resource_g2v3b"]
-script = ExtResource("4_74auw")
-default_properties = Array[ExtResource("3_s5atu")]([])
-children = Array[ExtResource("2_o3aat")]([])
+children = Array[ExtResource("2_o3aat")]([SubResource("Resource_5rh7u")])
 
 [node name="TaskTest" type="Node2D"]
 script = ExtResource("1_t3p00")
-task_list = Array[ExtResource("2_o3aat")]([SubResource("Resource_ulm8p"), SubResource("Resource_g2v3b")])
+task = SubResource("Resource_su4vd")
 
 [node name="TaskList" type="VBoxContainer" parent="."]
 offset_right = 40.0
