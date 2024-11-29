@@ -1,0 +1,89 @@
+[gd_scene load_steps=16 format=3 uid="uid://dm86x8xoiagr"]
+
+[ext_resource type="Script" path="res://TaskTest.gd" id="1_t3p00"]
+[ext_resource type="Script" path="res://Tasks/Task.gd" id="2_o3aat"]
+[ext_resource type="Script" path="res://Tasks/TaskProperty.gd" id="3_s5atu"]
+[ext_resource type="Script" path="res://Tasks/LeafTasks/Succeed.gd" id="4_74auw"]
+[ext_resource type="Script" path="res://Tasks/Sequence.gd" id="6_avs1s"]
+[ext_resource type="PackedScene" uid="uid://bek10gdt3128u" path="res://Tasks/Blocks/BlockData.tscn" id="6_lw24c"]
+[ext_resource type="Script" path="res://Tasks/DataBlocks/GetVariable.gd" id="7_o7xm0"]
+
+[sub_resource type="Resource" id="Resource_wf1jk"]
+script = ExtResource("4_74auw")
+default_properties = Array[ExtResource("3_s5atu")]([])
+children = Array[ExtResource("2_o3aat")]([])
+
+[sub_resource type="Resource" id="Resource_egjcn"]
+script = ExtResource("4_74auw")
+default_properties = Array[ExtResource("3_s5atu")]([])
+children = Array[ExtResource("2_o3aat")]([])
+
+[sub_resource type="Resource" id="Resource_i7j1v"]
+script = ExtResource("4_74auw")
+default_properties = Array[ExtResource("3_s5atu")]([])
+children = Array[ExtResource("2_o3aat")]([])
+
+[sub_resource type="Resource" id="Resource_wg3ne"]
+script = ExtResource("6_avs1s")
+default_properties = Array[ExtResource("3_s5atu")]([])
+children = Array[ExtResource("2_o3aat")]([SubResource("Resource_egjcn"), SubResource("Resource_i7j1v")])
+
+[sub_resource type="Resource" id="Resource_k0ul3"]
+script = ExtResource("4_74auw")
+default_properties = Array[ExtResource("3_s5atu")]([])
+children = Array[ExtResource("2_o3aat")]([])
+
+[sub_resource type="Resource" id="Resource_5espr"]
+script = ExtResource("6_avs1s")
+default_properties = Array[ExtResource("3_s5atu")]([])
+children = Array[ExtResource("2_o3aat")]([SubResource("Resource_wg3ne"), SubResource("Resource_k0ul3")])
+
+[sub_resource type="Resource" id="Resource_eeb7q"]
+script = ExtResource("6_avs1s")
+default_properties = Array[ExtResource("3_s5atu")]([])
+children = Array[ExtResource("2_o3aat")]([SubResource("Resource_wf1jk"), SubResource("Resource_5espr")])
+
+[sub_resource type="Resource" id="Resource_rbe7i"]
+script = ExtResource("7_o7xm0")
+variable_name = "CurrentTarget"
+default_properties = Array[ExtResource("3_s5atu")]([])
+children = Array[ExtResource("2_o3aat")]([])
+
+[node name="TaskTest" type="Node2D"]
+script = ExtResource("1_t3p00")
+task = SubResource("Resource_eeb7q")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" parent="HBoxContainer/PanelContainer/VBoxContainer" instance=ExtResource("6_lw24c")]
+layout_mode = 2
+data = SubResource("Resource_rbe7i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TaskList" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Step" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Step"
+
+[node name="Reset" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/Step" to="." method="_on_step_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/Reset" to="." method="_on_reset_pressed"]

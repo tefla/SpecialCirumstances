@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Special Circumstances"
-run/main_scene="res://asda.tscn"
+run/main_scene="res://TaskTest.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 

@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="TaskProperty" load_steps=2 format=3 uid="uid://di35wpua05tov"]
-
-[ext_resource type="Script" path="res://Tasks/TaskProperty.gd" id="1_2m8vi"]
-
-[resource]
-script = ExtResource("1_2m8vi")
-name = "Position"
-type = "Vector2"
