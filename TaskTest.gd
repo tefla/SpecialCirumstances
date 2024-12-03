@@ -3,6 +3,7 @@ extends Node2D
 @export var task: Task 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	task = MoveTo.new()
 	task.tree = task
 	var ui = task.get_block()
 	%TaskList.add_child(ui)

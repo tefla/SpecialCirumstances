@@ -38,3 +38,7 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 text = "Move to"
+
+[node name="Inputs" type="HBoxContainer" parent="MarginContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2

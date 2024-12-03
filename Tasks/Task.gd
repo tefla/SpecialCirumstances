@@ -11,7 +11,17 @@ var canHaveChildren: bool = false
 @export var children: Array[Task] = []
 #endregion
 
-var properties: Dictionary = {}
+enum Data {
+	NONE, STRING, POS
+}
+
+static var InputBlocks = {
+	Data.NONE: null,
+	Data.POS: preload("res://Tasks/Blocks/Inputs/Position.tscn"),
+	Data.STRING: null
+}
+var inputs = {}
+var output: TaskProperty = TaskProperty.new()
 
 # States
 enum {

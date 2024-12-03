@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0ei3hymgmq0g"]
+
+[ext_resource type="Script" path="res://Tasks/Blocks/Inputs/Position.gd" id="1_bixif"]
+
+[node name="Position" type="HBoxContainer"]
+script = ExtResource("1_bixif")
+drop_type = 2
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+text = "Hi"
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+text = "[0, 0]"
+
+[node name="PosX" type="SpinBox" parent="."]
+layout_mode = 2
+
+[node name="PosY" type="SpinBox" parent="."]
+layout_mode = 2

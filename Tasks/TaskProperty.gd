@@ -3,11 +3,23 @@ class_name TaskProperty
 @export var name: String = "Base Task Property"
 @export var editor: PackedScene
 
+enum Type {
+	NONE, STRING
+}
+
+var _data = {
+	"type": Type.NONE,
+	"value": null
+}
+
 func get_value():
-	pass
+	return _data["value"]
+func get_type():
+	return _data["type"]
 func set_value(val):
-	print("Abstract set value")
-	pass
+	_data["value"] = val
+func set_type(type):
+	_data["type"] = type
 func debug():
 	return "Prop: %s = %s" % [name, get_value()]
 
