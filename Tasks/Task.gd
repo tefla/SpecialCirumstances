@@ -1,17 +1,20 @@
 extends Resource
 class_name Task
 
+enum ResultType {
+	NONE,
+	ANY,
+	POSITION
+}
 
 var name = "Base Task"
-@export var default_properties: Array[TaskProperty] = []
 var block: PackedScene = preload("Blocks/BlockFunction.tscn")
+var result_type: ResultType = ResultType.NONE
 
 #region Children
-var canHaveChildren: bool = false
 @export var children: Array[Task] = []
 #endregion
 
-var properties: Dictionary = {}
 
 # States
 enum {
@@ -83,6 +86,8 @@ func reset():
 	cancel()
 	status = FRESH
 
+func add_child(task: Task):
+	children.append(task)
 #region Block
 func get_block():
 	var _block: BaseBlock = block.instantiate()

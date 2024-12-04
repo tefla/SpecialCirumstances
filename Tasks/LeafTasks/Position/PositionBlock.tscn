@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck4uqb5w5fory"]
+
+[ext_resource type="Script" path="res://Tasks/LeafTasks/Position/PositionBlock.gd" id="1_bpnbn"]
+[ext_resource type="Texture2D" uid="uid://dftc434hupcc1" path="res://Assets/path316-7.png" id="1_iawi0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jp5lj"]
+texture = ExtResource("1_iawi0")
+
+[node name="PositionTask" type="HBoxContainer"]
+script = ExtResource("1_bpnbn")
+
+[node name="Status" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jp5lj")
+
+[node name="Name" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Value" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckkbq818ce10f"]
+
+[ext_resource type="Script" path="res://Tasks/LeafTasks/MoveTo/MoveToBlock.gd" id="1_swrdt"]
+[ext_resource type="Texture2D" uid="uid://dftc434hupcc1" path="res://Assets/path316-7.png" id="2_jbxkc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jp5lj"]
+texture = ExtResource("2_jbxkc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7xrf"]
+
+[node name="MoveToTask" type="HBoxContainer"]
+script = ExtResource("1_swrdt")
+
+[node name="Status" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jp5lj")
+
+[node name="Name" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Value" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_j7xrf")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://53qsp2e2qm"]
 
 [ext_resource type="Script" path="res://Tasks/Blocks/function_block.gd" id="1_6rbd5"]
-[ext_resource type="StyleBox" uid="uid://uxq4c8d8dwmm" path="res://Unit/UI/function.tres" id="2_l3hvx"]
+[ext_resource type="StyleBox" uid="uid://uxq4c8d8dwmm" path="res://Tasks/Blocks/function.tres" id="2_l3hvx"]
 [ext_resource type="Texture2D" uid="uid://dftc434hupcc1" path="res://Assets/path316-7.png" id="3_aulle"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_71l5y"]
