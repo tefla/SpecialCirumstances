@@ -19,6 +19,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	var preview = duplicate(DUPLICATE_USE_INSTANTIATION & DUPLICATE_SCRIPTS)
 	set_drag_preview(preview)
 	if not is_template:
+		_task.removed.emit(_task)
 		queue_free()
 	# Return the task
 		return _task
@@ -26,7 +27,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 		return _task.duplicate(true)
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	return data is Task
+	return not is_template and data is Task
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	task_dropped.emit(data)

@@ -14,9 +14,6 @@ func redraw():
 		%Value.add_child(_task.children[0].get_block())
 	
 		
-
-	
-	
 func _process(delta: float) -> void:
 	if _task:
 		%Status.visible = _task.status == Task.RUNNING

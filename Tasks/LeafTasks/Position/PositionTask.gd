@@ -12,3 +12,9 @@ func get_block():
 	var _block = super.get_block()
 	# Attach listeners
 	return _block
+func run():
+	if status == FRESH:
+		running()
+		_value = Vector2(randi()%10,randi()%10)
+	else:
+		success()

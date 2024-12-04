@@ -17,6 +17,6 @@ func set_task(task: Task):
 func redraw():
 	add_children_tasks(_task.children)
 
-#func _process(delta: float) -> void:
-	#if _task and not is_template:
-		#%Status.visible = _task.status == Task.RUNNING
+func _process(delta: float) -> void:
+	if _task and not is_template:
+		%Status.visible = _task.status == Task.RUNNING
