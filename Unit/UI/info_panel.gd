@@ -20,5 +20,5 @@ func on_selection_changed(units: Array[Node2D]):
 		var panels = unit.generate_panels()
 		for panel in panels:
 			%List.add_child(panel)
-		unit.populate_block_palette()
+		unit.populate_task_palette()
 		

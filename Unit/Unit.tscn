@@ -1,7 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy30xxeibl4ms"]
+[gd_scene load_steps=13 format=3 uid="uid://cy30xxeibl4ms"]
 
 [ext_resource type="Texture2D" uid="uid://baancq43r3ffy" path="res://Map/Player.tres" id="1_pb0xj"]
 [ext_resource type="Script" path="res://Unit/Unit.gd" id="1_x564y"]
+[ext_resource type="Script" path="res://Unit/Component.gd" id="2_76jak"]
+[ext_resource type="Script" path="res://Unit/Components/CPU/CPUComponent.gd" id="3_rcme6"]
+[ext_resource type="Script" path="res://Unit/Components/Memory/MemoryComponent.gd" id="4_7ygos"]
+[ext_resource type="Script" path="res://Unit/Components/Motor/MotorComponent.gd" id="5_f1sju"]
+[ext_resource type="Script" path="res://Unit/Components/Scanner/ScannerComponent.gd" id="6_iwsq8"]
+
+[sub_resource type="Resource" id="Resource_jbu6o"]
+script = ExtResource("3_rcme6")
+
+[sub_resource type="Resource" id="Resource_d0c0h"]
+script = ExtResource("4_7ygos")
+
+[sub_resource type="Resource" id="Resource_shpla"]
+script = ExtResource("5_f1sju")
+
+[sub_resource type="Resource" id="Resource_3uobu"]
+script = ExtResource("6_iwsq8")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6uul"]
 size = Vector2(28, 28)
@@ -12,6 +29,7 @@ collision_layer = 2
 input_pickable = true
 motion_mode = 1
 script = ExtResource("1_x564y")
+components = Array[ExtResource("2_76jak")]([SubResource("Resource_jbu6o"), SubResource("Resource_d0c0h"), SubResource("Resource_shpla"), SubResource("Resource_3uobu")])
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false

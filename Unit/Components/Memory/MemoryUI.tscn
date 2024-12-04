@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8al27qjqdg7s"]
+
+[ext_resource type="Script" path="res://Unit/Components/Memory/MemoryUI.gd" id="1_5jxcf"]
+
+[node name="MemoryUI" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5jxcf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Palette" type="VBoxContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
