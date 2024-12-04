@@ -8,11 +8,6 @@ func _ready() -> void:
 	%TaskList.add_child(ui)
 	task.start()
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	#if task.status not in [task.FAILED, task.CANCELLED, task.SUCCEEDED]:
-	pass
-
 
 func _on_step_pressed() -> void:
 	task.run()

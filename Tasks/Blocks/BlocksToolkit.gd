@@ -9,8 +9,3 @@ func _ready() -> void:
 		var block = task.get_block()
 		block.is_template = true
 		add_child(block)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

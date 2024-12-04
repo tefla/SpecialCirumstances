@@ -3,14 +3,20 @@ extends BaseBlock
 class_name StatementBlock
 
 
-func add_child_block(block: BaseBlock):
-	%BlockChildren.add_child(block)
+func add_children_tasks(tasks: Array[Task]):
+	for child in %BlockChildren.get_children():
+		child.queue_free()
+	for sub_task in tasks:
+		%BlockChildren.add_child(sub_task.get_block())
 
 func set_task(task: Task):
-	_task = task
+	super.set_task(task)
 	%Name.text = _task.name
-	for sub_task in _task.children:
-		add_child_block(sub_task.get_block())
+	add_children_tasks(_task.children)
 
-func _process(delta: float) -> void:
-	%Status.visible = _task.status == Task.RUNNING
+func redraw():
+	add_children_tasks(_task.children)
+
+#func _process(delta: float) -> void:
+	#if _task and not is_template:
+		#%Status.visible = _task.status == Task.RUNNING

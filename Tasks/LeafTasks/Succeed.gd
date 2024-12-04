@@ -1,4 +1,4 @@
-extends StructureTask
+extends Task
 
 class_name Succeed
 

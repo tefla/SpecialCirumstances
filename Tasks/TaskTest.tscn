@@ -1,19 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmj4241ox1fhd"]
+[gd_scene load_steps=15 format=3 uid="uid://2wpke5l0velw"]
 
 [ext_resource type="Script" path="res://Tasks/TaskTest.gd" id="1_t3p00"]
 [ext_resource type="Script" path="res://Tasks/Task.gd" id="2_o3aat"]
+[ext_resource type="Script" path="res://Tasks/Sequence.gd" id="3_7lea6"]
 [ext_resource type="Script" path="res://Tasks/Blocks/BlocksToolkit.gd" id="3_46byr"]
 [ext_resource type="Script" path="res://Tasks/UntilSuccess.gd" id="4_kt07q"]
 [ext_resource type="Script" path="res://Tasks/LeafTasks/Position/PositionTask.gd" id="5_8x5kp"]
 [ext_resource type="Script" path="res://Tasks/LeafTasks/MoveTo/MoveToTask.gd" id="6_h5iij"]
 
-[sub_resource type="Resource" id="Resource_vfvf6"]
+[sub_resource type="Resource" id="Resource_spxrn"]
 script = ExtResource("5_8x5kp")
 children = Array[ExtResource("2_o3aat")]([])
 
-[sub_resource type="Resource" id="Resource_kbro6"]
+[sub_resource type="Resource" id="Resource_u0jg8"]
 script = ExtResource("6_h5iij")
-children = Array[ExtResource("2_o3aat")]([SubResource("Resource_vfvf6")])
+children = Array[ExtResource("2_o3aat")]([SubResource("Resource_spxrn")])
+
+[sub_resource type="Resource" id="Resource_1ibxq"]
+script = ExtResource("3_7lea6")
+children = Array[ExtResource("2_o3aat")]([SubResource("Resource_u0jg8")])
 
 [sub_resource type="Resource" id="Resource_wtgrb"]
 script = ExtResource("4_kt07q")
@@ -33,7 +38,7 @@ children = Array[ExtResource("2_o3aat")]([])
 
 [node name="TaskTest" type="Node2D"]
 script = ExtResource("1_t3p00")
-task = SubResource("Resource_kbro6")
+task = SubResource("Resource_1ibxq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_right = 40.0

@@ -24,7 +24,6 @@ enum {
 	SUCCEEDED,
 	CANCELLED
 }
-
 var control = null
 var tree = null
 # var guard = null
@@ -88,10 +87,12 @@ func reset():
 
 func add_child(task: Task):
 	children.append(task)
+
 #region Block
 func get_block():
-	var _block: BaseBlock = block.instantiate()
+	var _block = block.instantiate()
 	_block.set_task(self)
+	_block.task_dropped.connect(add_child)
 	return _block
 	
 #endregion Block

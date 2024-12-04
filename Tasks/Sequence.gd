@@ -1,4 +1,4 @@
-extends StructureTask
+extends Task
 
 # All children must run successfully
 
@@ -9,7 +9,6 @@ var current_child = 0
 func _init() -> void:
 	block = preload("Blocks/BlockStatement.tscn")
 	name = "Sequence"
-	canHaveChildren = true
 	
 func run():
 	if status == FRESH:
