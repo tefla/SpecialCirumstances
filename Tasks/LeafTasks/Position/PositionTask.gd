@@ -3,11 +3,11 @@ class_name PositionTask
 
 var _value: Vector2 = Vector2.ZERO
 
-func _init() -> void:
+func _init(v: Vector2) -> void:
 	name = "Position"
 	block = preload("PositionBlock.tscn")
 	result_type = ResultType.POSITION
-
+	_value = v
 func get_block():
 	var _block = super.get_block()
 	# Attach listeners
@@ -15,6 +15,5 @@ func get_block():
 func run():
 	if status == FRESH:
 		running()
-		_value = Vector2(randi()%10,randi()%10)
 	else:
 		success()

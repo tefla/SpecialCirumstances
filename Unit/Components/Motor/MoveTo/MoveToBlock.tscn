@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckkbq818ce10f"]
+[gd_scene load_steps=7 format=3 uid="uid://ckkbq818ce10f"]
 
-[ext_resource type="StyleBox" uid="uid://uxq4c8d8dwmm" path="res://Tasks/Blocks/function.tres" id="1_nuvm3"]
+[ext_resource type="StyleBox" path="res://Tasks/Blocks/function.tres" id="1_nuvm3"]
 [ext_resource type="Script" path="res://Unit/Components/Motor/MoveTo/MoveToBlock.gd" id="1_swrdt"]
 [ext_resource type="Texture2D" uid="uid://dftc434hupcc1" path="res://Assets/path316-7.png" id="2_jbxkc"]
+[ext_resource type="Texture2D" uid="uid://bj5aajp0gmsq3" path="res://Assets/Icons/tile_0269.png" id="4_54wi2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jp5lj"]
 texture = ExtResource("2_jbxkc")
@@ -38,3 +39,13 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_j7xrf")
+
+[node name="Actions" type="HBoxContainer" parent="MoveToTask"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MoveToTask/Actions"]
+layout_mode = 2
+icon = ExtResource("4_54wi2")
+icon_alignment = 2
+
+[connection signal="pressed" from="MoveToTask/Actions/Button" to="." method="_on_button_pressed"]

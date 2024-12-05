@@ -38,8 +38,13 @@ func mouseModeRender(event: InputEvent):
 				print(results)
 				if results.size() > 0:
 					GameManager.set_selected([results[0].collider])
+	match GameManager.position_selection_mode:
+		GameManager.PositionSelectionMode.POINT:
+			if Input.is_action_just_released("LeftMouseButton"):
+				GameManager.set_position(get_global_mouse_position())
+
 func units_in_selection_rect(rect: Rect2) -> Array:
-	var units: Array[Node2D] = []
+	var units: Array = []
 	for unit in get_tree().get_nodes_in_group("selectable"):
 		if rect.has_point(unit.global_position):
 			units.append(unit)
