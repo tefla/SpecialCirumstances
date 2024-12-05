@@ -27,6 +27,7 @@ var control = null
 var tree = null
 # var guard = null
 var status = FRESH
+var component: Component
 
 func get_task_name():
 	return name

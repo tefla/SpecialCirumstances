@@ -11,9 +11,11 @@ func get_component(componentType):
 func populate_task_palette():
 	var tasks = []
 	for comp in components:
+		comp.entity = self
 		if comp.features & Component.ComponentFeatures.TASK_PROVIDER:
 			print("Generate TASK_PROVIDER for: %s" % [comp.get_class()])
 			for task in comp.get_tasks():
+				task.component = comp
 				tasks.append(task)
 	
 	var memComp = get_component(MemoryComponent)

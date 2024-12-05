@@ -1,6 +1,8 @@
 extends Resource
 class_name Component
 
+var entity: Entity
+
 enum ComponentFeatures {
 	NONE = 0,
 	UI_PROVIDER = 1 << 0,
