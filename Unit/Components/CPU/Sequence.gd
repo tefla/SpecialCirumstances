@@ -7,12 +7,12 @@ class_name Sequence
 var current_child = 0
 
 func _init() -> void:
-	block = preload("Blocks/BlockStatement.tscn")
+	block = preload("res://Tasks/Blocks/BlockStatement.tscn")
 	name = "Sequence"
 	
 func run():
 	running()
-	wait(2)
+	await wait(2)
 	children[current_child].run()
 
 func child_success():
@@ -21,6 +21,7 @@ func child_success():
 		current_child = 0
 		success()
 	else:
+		await wait(2)
 		children[current_child].run()
 
 

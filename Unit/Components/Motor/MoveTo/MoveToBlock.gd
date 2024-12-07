@@ -12,7 +12,7 @@ func redraw():
 	for child in %Value.get_children():
 		%Value.remove_child(child)
 	if _task.children.size() >0:
-		%Value.add_child(_task.children[0].get_block())
+		%Value.add_child(await _task.children[0].get_block())
 	
 		
 func _process(delta: float) -> void:

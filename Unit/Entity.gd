@@ -23,7 +23,7 @@ func populate_task_palette():
 	for child in palette.get_children():
 		palette.remove_child(child)
 	for task in tasks:
-		var block = task.get_block()
+		var block = await task.get_block()
 		block.is_template = true
 		palette.add_child(block)
 	

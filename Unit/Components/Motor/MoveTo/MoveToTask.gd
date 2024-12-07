@@ -22,7 +22,7 @@ func child_success():
 		fail()
 
 func get_block():
-	var _block = super.get_block()
+	var _block =  super.get_block()
 	# Attach listeners
 	return _block
 

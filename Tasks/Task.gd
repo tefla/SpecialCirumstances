@@ -96,9 +96,10 @@ func add_child(task: Task):
 
 func get_block():
 	var _block = block.instantiate()
+	_block.ready
 	_block.set_task(self)
 	_block.task_dropped.connect(add_child)
 	return _block
 	
 func wait(seconds: float) -> void:
-	await component.get_tree().create_timer(seconds)
+	await component.get_tree().create_timer(seconds).timeout

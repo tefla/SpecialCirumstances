@@ -13,7 +13,7 @@ func _init() -> void:
 	result_type = ResultType.POSITION
 
 func get_block():
-	var _block = super.get_block()
+	var _block = await super.get_block()
 	# Attach listeners
 	return _block
 
