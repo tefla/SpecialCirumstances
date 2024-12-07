@@ -7,7 +7,7 @@ func _ready() -> void:
 	var ui = task.get_block()
 	%TaskList.add_child(ui)
 	task.start()
-	
+
 
 func _on_step_pressed() -> void:
 	task.run()

@@ -12,9 +12,7 @@ var block: PackedScene = preload("Blocks/BlockFunction.tscn")
 var result_type: ResultType = ResultType.NONE
 signal removed(task: Task)
 
-#region Children
 @export var children: Array[Task] = []
-#endregion
 
 
 # States
@@ -29,6 +27,7 @@ var control = null
 var tree = null
 # var guard = null
 var status = FRESH
+var component: Component
 
 func get_task_name():
 	return name

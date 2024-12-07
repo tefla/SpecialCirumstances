@@ -1,15 +1,19 @@
 extends Resource
 class_name Component
 
+var entity: Entity
+
 enum ComponentFeatures {
 	NONE = 0,
 	UI_PROVIDER = 1 << 0,
-	BLOCK_PROVIDER = 1 << 1
+	TASK_PROVIDER = 1 << 1
 }
 var features: ComponentFeatures = ComponentFeatures.NONE
-
+var tasks: Array[Task] = []
 
 func get_ui():
 	pass
-func get_blocks():
-	pass
+	
+
+func get_tasks() -> Array[Task]:
+	return tasks
