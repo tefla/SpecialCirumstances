@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqtt0xk528wed"]
+[gd_scene load_steps=4 format=3 uid="uid://cqtt0xk528wed"]
 
+[ext_resource type="Script" path="res://Map/Stick.gd" id="1_a1bek"]
 [ext_resource type="Texture2D" uid="uid://w7up66nkx83m" path="res://Assets/kenny-assets/Default size/treeBrown_twigs.png" id="1_fh25j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s6cma"]
 radius = 16.0
 
 [node name="Stick" type="Area2D"]
+script = ExtResource("1_a1bek")
 metadata/type = "Stick"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
