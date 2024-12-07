@@ -12,7 +12,7 @@ func _init() -> void:
 	
 func run():
 	running()
-	await wait(2)
+	await wait()
 	children[current_child].run()
 
 func child_success():
@@ -21,7 +21,7 @@ func child_success():
 		current_child = 0
 		success()
 	else:
-		await wait(2)
+		await wait()
 		children[current_child].run()
 
 

@@ -27,7 +27,7 @@ func child_success():
 				repeating = false
 				success()
 	if repeating:
-		await wait(2)
+		await wait()
 		children[current_child].run()
 
 func child_fail():

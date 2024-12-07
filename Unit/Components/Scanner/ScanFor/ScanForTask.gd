@@ -1,6 +1,7 @@
 extends Task
 class_name ScanForTask
 
+var _value: Vector2
 func add_child(task: Task):
 	task.removed.connect(remove_child)
 
@@ -18,7 +19,14 @@ func get_block():
 	return _block
 
 func run():
-	if status == FRESH:
-		running()
-	else:
+	running()
+	component.scanner.play("scanner")
+	await wait()
+	var res = component.scan_area()
+	if res:
+		_value = res.position
+		component.scanner.stop()
 		success()
+	else:
+		fail()
+	

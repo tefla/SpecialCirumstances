@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Unit/Unit.gd" id="1_x564y"]
 [ext_resource type="Script" path="res://Unit/Components/CPU/CPUComponent.gd" id="3_rcme6"]
 [ext_resource type="Script" path="res://Unit/Components/Memory/MemoryComponent.gd" id="4_7ygos"]
-[ext_resource type="Script" path="res://Unit/Components/Scanner/ScannerComponent.gd" id="6_iwsq8"]
+[ext_resource type="PackedScene" uid="uid://r2hh5qos4ehu" path="res://Unit/Components/Scanner/ScannerComponent.tscn" id="6_h24oc"]
 [ext_resource type="PackedScene" uid="uid://cgcavuyj3yhtw" path="res://Unit/Components/Motor/MotorComponent.tscn" id="6_u8rkh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6uul"]
@@ -37,12 +37,9 @@ entity = NodePath("../..")
 script = ExtResource("4_7ygos")
 entity = NodePath("../..")
 
-[node name="ScannerComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("entity")]
-script = ExtResource("6_iwsq8")
-entity = NodePath("../..")
+[node name="MotorComponent" parent="Components" instance=ExtResource("6_u8rkh")]
 
-[node name="MotorComponent" parent="Components" node_paths=PackedStringArray("entity") instance=ExtResource("6_u8rkh")]
-entity = NodePath("../..")
+[node name="ScannerComponent" parent="Components" instance=ExtResource("6_h24oc")]
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

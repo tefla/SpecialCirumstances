@@ -31,14 +31,15 @@ func stop():
 func _ready() -> void:
 	## These values need to be adjusted for the actor's speed
 	## and the navigation layout.
-	navigation_agent.path_desired_distance = 4.0
-	navigation_agent.target_desired_distance = 4.0
+	#navigation_agent.path_desired_distance = 4.0
+	#navigation_agent.target_desired_distance = 4.0
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
+	
 	#get_parent().entity.print_tree()
 func _on_velocity_computed(safe_velocity: Vector2):
-
-	entity.velocity = safe_velocity
-	entity.move_and_slide()
+	if entity and movement_state == MOVING:
+		entity.velocity = safe_velocity
+		entity.move_and_slide()
 func _physics_process(delta):
 	if movement_state == STOPPED:
 		return

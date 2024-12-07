@@ -31,5 +31,5 @@ func run():
 		fail()
 		return
 	running()
-	await wait(2)
+	await wait()
 	children[0].run()

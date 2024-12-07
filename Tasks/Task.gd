@@ -101,5 +101,5 @@ func get_block():
 	_block.task_dropped.connect(add_child)
 	return _block
 	
-func wait(seconds: float) -> void:
-	await component.get_tree().create_timer(seconds).timeout
+func wait() -> void:
+	await component.entity.get_component(CPUComponent).tick()
