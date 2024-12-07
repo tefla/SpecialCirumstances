@@ -2,6 +2,8 @@ extends Task
 class_name ScanForTask
 
 var _value: Vector2
+var scan_for_type 
+
 func add_child(task: Task):
 	task.removed.connect(remove_child)
 
@@ -9,7 +11,7 @@ func add_child(task: Task):
 	children.append(task)
 
 func _init() -> void:
-	name = "Scan For: Tree"
+	name = "Scan For"
 	block = preload("ScanForBlock.tscn")
 	result_type = ResultType.POSITION
 
@@ -22,11 +24,10 @@ func run():
 	running()
 	component.scanner.play("scanner")
 	await wait()
-	var res = component.scan_area()
+	var res = component.scan_area(scan_for_type)
 	if res:
 		_value = res.position
-		component.scanner.stop()
 		success()
 	else:
 		fail()
-	
+	component.scanner.stop()

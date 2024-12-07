@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bv7xnyyae50uw"]
 
 [ext_resource type="Script" path="res://Unit/Components/Scanner/ScanFor/ScanForBlock.gd" id="1_ldws1"]
-[ext_resource type="StyleBox" uid="uid://uxq4c8d8dwmm" path="res://Tasks/Blocks/function.tres" id="1_nq5on"]
+[ext_resource type="StyleBox" path="res://Tasks/Blocks/function.tres" id="1_nq5on"]
 [ext_resource type="Texture2D" uid="uid://dftc434hupcc1" path="res://Assets/path316-7.png" id="2_x74hs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jp5lj"]
@@ -29,3 +29,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_jp5lj")
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
+
+[node name="OptionButton" type="OptionButton" parent="HBox"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Tree"
+popup/item_1/text = "Stick"
+popup/item_1/id = 1

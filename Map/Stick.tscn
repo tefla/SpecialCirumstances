@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqtt0xk528wed"]
+
+[ext_resource type="Texture2D" uid="uid://w7up66nkx83m" path="res://Assets/kenny-assets/Default size/treeBrown_twigs.png" id="1_fh25j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6cma"]
+radius = 16.0
+
+[node name="Stick" type="Area2D"]
+metadata/type = "Stick"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s6cma")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fh25j")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 20.48

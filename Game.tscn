@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://eyjao2ky0fku"]
+[gd_scene load_steps=9 format=3 uid="uid://eyjao2ky0fku"]
 
 [ext_resource type="PackedScene" uid="uid://cr2bsr17fewrr" path="res://Unit/UI/InfoPanel.tscn" id="1_autge"]
 [ext_resource type="Script" path="res://Game.gd" id="1_mjcl4"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="2_0hcwk"]
 [ext_resource type="PackedScene" uid="uid://2exh5qya8ayq" path="res://Unit/UI/Toolbar.tscn" id="2_5tslf"]
 [ext_resource type="PackedScene" uid="uid://cy30xxeibl4ms" path="res://Unit/Unit.tscn" id="5_gj66s"]
+[ext_resource type="PackedScene" uid="uid://cqtt0xk528wed" path="res://Map/Stick.tscn" id="7_h20xx"]
 [ext_resource type="PackedScene" uid="uid://bh7w2p2iryckw" path="res://Map/Tree.tscn" id="10_3agf8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_488gv"]
@@ -42,3 +43,18 @@ position = Vector2(-135, 0)
 navigation_polygon = SubResource("NavigationPolygon_488gv")
 
 [node name="Tree" parent="." instance=ExtResource("10_3agf8")]
+
+[node name="Stick" parent="." instance=ExtResource("7_h20xx")]
+position = Vector2(-434, -232)
+
+[node name="Stick2" parent="." instance=ExtResource("7_h20xx")]
+position = Vector2(203, -163)
+
+[node name="Stick3" parent="." instance=ExtResource("7_h20xx")]
+position = Vector2(-519, -99)
+
+[node name="Stick4" parent="." instance=ExtResource("7_h20xx")]
+position = Vector2(-502, 216)
+
+[node name="Stick5" parent="." instance=ExtResource("7_h20xx")]
+position = Vector2(-169, 93)
