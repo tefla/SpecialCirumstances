@@ -11,16 +11,18 @@ func _init() -> void:
 	name = "Sequence"
 	
 func run():
-	if status == FRESH:
-		running()
-	elif status == RUNNING:
-		children[current_child].run()
+	running()
+	wait(2)
+	children[current_child].run()
 
 func child_success():
 	current_child += 1
 	if current_child >= children.size():
 		current_child = 0
 		success()
+	else:
+		children[current_child].run()
+
 
 func child_fail():
 	current_child = 0

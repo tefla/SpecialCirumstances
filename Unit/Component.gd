@@ -1,7 +1,7 @@
-extends Resource
+extends Node2D
 class_name Component
 
-var entity: Entity
+@export var entity: Entity
 
 enum ComponentFeatures {
 	NONE = 0,

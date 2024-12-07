@@ -11,6 +11,15 @@ func _init() -> void:
 	name = "Move To:"
 	block = preload("MoveToBlock.tscn")
 
+func child_success():
+	var target = children[0]._value
+	component.set_target(target)
+	component.start()
+	await component.navigation_agent.navigation_finished
+	if component.navigation_agent.is_target_reached():
+		success()
+	else:
+		fail()
 
 func get_block():
 	var _block = super.get_block()
@@ -18,12 +27,9 @@ func get_block():
 	return _block
 
 func run():
-	if status == FRESH:
-		running()
-	else:
-		children[0].run()
-func child_success():
-	# Get value from child
-	var child = children[0]
-	print("Got Pos", child._value)
-	success()
+	if children.size() != 1:
+		fail()
+		return
+	running()
+	await wait(2)
+	children[0].run()

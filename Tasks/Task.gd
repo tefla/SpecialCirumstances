@@ -72,6 +72,7 @@ func child_fail():
 func child_running():
 	running()
 
+
 # Non-final non-abstact methods
 func start():
 	print("starting task", name)
@@ -93,11 +94,11 @@ func add_child(task: Task):
 	task.removed.connect(remove_child)
 	children.append(task)
 
-#region Block
 func get_block():
 	var _block = block.instantiate()
 	_block.set_task(self)
 	_block.task_dropped.connect(add_child)
 	return _block
 	
-#endregion Block
+func wait(seconds: float) -> void:
+	await component.get_tree().create_timer(seconds)

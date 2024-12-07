@@ -22,8 +22,3 @@ func run():
 		running()
 	else:
 		success()
-func child_success():
-	# Get value from child
-	var child = children[0]
-	print("Got Pos", child._value)
-	success()

@@ -13,7 +13,4 @@ func get_block():
 	# Attach listeners
 	return _block
 func run():
-	if status == FRESH:
-		running()
-	else:
-		success()
+	success()
