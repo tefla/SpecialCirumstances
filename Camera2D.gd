@@ -7,7 +7,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _unhandled_key_input(event: InputEvent) -> void:
 	if Input.is_action_pressed("UpKey"):
 		position.y -= 10
 	if Input.is_action_pressed("DownKey"):

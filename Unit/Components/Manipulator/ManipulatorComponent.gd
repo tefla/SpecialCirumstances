@@ -13,7 +13,16 @@ func scan_area():
 	print("Found following bodies", bodies)
 	var all_bodies = areas + bodies
 	for body in all_bodies:
-		if body.can_pick_up:
-			print("Yo")
-	return bodies.front()
+		var meta = body.get_meta("can_pick_up")
+		if meta:
+			var inv = entity.get_component(InventoryComponent)
+			var item = InventoryComponent.InventoryItem.new()
+			item.name = "Stick"
+			inv.add_item(item)
+			print(inv.items)
+			#inv.add_item()
+			print("Yo", body)
+			body.queue_free()
+			return
+			
 	

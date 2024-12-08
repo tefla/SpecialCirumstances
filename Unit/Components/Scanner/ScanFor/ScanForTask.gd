@@ -2,13 +2,7 @@ extends Task
 class_name ScanForTask
 
 var _value: Vector2
-var scan_for_type 
-
-func add_child(task: Task):
-	task.removed.connect(remove_child)
-
-	children.clear()
-	children.append(task)
+var scan_for_type = "Tree"
 
 func _init() -> void:
 	name = "Scan For"

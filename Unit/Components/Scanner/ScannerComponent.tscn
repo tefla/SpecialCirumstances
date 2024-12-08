@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://r2hh5qos4ehu"]
+[gd_scene load_steps=7 format=3 uid="uid://gu6nsy06g8n0"]
 
 [ext_resource type="Script" path="res://Unit/Components/Scanner/ScannerComponent.gd" id="1_iowno"]
 [ext_resource type="Texture2D" uid="uid://dm8xswn6ijana" path="res://Assets/path1085.png" id="2_2ru85"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7k5pv"]
-radius = 223.182
+radius = 500.0
 
 [sub_resource type="Animation" id="Animation_rcgvb"]
 length = 0.001

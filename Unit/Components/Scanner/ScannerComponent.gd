@@ -15,8 +15,9 @@ func scan_area(type):
 	print("Found following bodies", bodies)
 	var all_bodies = areas + bodies
 	for body in all_bodies:
-		var meta = body.get_meta("type")
-		if meta == type:
-			return body
+		if body.has_meta("type"):
+			var meta = body.get_meta("type")
+			if meta == type:
+				return body
 	#return bodies.front()
 	

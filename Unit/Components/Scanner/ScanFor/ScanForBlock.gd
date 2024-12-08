@@ -5,7 +5,11 @@ class_name ScanForBlock
 @onready var options = $HBox/OptionButton
 func _ready() -> void:
 	options.item_selected.connect(set_scan_target)
-
+	if _task is ScanForTask:
+		if _task.scan_for_type == "Tree":
+			options.selected = 0
+		elif _task.scan_for_type == "Stick":
+			options.selected = 1
 func set_scan_target(idx):
 	if idx == 0:
 		_task.scan_for_type = "Tree"

@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Unit/Components/CPU/Repeat/RepeatBlock.gd" id="1_glufo"]
 [ext_resource type="StyleBox" uid="uid://ipfn26yakkr2" path="res://Tasks/Blocks/statement-top.tres" id="2_abslg"]
 [ext_resource type="Texture2D" uid="uid://dftc434hupcc1" path="res://Assets/path316-7.png" id="3_l1sp3"]
-[ext_resource type="StyleBox" path="res://Tasks/Blocks/statement-middle.tres" id="4_2te2x"]
-[ext_resource type="StyleBox" path="res://Tasks/Blocks/statement-bottom.tres" id="5_b7krs"]
+[ext_resource type="StyleBox" uid="uid://bkv6ksvcop66e" path="res://Tasks/Blocks/statement-middle.tres" id="4_2te2x"]
+[ext_resource type="StyleBox" uid="uid://tlsr7n8tuasn" path="res://Tasks/Blocks/statement-bottom.tres" id="5_b7krs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7pq4"]
 texture = ExtResource("3_l1sp3")
@@ -12,10 +12,8 @@ texture = ExtResource("3_l1sp3")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hakht"]
 
 [node name="VBoxContainer" type="VBoxContainer"]
-offset_left = 13.0
-offset_top = 15.0
-offset_right = 442.0
-offset_bottom = 349.0
+offset_right = 172.0
+offset_bottom = 103.0
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 script = ExtResource("1_glufo")
@@ -53,6 +51,7 @@ item_count = 4
 popup/item_0/text = "-1"
 popup/item_0/id = 3
 popup/item_1/text = "1"
+popup/item_1/id = 1
 popup/item_2/text = "2"
 popup/item_2/id = 1
 popup/item_3/text = "3"

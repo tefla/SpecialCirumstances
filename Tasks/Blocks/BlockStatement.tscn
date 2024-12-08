@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Tasks/Blocks/statement_block.gd" id="1_q7p3o"]
 [ext_resource type="StyleBox" uid="uid://ipfn26yakkr2" path="res://Tasks/Blocks/statement-top.tres" id="2_rpfvj"]
-[ext_resource type="StyleBox" path="res://Tasks/Blocks/statement-middle.tres" id="3_rnojs"]
+[ext_resource type="StyleBox" uid="uid://bkv6ksvcop66e" path="res://Tasks/Blocks/statement-middle.tres" id="3_rnojs"]
 [ext_resource type="Texture2D" uid="uid://dftc434hupcc1" path="res://Assets/path316-7.png" id="3_spn54"]
-[ext_resource type="StyleBox" path="res://Tasks/Blocks/statement-bottom.tres" id="5_ijia5"]
+[ext_resource type="StyleBox" uid="uid://tlsr7n8tuasn" path="res://Tasks/Blocks/statement-bottom.tres" id="5_ijia5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7pq4"]
 texture = ExtResource("3_spn54")
@@ -12,10 +12,8 @@ texture = ExtResource("3_spn54")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hakht"]
 
 [node name="VBoxContainer" type="VBoxContainer"]
-offset_left = 13.0
-offset_top = 15.0
-offset_right = 442.0
-offset_bottom = 349.0
+offset_right = 121.0
+offset_bottom = 95.0
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 script = ExtResource("1_q7p3o")

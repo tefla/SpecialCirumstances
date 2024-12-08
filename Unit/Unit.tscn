@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy30xxeibl4ms"]
+[gd_scene load_steps=10 format=3 uid="uid://cy30xxeibl4ms"]
 
 [ext_resource type="Script" path="res://Unit/Unit.gd" id="1_x564y"]
 [ext_resource type="Texture2D" uid="uid://dt163nr8xf3g1" path="res://Assets/kenny-assets/Default size/tankBody_blue.png" id="2_nkeru"]
 [ext_resource type="Script" path="res://Unit/Components/CPU/CPUComponent.gd" id="3_rcme6"]
 [ext_resource type="Script" path="res://Unit/Components/Memory/MemoryComponent.gd" id="4_7ygos"]
-[ext_resource type="PackedScene" uid="uid://r2hh5qos4ehu" path="res://Unit/Components/Scanner/ScannerComponent.tscn" id="6_h24oc"]
-[ext_resource type="PackedScene" uid="uid://cgcavuyj3yhtw" path="res://Unit/Components/Motor/MotorComponent.tscn" id="6_u8rkh"]
+[ext_resource type="PackedScene" uid="uid://gu6nsy06g8n0" path="res://Unit/Components/Scanner/ScannerComponent.tscn" id="6_h24oc"]
+[ext_resource type="PackedScene" path="res://Unit/Components/Motor/MotorComponent.tscn" id="6_u8rkh"]
 [ext_resource type="PackedScene" uid="uid://canch3qcuo0i6" path="res://Unit/Components/Manipulator/ManipulatorComponent.tscn" id="7_misku"]
+[ext_resource type="PackedScene" uid="uid://cru7r7s3i4f4h" path="res://Unit/Components/Inventory/InventoryComponent.tscn" id="8_drxgu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6uul"]
 size = Vector2(28, 28)
@@ -43,6 +44,8 @@ entity = NodePath("../..")
 [node name="ScannerComponent" parent="Components" instance=ExtResource("6_h24oc")]
 
 [node name="MannipulatorComponent" parent="Components" instance=ExtResource("7_misku")]
+
+[node name="InventoryComponent" parent="Components" instance=ExtResource("8_drxgu")]
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -8,10 +8,10 @@
 texture = ExtResource("3_aulle")
 
 [node name="VBoxContainer" type="VBoxContainer"]
-offset_left = 13.0
-offset_top = 15.0
-offset_right = 442.0
-offset_bottom = 349.0
+offset_right = 81.0
+offset_bottom = 41.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 mouse_filter = 0
 theme_override_constants/separation = 0
 script = ExtResource("1_6rbd5")
