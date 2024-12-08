@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu1uf3cx55xxp"]
+[gd_scene load_steps=9 format=3 uid="uid://bu1uf3cx55xxp"]
 
 [ext_resource type="Script" path="res://Tasks/Blocks/statement_block.gd" id="1_q7p3o"]
 [ext_resource type="StyleBox" uid="uid://ipfn26yakkr2" path="res://Tasks/Blocks/statement-top.tres" id="2_rpfvj"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7pq4"]
 texture = ExtResource("3_spn54")
+
+[sub_resource type="LabelSettings" id="LabelSettings_gogkk"]
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hakht"]
 
@@ -43,6 +46,7 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 text = "Do Stuff "
+label_settings = SubResource("LabelSettings_gogkk")
 
 [node name="ChildrenContainer" type="PanelContainer" parent="."]
 layout_mode = 2
