@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpxitoxkpm73s"]
+[gd_scene load_steps=4 format=3 uid="uid://cpxitoxkpm73s"]
 
 [ext_resource type="Texture2D" uid="uid://w7up66nkx83m" path="res://Assets/kenny-assets/Default size/treeBrown_twigs.png" id="1_yucei"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nleau"]
 texture = ExtResource("1_yucei")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ub7sd"]
+line_spacing = 0.0
+font_size = 8
+shadow_size = 0
+shadow_offset = Vector2(0, 0)
 
 [node name="InventoryItem" type="MarginContainer"]
 custom_minimum_size = Vector2(22, 22)
@@ -17,3 +23,12 @@ theme_override_constants/margin_bottom = 2
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_nleau")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1"
+label_settings = SubResource("LabelSettings_ub7sd")
+horizontal_alignment = 1
+vertical_alignment = 2
