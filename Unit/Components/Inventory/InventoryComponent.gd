@@ -18,8 +18,9 @@ func _init() -> void:
 	features = ComponentFeatures.UI_PROVIDER
 
 func get_ui():
-	var ui = preload("Inventory.tscn")
-	return ui.instantiate()
+	var ui = preload("Inventory.tscn").instantiate()
+	ui.entity = entity
+	return ui
 func add_item(item: InventoryItem) -> void:
 	items.append(item)
 	item_added.emit(item)

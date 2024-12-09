@@ -27,7 +27,7 @@ var control = null
 var tree = null
 # var guard = null
 var status = FRESH
-var component: Component
+var entity: Entity
 
 func get_task_name():
 	return name
@@ -80,6 +80,7 @@ func start():
 	for child in children:
 		child.control = self
 		child.tree = self.tree
+		child.entity = entity
 		child.start()
 
 func reset():
@@ -101,5 +102,6 @@ func get_block():
 	_block.task_dropped.connect(add_child)
 	return _block
 	
+	
 func wait() -> void:
-	await component.entity.get_component(CPUComponent).tick()
+	await entity.get_component(CPUComponent).tick()

@@ -1,5 +1,5 @@
 extends Component
-
+class_name ManipulatorComponent
 func _init() -> void:
 	features = ComponentFeatures.TASK_PROVIDER
 	tasks = [PickUpTask.new()]

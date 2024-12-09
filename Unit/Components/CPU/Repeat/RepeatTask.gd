@@ -11,12 +11,14 @@ var count = 0
 var repeating = false
 
 func run():
+	running()
 	if not repeating:
 		repeating = true
 		children[current_child].run()
-	running()
 
 func child_success():
+	if status != RUNNING:
+		return
 	current_child += 1
 	if current_child >= children.size():
 		current_child = 0

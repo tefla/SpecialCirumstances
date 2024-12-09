@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcxoy7xykbhpf"]
+[gd_scene load_steps=3 format=3 uid="uid://bcxoy7xykbhpf"]
 
+[ext_resource type="Script" path="res://Unit/Components/Inventory/Inventory.gd" id="1_1o4oo"]
 [ext_resource type="PackedScene" uid="uid://cpxitoxkpm73s" path="res://Unit/Components/Inventory/InventoryItem.tscn" id="1_11rdb"]
 
 [node name="Inventory" type="MarginContainer"]
+script = ExtResource("1_1o4oo")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

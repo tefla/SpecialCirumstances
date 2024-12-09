@@ -5,6 +5,8 @@ var ui
 func _init() -> void:
 	features = ComponentFeatures.UI_PROVIDER
 	ui = _ui.instantiate()
+
 	
 func get_ui() -> MemoryUI:
+	ui.entity = entity
 	return ui

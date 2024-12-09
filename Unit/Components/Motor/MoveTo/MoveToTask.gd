@@ -12,7 +12,10 @@ func _init() -> void:
 	block = preload("MoveToBlock.tscn")
 
 func child_success():
+	if status != RUNNING:
+		return
 	var target = children[0]._value
+	var component = entity.get_component(MotorComponent)
 	component.set_target(target)
 	component.start()
 	await component.navigation_agent.navigation_finished
@@ -20,6 +23,7 @@ func child_success():
 		success()
 	else:
 		fail()
+
 
 func get_block():
 	var _block =  super.get_block()

@@ -16,6 +16,8 @@ func get_block():
 
 func run():
 	running()
+	var component = entity.get_component(ScannerComponent)
+
 	component.scanner.play("scanner")
 	await wait()
 	var res = component.scan_area(scan_for_type)

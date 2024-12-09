@@ -1,10 +1,11 @@
 extends BaseBlock
 class_name RepeatBlock
 
-@onready var repeat_option = %RepeatOption
+@onready var repeat_option: OptionButton = %RepeatOption
 
 func _ready() -> void:
-	repeat_option.item_selected.connect(set_repeat_option)	
+	repeat_option.item_selected.connect(set_repeat_option)
+	repeat_option.selected = _task.LIMIT
 func set_repeat_option(idx):
 	_task.LIMIT = idx
 func add_children_tasks(tasks: Array[Task]):

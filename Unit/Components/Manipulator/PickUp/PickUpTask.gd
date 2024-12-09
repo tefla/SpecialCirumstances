@@ -9,5 +9,6 @@ func _init() -> void:
 func run():
 	running()
 	await wait()
-	component.scan_area()
+	entity.get_component(ManipulatorComponent).scan_area()
+	
 	success()

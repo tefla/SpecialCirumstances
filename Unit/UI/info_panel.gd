@@ -11,7 +11,6 @@ func _process(delta: float) -> void:
 	pass
 
 func on_selection_changed(units: Array):
-	print(units)
 	for child in %List.get_children():
 		%List.remove_child(child)
 	if units.size() > 0:
