@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Unit/Components/CPU/CPUComponent.gd" id="3_rcme6"]
 [ext_resource type="Script" path="res://Unit/Components/Memory/MemoryComponent.gd" id="4_7ygos"]
 [ext_resource type="PackedScene" uid="uid://gu6nsy06g8n0" path="res://Unit/Components/Scanner/ScannerComponent.tscn" id="6_h24oc"]
-[ext_resource type="PackedScene" path="res://Unit/Components/Motor/MotorComponent.tscn" id="6_u8rkh"]
+[ext_resource type="PackedScene" uid="uid://cgcavuyj3yhtw" path="res://Unit/Components/Motor/MotorComponent.tscn" id="6_u8rkh"]
 [ext_resource type="PackedScene" uid="uid://canch3qcuo0i6" path="res://Unit/Components/Manipulator/ManipulatorComponent.tscn" id="7_misku"]
 [ext_resource type="PackedScene" uid="uid://cru7r7s3i4f4h" path="res://Unit/Components/Inventory/InventoryComponent.tscn" id="8_drxgu"]
 
@@ -31,13 +31,11 @@ texture = ExtResource("2_nkeru")
 
 [node name="Components" type="Node2D" parent="."]
 
-[node name="CPUComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("entity")]
+[node name="CPUComponent" type="Node2D" parent="Components"]
 script = ExtResource("3_rcme6")
-entity = NodePath("../..")
 
-[node name="MemoryComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("entity")]
+[node name="MemoryComponent" type="Node2D" parent="Components"]
 script = ExtResource("4_7ygos")
-entity = NodePath("../..")
 
 [node name="MotorComponent" parent="Components" instance=ExtResource("6_u8rkh")]
 

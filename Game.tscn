@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Camera2D.gd" id="2_0hcwk"]
 [ext_resource type="PackedScene" uid="uid://2exh5qya8ayq" path="res://Unit/UI/Toolbar.tscn" id="2_5tslf"]
 [ext_resource type="PackedScene" uid="uid://cy30xxeibl4ms" path="res://Unit/Unit.tscn" id="5_gj66s"]
-[ext_resource type="PackedScene" uid="uid://cqtt0xk528wed" path="res://Map/Stick.tscn" id="7_h20xx"]
+[ext_resource type="PackedScene" uid="uid://blijnoisdmsyu" path="res://Map/Stick.tscn" id="7_h20xx"]
 [ext_resource type="PackedScene" uid="uid://bh7w2p2iryckw" path="res://Map/Tree.tscn" id="10_3agf8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_488gv"]
@@ -38,6 +38,9 @@ grow_vertical = 0
 
 [node name="Unit" parent="." instance=ExtResource("5_gj66s")]
 position = Vector2(-135, 0)
+
+[node name="Unit2" parent="." instance=ExtResource("5_gj66s")]
+position = Vector2(-135, 155)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_488gv")

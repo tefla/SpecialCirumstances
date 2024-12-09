@@ -25,7 +25,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 		return _task
 	else:
 		var newTask = _task.duplicate()
-		newTask.component = _task.component
+		#newTask.component = _task.component
 		return newTask
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:

@@ -5,15 +5,15 @@ class_name MemoryUI
 var entity: Entity
 
 func _ready() -> void:
-	print(program_editor.root)
-	var root = ResourceLoader.load("user://tree.res")
-	if root is Task:
-		root.entity = entity
-		program_editor.root = root
-		program_editor.redraw()
+	#print(program_editor.root)
+	#var root = ResourceLoader.load("user://tree.res")
+	#if root is Task:
+		#root.entity = entity
+		#program_editor.root = root
+		#program_editor.redraw()
 	pass
 func _on_step_pressed() -> void:
-
+	program_editor.root.entity = entity
 	program_editor.root.start()
 	
 	program_editor.root.run()
