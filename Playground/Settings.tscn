@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhl0ccudlktkv"]
+
+[ext_resource type="Script" path="res://Playground/Settings.gd" id="1_vfyxn"]
+
+[node name="Settings" type="HBoxContainer"]
+script = ExtResource("1_vfyxn")
