@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://beab1b5bu0ltq"]
+[gd_scene load_steps=3 format=3 uid="uid://c34h8tt47bk1q"]
 
-[ext_resource type="Script" path="res://Playground/Header.gd" id="1_4c8wa"]
-[ext_resource type="StyleBox" uid="uid://ipfn26yakkr2" path="res://Tasks/Blocks/statement-top.tres" id="1_w3rdw"]
+[ext_resource type="StyleBox" uid="uid://uxq4c8d8dwmm" path="res://Tasks/Blocks/function.tres" id="1_i4wg5"]
+[ext_resource type="Script" path="res://Playground/Header.gd" id="2_qrml1"]
 
 [node name="Header" type="PanelContainer"]
 offset_right = 115.0
 offset_bottom = 39.0
-theme_override_styles/panel = ExtResource("1_w3rdw")
-script = ExtResource("1_4c8wa")
+theme_override_styles/panel = ExtResource("1_i4wg5")
+script = ExtResource("2_qrml1")
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
