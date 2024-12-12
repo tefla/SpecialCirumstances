@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Unit/Components/CPU/Repeat/RepeatBlock.gd" id="1_glufo"]
 [ext_resource type="StyleBox" uid="uid://ipfn26yakkr2" path="res://Tasks/Blocks/statement-top.tres" id="2_abslg"]
 [ext_resource type="Texture2D" uid="uid://dftc434hupcc1" path="res://Assets/path316-7.png" id="3_l1sp3"]
-[ext_resource type="StyleBox" path="res://Tasks/Blocks/statement-middle.tres" id="4_2te2x"]
+[ext_resource type="StyleBox" uid="uid://cimkxmxc5rq60" path="res://Tasks/Blocks/statement-middle-seperator.tres" id="4_0tqkr"]
 [ext_resource type="StyleBox" path="res://Tasks/Blocks/statement-bottom.tres" id="5_b7krs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7pq4"]
@@ -64,7 +64,7 @@ popup/item_3/id = 2
 [node name="ChildrenContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_styles/panel = ExtResource("4_2te2x")
+theme_override_styles/panel = ExtResource("4_0tqkr")
 
 [node name="ChildrenMarginContainer" type="MarginContainer" parent="ChildrenContainer"]
 layout_mode = 2

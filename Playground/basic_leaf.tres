@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="BlockDefinition" load_steps=8 format=3 uid="uid://b3aaj0y14xu6r"]
+
+[ext_resource type="PackedScene" uid="uid://yxcxh6tit827" path="res://Playground/ChildContainer.tscn" id="1_s2fcd"]
+[ext_resource type="PackedScene" uid="uid://b5cxi11ai4aah" path="res://Playground/Footer.tscn" id="2_kx6wy"]
+[ext_resource type="PackedScene" uid="uid://c34h8tt47bk1q" path="res://Playground/LeafHeader.tscn" id="3_erqnl"]
+[ext_resource type="Script" path="res://Playground/BlockDefinition.gd" id="4_tc32o"]
+[ext_resource type="Script" path="res://Playground/SettingsDefinition.gd" id="5_a6jrk"]
+[ext_resource type="PackedScene" uid="uid://bhl0ccudlktkv" path="res://Playground/Settings.tscn" id="6_xwpoj"]
+
+[sub_resource type="Resource" id="Resource_yhp6g"]
+script = ExtResource("5_a6jrk")
+settings = Array[String](["Setting 1", "Setting 2"])
+
+[resource]
+script = ExtResource("4_tc32o")
+name = ""
+header_scene = ExtResource("3_erqnl")
+footer_scene = ExtResource("2_kx6wy")
+settings_scene = ExtResource("6_xwpoj")
+child_container_scene = ExtResource("1_s2fcd")
+is_leaf_task = true
+settings = SubResource("Resource_yhp6g")
+num_children = 0
+show_child_spacer = false

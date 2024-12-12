@@ -18,5 +18,11 @@ func _ready():
 		footerRoot.add_child(header)
 
 	if not block_definition.is_leaf_task and block_definition.child_container_scene:
-		var child_container = block_definition.child_container_scene.instantiate()
-		childrenRoot.add_child(child_container)
+		for n in block_definition.num_children:
+			if block_definition.child_container_spacer_scene and n > 0:
+				var spacer = block_definition.child_container_spacer_scene.instantiate()
+				childrenRoot.add_child(spacer)
+				
+			var child_container = block_definition.child_container_scene.instantiate()
+			child_container.set_definitions(block_definition)
+			childrenRoot.add_child(child_container)

@@ -8,3 +8,7 @@ class_name BlockDefinition
 @export var is_leaf_task: bool = true
 
 @export var settings: SettingsDefinition
+
+@export var num_children: int = 0
+@export var child_container_spacer_scene: PackedScene
+@export var show_child_spacer: bool = true

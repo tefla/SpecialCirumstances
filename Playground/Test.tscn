@@ -1,92 +1,22 @@
-[gd_scene load_steps=20 format=3 uid="uid://c6cput5npcysd"]
+[gd_scene load_steps=6 format=3 uid="uid://c6cput5npcysd"]
 
 [ext_resource type="PackedScene" uid="uid://cwo1opcqllk6m" path="res://Playground/Block.tscn" id="1_avm87"]
 [ext_resource type="Script" path="res://Playground/test.gd" id="1_rdbqv"]
-[ext_resource type="PackedScene" uid="uid://yxcxh6tit827" path="res://Playground/ChildContainer.tscn" id="2_e0o3u"]
-[ext_resource type="PackedScene" uid="uid://b5cxi11ai4aah" path="res://Playground/Footer.tscn" id="3_q1nu0"]
-[ext_resource type="PackedScene" uid="uid://beab1b5bu0ltq" path="res://Playground/Header.tscn" id="3_ymxgh"]
-[ext_resource type="Script" path="res://Playground/BlockDefinition.gd" id="4_w41sl"]
-[ext_resource type="PackedScene" uid="uid://c34h8tt47bk1q" path="res://Playground/LeafHeader.tscn" id="5_8ao3r"]
-[ext_resource type="Script" path="res://Playground/SettingsDefinition.gd" id="5_aotm1"]
-[ext_resource type="PackedScene" uid="uid://bhl0ccudlktkv" path="res://Playground/Settings.tscn" id="5_vbybq"]
-[ext_resource type="StyleBox" path="res://Tasks/Blocks/statement-middle.tres" id="9_7pxy1"]
-[ext_resource type="StyleBox" path="res://Tasks/Blocks/statement-bottom.tres" id="10_oygcy"]
-[ext_resource type="Script" path="res://Playground/Settings.gd" id="11_hctgy"]
-
-[sub_resource type="Resource" id="Resource_lmudy"]
-script = ExtResource("5_aotm1")
-settings = Array[String](["A", "B", "C", "D"])
-
-[sub_resource type="Resource" id="Resource_ra2nu"]
-script = ExtResource("4_w41sl")
-name = "Hello"
-header_scene = ExtResource("3_ymxgh")
-footer_scene = ExtResource("3_q1nu0")
-settings_scene = ExtResource("5_vbybq")
-child_container_scene = ExtResource("2_e0o3u")
-is_leaf_task = false
-settings = SubResource("Resource_lmudy")
-
-[sub_resource type="PackedScene" id="PackedScene_f2rbk"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("PanelContainer", "offset_right", "theme_override_styles/panel", "ChildContainer", "custom_minimum_size", "layout_mode", "VBoxContainer"),
-"node_count": 2,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 0, 0, -1, 2, 1, 0, 2, 1, 0, 0, 0, 6, 3, -1, 2, 4, 2, 5, 3, 0),
-"variants": [73.0, ExtResource("9_7pxy1"), Vector2(73, 42), 2],
-"version": 3
-}
-
-[sub_resource type="PackedScene" id="PackedScene_r4egl"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("Footer", "theme_override_styles/panel", "PanelContainer", "HBoxContainer", "layout_mode"),
-"node_count": 2,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 3, 3, -1, 1, 4, 1, 0),
-"variants": [ExtResource("10_oygcy"), 2],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_gi5p8"]
-script = ExtResource("5_aotm1")
-settings = Array[String](["A", "B", "C", "D"])
-
-[sub_resource type="PackedScene" id="PackedScene_i33k3"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("Settings", "script", "HBoxContainer"),
-"node_count": 1,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0),
-"variants": [ExtResource("11_hctgy")],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_kuurj"]
-script = ExtResource("4_w41sl")
-name = "Hello"
-header_scene = ExtResource("5_8ao3r")
-footer_scene = SubResource("PackedScene_r4egl")
-settings_scene = SubResource("PackedScene_i33k3")
-child_container_scene = SubResource("PackedScene_f2rbk")
-is_leaf_task = true
-settings = SubResource("Resource_gi5p8")
+[ext_resource type="Resource" uid="uid://b3aaj0y14xu6r" path="res://Playground/basic_leaf.tres" id="3_i776i"]
+[ext_resource type="Resource" uid="uid://ewhxbahyvoe4" path="res://Playground/basic_block.tres" id="3_s3bqr"]
+[ext_resource type="Resource" uid="uid://dsdovs7rta443" path="res://Playground/if_else_block.tres" id="4_qxu8q"]
 
 [node name="Test" type="VBoxContainer"]
 script = ExtResource("1_rdbqv")
 
 [node name="Block" parent="." instance=ExtResource("1_avm87")]
 layout_mode = 2
-block_definition = SubResource("Resource_ra2nu")
+block_definition = ExtResource("3_i776i")
 
 [node name="Block2" parent="." instance=ExtResource("1_avm87")]
 layout_mode = 2
-block_definition = SubResource("Resource_kuurj")
+block_definition = ExtResource("3_s3bqr")
+
+[node name="Block3" parent="." instance=ExtResource("1_avm87")]
+layout_mode = 2
+block_definition = ExtResource("4_qxu8q")
