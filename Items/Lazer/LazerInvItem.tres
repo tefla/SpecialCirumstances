@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://yjkhvdtgoq3w"]
+
+[ext_resource type="Texture2D" uid="uid://vbavrk8crbrj" path="res://Assets/kenny-assets/Default size/shotRed.png" id="1_k3tro"]
+[ext_resource type="PackedScene" uid="uid://dn8vib6csj7hb" path="res://Items/Lazer/LazerComponent.tscn" id="1_s5m7p"]
+[ext_resource type="Script" path="res://Unit/Components/Inventory/InventoryItem.gd" id="2_a4ffl"]
+
+[resource]
+script = ExtResource("2_a4ffl")
+name = "Lazer"
+icon = ExtResource("1_k3tro")
+quantity = 1
+component_scene = ExtResource("1_s5m7p")

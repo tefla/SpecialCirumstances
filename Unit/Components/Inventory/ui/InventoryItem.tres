@@ -1,6 +1,0 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cg1766wyowmgf"]
-
-[ext_resource type="Texture2D" uid="uid://w7up66nkx83m" path="res://Assets/kenny-assets/Default size/treeBrown_twigs.png" id="1_y3t2u"]
-
-[resource]
-texture = ExtResource("1_y3t2u")

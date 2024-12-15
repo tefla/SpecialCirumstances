@@ -19,3 +19,6 @@ func get_ui():
 
 func get_tasks() -> Array[Task]:
 	return tasks
+
+func use():
+	pass
