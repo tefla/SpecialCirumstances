@@ -2,12 +2,14 @@ extends Task
 class_name ScanForTask
 
 var _value: Vector2
-var scan_for_type = "Tree"
+var scan_for_type: ScannableComponent.Type
+
 
 func _init() -> void:
 	name = "Scan For"
 	block = preload("ScanForBlock.tscn")
 	result_type = ResultType.POSITION
+	
 
 func get_block():
 	var _block = await super.get_block()

@@ -1,9 +1,9 @@
 extends Node2D
 class_name Entity
 
-@onready var components = $Components
+@export var components: Array[Component] = []
 
 func get_component(componentType):
-	for comp in components.get_children():
+	for comp in components:
 		if is_instance_of(comp, componentType):
 			return comp

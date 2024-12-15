@@ -1,4 +1,4 @@
-extends PhysicsBody2D
+extends Entity
 
 @export var stats: Resource
 

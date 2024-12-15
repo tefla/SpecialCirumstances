@@ -1,9 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpxitoxkpm73s"]
+[gd_scene load_steps=3 format=3 uid="uid://0bl6fcqf485n"]
 
-[ext_resource type="Texture2D" uid="uid://w7up66nkx83m" path="res://Assets/kenny-assets/Default size/treeBrown_twigs.png" id="1_yucei"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nleau"]
-texture = ExtResource("1_yucei")
+[ext_resource type="Script" path="res://Unit/Components/Inventory/ui/UIInventoryItem.gd" id="1_hfciw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ub7sd"]
 line_spacing = 0.0
@@ -19,12 +16,13 @@ theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
+script = ExtResource("1_hfciw")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="_Container" type="PanelContainer" parent="."]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_nleau")
 
-[node name="Label" type="Label" parent="PanelContainer"]
+[node name="Count" type="Label" parent="_Container"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -32,3 +30,6 @@ text = "1"
 label_settings = SubResource("LabelSettings_ub7sd")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="Container" type="Sprite2D" parent="_Container"]
+unique_name_in_owner = true

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcxoy7xykbhpf"]
+
+[ext_resource type="Script" path="res://Unit/Components/Inventory/ui/Inventory.gd" id="1_1o4oo"]
+
+[node name="Inventory" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 60)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+script = ExtResource("1_1o4oo")
+
+[node name="Items" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1

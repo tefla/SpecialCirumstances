@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://eyjao2ky0fku"]
+[gd_scene load_steps=10 format=3 uid="uid://eyjao2ky0fku"]
 
 [ext_resource type="PackedScene" uid="uid://cr2bsr17fewrr" path="res://Unit/UI/InfoPanel.tscn" id="1_autge"]
 [ext_resource type="Script" path="res://Game.gd" id="1_mjcl4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2exh5qya8ayq" path="res://Unit/UI/Toolbar.tscn" id="2_5tslf"]
 [ext_resource type="PackedScene" uid="uid://cy30xxeibl4ms" path="res://Unit/Unit.tscn" id="5_gj66s"]
 [ext_resource type="PackedScene" uid="uid://blijnoisdmsyu" path="res://Map/Stick.tscn" id="7_h20xx"]
+[ext_resource type="PackedScene" uid="uid://i2uhbdpe21jo" path="res://Map/Rock.tscn" id="8_v1blu"]
 [ext_resource type="PackedScene" uid="uid://bh7w2p2iryckw" path="res://Map/Tree.tscn" id="10_3agf8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_488gv"]
@@ -47,6 +48,21 @@ navigation_polygon = SubResource("NavigationPolygon_488gv")
 
 [node name="Tree" parent="." instance=ExtResource("10_3agf8")]
 
+[node name="Tree2" parent="." instance=ExtResource("10_3agf8")]
+position = Vector2(-326, -134)
+
+[node name="Tree3" parent="." instance=ExtResource("10_3agf8")]
+position = Vector2(62, -206)
+
+[node name="Tree4" parent="." instance=ExtResource("10_3agf8")]
+position = Vector2(-538, 86)
+
+[node name="Tree5" parent="." instance=ExtResource("10_3agf8")]
+position = Vector2(-248, 259)
+
+[node name="Tree6" parent="." instance=ExtResource("10_3agf8")]
+position = Vector2(188, 175)
+
 [node name="Stick" parent="." instance=ExtResource("7_h20xx")]
 position = Vector2(-434, -232)
 
@@ -61,3 +77,22 @@ position = Vector2(-502, 216)
 
 [node name="Stick5" parent="." instance=ExtResource("7_h20xx")]
 position = Vector2(-169, 93)
+
+[node name="Rock" parent="." instance=ExtResource("8_v1blu")]
+position = Vector2(-199, -110)
+
+[node name="Rock2" parent="." instance=ExtResource("8_v1blu")]
+position = Vector2(-328, -39)
+
+[node name="Rock3" parent="." instance=ExtResource("8_v1blu")]
+position = Vector2(-42, 109)
+
+[node name="Rock5" parent="." instance=ExtResource("8_v1blu")]
+position = Vector2(-366, 75)
+
+[node name="Rock6" parent="." instance=ExtResource("8_v1blu")]
+position = Vector2(-643, -36)
+rotation = -0.261799
+
+[node name="Rock4" parent="." instance=ExtResource("8_v1blu")]
+position = Vector2(-240, -38)

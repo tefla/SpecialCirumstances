@@ -32,7 +32,3 @@ mouse_filter = 1
 
 [node name="OptionButton" type="OptionButton" parent="HBox"]
 layout_mode = 2
-item_count = 2
-popup/item_0/text = "Tree"
-popup/item_1/text = "Stick"
-popup/item_1/id = 1

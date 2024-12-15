@@ -12,12 +12,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6uul"]
 size = Vector2(28, 28)
 
-[node name="Unit" type="CharacterBody2D" groups=["selectable"]]
+[node name="Unit" type="CharacterBody2D" node_paths=PackedStringArray("components") groups=["selectable"]]
 editor_description = "Da Player!"
 collision_layer = 2
 input_pickable = true
 motion_mode = 1
 script = ExtResource("1_x564y")
+components = [NodePath("Components/CPUComponent"), NodePath("Components/MemoryComponent"), NodePath("Components/MotorComponent"), NodePath("Components/ScannerComponent"), NodePath("Components/MannipulatorComponent"), NodePath("Components/InventoryComponent")]
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
@@ -34,6 +35,7 @@ texture = ExtResource("2_nkeru")
 
 [node name="CPUComponent" type="Node2D" parent="Components"]
 script = ExtResource("3_rcme6")
+CLOCK_SPEED = 0
 
 [node name="MemoryComponent" type="Node2D" parent="Components"]
 script = ExtResource("4_7ygos")

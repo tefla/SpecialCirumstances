@@ -20,6 +20,12 @@ func _ready() -> void:
 func _actor_wait():
 	await get_tree().process_frame
 	populate_task_palette()
+	var root = ResourceLoader.load("user://tree.res")
+	if root is Task:
+		root.entity = entity
+		program_editor.root = root
+		program_editor.redraw()
+
 func _on_step_pressed() -> void:
 	program_editor.root.entity = entity
 	program_editor.root.start()
@@ -36,7 +42,7 @@ func _on_reset_pressed() -> void:
 	
 func populate_task_palette():
 	var tasks = []
-	for comp in entity.components.get_children():
+	for comp in entity.components:
 		comp.entity = entity
 		if comp.features & Component.ComponentFeatures.TASK_PROVIDER:
 			print("Generate TASK_PROVIDER for: %s" % [comp.get_class()])

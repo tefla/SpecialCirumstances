@@ -14,6 +14,7 @@ texture = ExtResource("2_jbxkc")
 offset_right = 71.0
 offset_bottom = 42.0
 size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("1_nuvm3")
 script = ExtResource("1_swrdt")
 
