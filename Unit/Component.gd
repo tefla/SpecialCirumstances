@@ -1,9 +1,10 @@
 extends Node2D
 class_name Component
 
-var entity: Entity
-func _ready() -> void:
-	entity = get_parent().get_parent()
+var entity: Entity :
+	get: return get_parent().get_parent()
+
+
 enum ComponentFeatures {
 	NONE = 0,
 	UI_PROVIDER = 1 << 0,

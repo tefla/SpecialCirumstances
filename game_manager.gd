@@ -30,11 +30,11 @@ func set_selection_mode(mode: SelectionMode):
 func set_selected(units: Array):
 	
 	for unit in selected:
-		if unit is Node2D:
+		if unit is Unit:
 			unit.selected = false
 	selected = units	
 	for unit in selected:
-		if unit is Node2D:
+		if unit is Unit:
 			unit.selected = true
 	selection_changed.emit(selected)	
 func deselect():

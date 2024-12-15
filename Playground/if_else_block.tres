@@ -21,6 +21,6 @@ settings_scene = ExtResource("7_p47dn")
 child_container_scene = ExtResource("1_kdf2a")
 is_leaf_task = false
 settings = SubResource("Resource_yhp6g")
-num_children = 2
+num_children = 4
 child_container_spacer_scene = ExtResource("2_0p0gk")
 show_child_spacer = true

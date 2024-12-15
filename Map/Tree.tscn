@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh7w2p2iryckw"]
+[gd_scene load_steps=8 format=3 uid="uid://bh7w2p2iryckw"]
 
-[ext_resource type="Script" path="res://Map/tree.gd" id="1_227ad"]
+[ext_resource type="Script" path="res://Unit/Entity.gd" id="1_6enkr"]
 [ext_resource type="Texture2D" uid="uid://bfgw05vp62ov7" path="res://Assets/kenny-assets/Default size/treeGreen_small.png" id="2_ebif6"]
+[ext_resource type="Script" path="res://Map/HealthComponent.gd" id="3_tddvt"]
+[ext_resource type="PackedScene" uid="uid://b8uylsopmxrso" path="res://Map/HealthBar/HealthBar.tscn" id="4_5mce2"]
+[ext_resource type="Script" path="res://Map/DamagableComponent.gd" id="4_uuat4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5vda0"]
 radius = 20.025
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_w4kix"]
+radius = 36.0555
+
 [node name="Tree" type="StaticBody2D" groups=["selectable"]]
-script = ExtResource("1_227ad")
+script = ExtResource("1_6enkr")
 metadata/type = "Tree"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,3 +24,31 @@ texture = ExtResource("2_ebif6")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 radius = 18.44
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="Health" type="Node2D" parent="Components" node_paths=PackedStringArray("health_bar")]
+script = ExtResource("3_tddvt")
+health_bar = NodePath("HealthBar")
+
+[node name="HealthBar" parent="Components/Health" instance=ExtResource("4_5mce2")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -17.5
+offset_top = -7.0
+offset_right = 17.5
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Damagable" type="Node2D" parent="Components" node_paths=PackedStringArray("area")]
+script = ExtResource("4_uuat4")
+area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="Components/Damagable"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Damagable/Area2D"]
+shape = SubResource("CircleShape2D_w4kix")

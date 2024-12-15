@@ -22,5 +22,7 @@ func on_selection_changed(units: Array):
 		var panels = unit.generate_panels()
 		for panel in panels:
 			%List.add_child(panel)
-		unit.populate_task_palette()
+		#var memComp = unit.get_component(MemoryComponent)
+		#
+		#unit.populate_task_palette()
 		

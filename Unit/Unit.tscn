@@ -27,6 +27,7 @@ polygon = PackedVector2Array(-24, 25, 24, 23, 24, -23, -25, -24)
 shape = SubResource("RectangleShape2D_e6uul")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
 texture = ExtResource("2_nkeru")
 
 [node name="Components" type="Node2D" parent="."]
