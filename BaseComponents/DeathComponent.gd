@@ -17,7 +17,8 @@ func death():
 	
 	# For now, just drop 3 sticks
 	for n in range(death_drop_count):
-		var inst = death_drop_scene.instantiate()
+		var inst: Node2D = death_drop_scene.instantiate()
+		inst.position = entity.position
 		var root = get_node("/root/Game")
 		if root:
 			root.add_child(inst)
