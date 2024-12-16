@@ -16,6 +16,7 @@ var tasks: Array[Task] = []
 func get_ui():
 	pass
 	
+func initialise(): pass
 
 func get_tasks() -> Array[Task]:
 	return tasks

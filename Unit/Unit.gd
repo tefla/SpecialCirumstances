@@ -10,7 +10,7 @@ const SPEED = 300.0
 #
 ## var components: Array[BaseComponent] = []
 #
-#var panels = []
+var panels = []
 var movement_speed: float = 200.0
 var movement_target_position: Vector2
 #@export var unit_name = "Unit"
@@ -21,19 +21,23 @@ func _ready():
 func actor_setup():
 	## Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
-
+	generate_panels()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if selected: 
 		modulate = Color.RED
 	else:
 		modulate = Color.WHITE 
-	
+
+func get_panels():
+	return panels
 func generate_panels():
-	var panels = []
+	panels = []
 	for comp in components:
 		if comp.features & Component.ComponentFeatures.UI_PROVIDER:
 			print("Generate UI for: %s" % [comp.get_class()])
 			panels.append(comp.get_ui())
-	return panels
+	
+	for comp in components:
+		comp.initialise()
 	

@@ -19,7 +19,7 @@ func on_selection_changed(units: Array):
 		var unit = units[0]
 		if unit is not Unit:
 			return 
-		var panels = unit.generate_panels()
+		var panels = unit.get_panels()
 		for panel in panels:
 			%List.add_child(panel)
 		#var memComp = unit.get_component(MemoryComponent)

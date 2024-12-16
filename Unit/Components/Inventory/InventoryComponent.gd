@@ -13,9 +13,18 @@ func get_ui():
 	ui.entity = entity
 	return ui
 
-var items: Array[InventoryItem]  = []
+
+var items: Array[InventoryItem]  = [
+	
+]
 var max_slots = 3
 
+func initialise():
+	pass
+	
+func default_items():
+	var item = preload("res://Items/Lazer/LazerInvItem.tres")
+	add_item(item)
 func add_item(item: InventoryItem) -> bool:
 	# Check if item already exists in inventory
 	for existing_item in items:
