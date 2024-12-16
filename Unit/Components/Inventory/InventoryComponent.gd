@@ -27,7 +27,7 @@ func add_item(item: InventoryItem) -> bool:
 
 	# If item not found and we have space, add a new item
 	if items.size() < max_slots:
-		items.append(item)
+		items.append(item.duplicate())
 		ui._redraw()
 		return true
 
