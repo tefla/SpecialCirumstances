@@ -38,15 +38,16 @@ health_bar = NodePath("HealthBar")
 root_node = NodePath("../..")
 
 [node name="HealthBar" parent="Components/Health" instance=ExtResource("4_5mce2")]
-anchors_preset = 7
+custom_minimum_size = Vector2(34, 7)
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -17.5
-offset_top = -7.0
-offset_right = 17.5
-offset_bottom = 0.0
+offset_left = -17.0
+offset_top = 20.0
+offset_right = 17.0
+offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 0
 
