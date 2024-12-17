@@ -19,12 +19,12 @@ func _ready() -> void:
 
 func _actor_wait():
 	await get_tree().process_frame
-	populate_task_palette()
-	var root = ResourceLoader.load("user://tree.res")
-	if root is Task:
-		root.entity = entity
-		program_editor.root = root
-		program_editor.redraw()
+	#populate_task_palette()
+	#var root = ResourceLoader.load("user://tree.res")
+	#if root is Task:
+		#root.entity = entity
+		#program_editor.root = root
+		#program_editor.redraw()
 
 func _on_step_pressed() -> void:
 	program_editor.root.entity = entity

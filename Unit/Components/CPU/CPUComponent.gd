@@ -5,7 +5,7 @@ class_name CPUComponent
 
 func _init() -> void:
 	features = ComponentFeatures.TASK_PROVIDER
-	tasks = [Sequence.new(), Repeat.new()]
+	#tasks = [Sequence.new(), Repeat.new()]
 
 func tick():
 	await get_tree().create_timer(CLOCK_SPEED).timeout

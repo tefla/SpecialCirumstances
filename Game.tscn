@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://eyjao2ky0fku"]
+[gd_scene load_steps=11 format=3 uid="uid://eyjao2ky0fku"]
 
 [ext_resource type="PackedScene" uid="uid://cr2bsr17fewrr" path="res://Unit/UI/InfoPanel.tscn" id="1_autge"]
 [ext_resource type="Script" path="res://Game.gd" id="1_mjcl4"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://i2uhbdpe21jo" path="res://Map/Rock.tscn" id="8_v1blu"]
 [ext_resource type="PackedScene" uid="uid://bh7w2p2iryckw" path="res://Map/Tree.tscn" id="10_3agf8"]
 
+[sub_resource type="Environment" id="Environment_y200v"]
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_488gv"]
 vertices = PackedVector2Array(2625.94, 987.93, -1774.35, 961.047, -1856.64, -1353.05, 2613.05, -1377.94)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
@@ -16,6 +21,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1867, -1363, 2623, -13
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_mjcl4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y200v")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, 4)
@@ -47,6 +55,7 @@ position = Vector2(-135, 155)
 navigation_polygon = SubResource("NavigationPolygon_488gv")
 
 [node name="Tree" parent="." instance=ExtResource("10_3agf8")]
+self_modulate = Color(2, 22, 2, 1)
 
 [node name="Tree2" parent="." instance=ExtResource("10_3agf8")]
 position = Vector2(-326, -134)

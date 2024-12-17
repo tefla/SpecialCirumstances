@@ -3,9 +3,9 @@ class_name ScannerComponent
 
 @onready var area = $Area2D
 @onready var scanner = $AnimationPlayer
-func _init() -> void:
-	features = ComponentFeatures.TASK_PROVIDER
-	tasks = [ScanForTask.new()]
+#func _init() -> void:
+	#features = ComponentFeatures.TASK_PROVIDER
+	#tasks = [ScanForTask.new()]
 func sort_nodes_by_distance(reference_point: Vector2, nodes: Array):
 	nodes.sort_custom(func(a, b): 
 		var dist_a = a.position.distance_to(reference_point)

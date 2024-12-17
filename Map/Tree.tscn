@@ -17,6 +17,7 @@ radius = 20.025
 radius = 36.0555
 
 [node name="Tree" type="Area2D" node_paths=PackedStringArray("components") groups=["selectable"]]
+self_modulate = Color(2, 2, 2, 1)
 script = ExtResource("1_rpc65")
 components = [NodePath("Components/Health"), NodePath("Components/Damagable"), NodePath("Components/DeathComponent"), NodePath("Components/ScannableComponent")]
 metadata/type = "Tree"
@@ -39,7 +40,7 @@ root_node = NodePath("../..")
 
 [node name="HealthBar" parent="Components/Health" instance=ExtResource("4_5mce2")]
 custom_minimum_size = Vector2(34, 7)
-anchors_preset = -1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5

@@ -1,8 +1,8 @@
 extends Component
 class_name ManipulatorComponent
-func _init() -> void:
-	features = ComponentFeatures.TASK_PROVIDER
-	tasks = [PickUpTask.new(), UseTask.new()]
+#func _init() -> void:
+	#features = ComponentFeatures.TASK_PROVIDER
+	#tasks = [PickUpTask.new(), UseTask.new()]
 	
 func _ready():
 	$Chopper/ChopperArea/CollisionShape2D.disabled = true

@@ -105,3 +105,4 @@ MouseModeArea={
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+viewport/hdr_2d=true

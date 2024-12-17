@@ -10,8 +10,17 @@ enum ComponentFeatures {
 	UI_PROVIDER = 1 << 0,
 	TASK_PROVIDER = 1 << 1
 }
-var features: ComponentFeatures = ComponentFeatures.NONE
-var tasks: Array[Task] = []
+@export_flags("UI Provider", "Task Provider") 
+var features = 0
+
+@export var tasks: Array[Task] = []
+func _ready():
+	## Make sure to not await during _ready.
+	actor_setup.call_deferred()
+
+func actor_setup():
+	## Wait for the first physics frame so the NavigationServer can sync.
+	await get_tree().physics_frame
 
 func get_ui():
 	pass

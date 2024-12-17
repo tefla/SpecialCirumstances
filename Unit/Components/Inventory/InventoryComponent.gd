@@ -6,8 +6,8 @@ signal item_added(item: InventoryItem)
 
 @onready var ui = preload("ui/Inventory.tscn").instantiate()
 
-func _init() -> void:
-	features = ComponentFeatures.UI_PROVIDER
+#func _init() -> void:
+	#features = ComponentFeatures.UI_PROVIDER
 
 func get_ui():
 	ui.entity = entity

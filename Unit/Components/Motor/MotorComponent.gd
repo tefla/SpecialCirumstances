@@ -4,18 +4,17 @@ extends Component
 enum {
 	MOVING, STOPPED
 }
-var movement_speed: float = 200.0
+@export var movement_speed: float = 200.0
 var movement_target_position: Vector2
 var movement_state = STOPPED
 signal nav_finished(target_reached: bool)
 
-func _init() -> void:
-	features = ComponentFeatures.TASK_PROVIDER
-	tasks = [MoveToTask.new()]
+#func _init() -> void:
+	#features = ComponentFeatures.TASK_PROVIDER
 
 
 #@export var unit_name = "Unit"
-@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+@export var navigation_agent: NavigationAgent2D
 
 func set_target(t: Vector2):
 	movement_target_position = t

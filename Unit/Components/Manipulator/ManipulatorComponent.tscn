@@ -1,13 +1,51 @@
-[gd_scene load_steps=8 format=3 uid="uid://canch3qcuo0i6"]
+[gd_scene load_steps=13 format=3 uid="uid://canch3qcuo0i6"]
 
 [ext_resource type="Script" path="res://Unit/Components/Manipulator/ManipulatorComponent.gd" id="1_rkpac"]
 [ext_resource type="Texture2D" uid="uid://bb0h6eqbmwhml" path="res://Assets/rect321.png" id="2_7i3l7"]
+[ext_resource type="Script" path="res://Tasks/Task.gd" id="2_cgpqk"]
+[ext_resource type="Script" path="res://Unit/Components/Manipulator/PickUp/PickUpTask.gd" id="3_ewvvb"]
+[ext_resource type="Script" path="res://Unit/Components/Manipulator/UseTask/UseTask.gd" id="4_j06bd"]
+
+[sub_resource type="Resource" id="Resource_l8bd0"]
+script = ExtResource("3_ewvvb")
+children = Array[ExtResource("2_cgpqk")]([])
+
+[sub_resource type="Resource" id="Resource_mxd3b"]
+script = ExtResource("4_j06bd")
+children = Array[ExtResource("2_cgpqk")]([])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyme7"]
 radius = 40.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3d4g0"]
 size = Vector2(55, 3)
+
+[sub_resource type="Animation" id="Animation_tjybu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chopper:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Chopper:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_c2daa"]
 resource_name = "chop"
@@ -49,33 +87,6 @@ tracks/2/keys = {
 "values": []
 }
 
-[sub_resource type="Animation" id="Animation_tjybu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Chopper:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Chopper:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kdg1u"]
 _data = {
 "RESET": SubResource("Animation_tjybu"),
@@ -84,6 +95,8 @@ _data = {
 
 [node name="MannipulatorComponent" type="Node2D"]
 script = ExtResource("1_rkpac")
+features = 2
+tasks = Array[ExtResource("2_cgpqk")]([SubResource("Resource_l8bd0"), SubResource("Resource_mxd3b")])
 
 [node name="Area2D" type="Area2D" parent="."]
 
