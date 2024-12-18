@@ -19,16 +19,15 @@ func on_selection_changed(units: Array):
 		var unit = units[0]
 		if unit is not Unit:
 			return 
-		if unit.panel:
-			var p: Control = unit.panel
-			
-			
-			unit.panel.visible=true
+		
 		#var panels = unit.panel
 		#for panel in panels:
 		
-		%List.add_child(unit.panel)
-		#var memComp = unit.get_component(MemoryComponent)
+		
+		var memComp: MemoryComponent = unit.get_component(MemoryComponent)
+		if memComp:
+			var inst = memComp.memoryUI.instantiate()
+			%List.add_child(inst)
 		#
 		#unit.populate_task_palette()
 		

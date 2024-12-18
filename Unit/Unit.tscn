@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cy30xxeibl4ms"]
+[gd_scene load_steps=23 format=3 uid="uid://cy30xxeibl4ms"]
 
 [ext_resource type="Script" path="res://Unit/Unit.gd" id="1_x564y"]
 [ext_resource type="Texture2D" uid="uid://dt163nr8xf3g1" path="res://Assets/kenny-assets/Default size/tankBody_blue.png" id="2_nkeru"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Tasks/Task.gd" id="4_b1cmp"]
 [ext_resource type="Script" path="res://Unit/Components/CPU/Repeat/RepeatTask.gd" id="5_3tnx7"]
 [ext_resource type="Script" path="res://Unit/Components/CPU/Sequence.gd" id="6_3ytlq"]
+[ext_resource type="PackedScene" uid="uid://c8al27qjqdg7s" path="res://Unit/Components/Memory/MemoryUI.tscn" id="8_kh2ta"]
 [ext_resource type="Script" path="res://Unit/Components/Motor/MoveTo/MoveToTask.gd" id="9_16r8y"]
 [ext_resource type="Script" path="res://Unit/Components/Scanner/ScanFor/ScanForTask.gd" id="11_5570m"]
 [ext_resource type="Script" path="res://Unit/Components/Manipulator/PickUp/PickUpTask.gd" id="13_yor6t"]
@@ -50,13 +51,12 @@ children = Array[ExtResource("4_b1cmp")]([])
 script = ExtResource("9_16r8y")
 children = Array[ExtResource("4_b1cmp")]([])
 
-[node name="Unit" type="CharacterBody2D" node_paths=PackedStringArray("panel", "components") groups=["selectable"]]
+[node name="Unit" type="CharacterBody2D" node_paths=PackedStringArray("components") groups=["selectable"]]
 editor_description = "Da Player!"
 collision_layer = 2
 input_pickable = true
 motion_mode = 1
 script = ExtResource("1_x564y")
-panel = NodePath("Components/HUD/Container")
 components = [NodePath("Components/MemoryComponent")]
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -80,6 +80,7 @@ tasks = Array[ExtResource("4_b1cmp")]([SubResource("Resource_vwbh1"), SubResourc
 
 [node name="MemoryComponent" type="Node2D" parent="Components"]
 script = ExtResource("4_7ygos")
+memoryUI = ExtResource("8_kh2ta")
 features = 3
 tasks = Array[ExtResource("4_b1cmp")]([SubResource("Resource_jextn"), SubResource("Resource_4x138"), SubResource("Resource_2oqjv"), SubResource("Resource_ueig5"), SubResource("Resource_aok3i")])
 
@@ -90,56 +91,6 @@ features = 2
 tasks = Array[ExtResource("4_b1cmp")]([SubResource("Resource_fe5hq")])
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Components/MotorComponent"]
-
-[node name="HUD" type="Node" parent="Components"]
-
-[node name="Container" type="VBoxContainer" parent="Components/HUD"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Components/HUD/Container"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Components/HUD/Container/HBoxContainer"]
-layout_mode = 2
-text = "Header
-"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Components/HUD/Container"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Components/HUD/Container/HBoxContainer2"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Components/HUD/Container/HBoxContainer2/VBoxContainer"]
-layout_mode = 2
-text = "Toolbox"
-
-[node name="Label2" type="PanelContainer" parent="Components/HUD/Container/HBoxContainer2"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Components/HUD/Container"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Components/HUD/Container/HBoxContainer3"]
-layout_mode = 2
-text = "Play"
-
-[node name="Label2" type="Label" parent="Components/HUD/Container/HBoxContainer3"]
-layout_mode = 2
-text = "pause"
-
-[node name="Label3" type="Label" parent="Components/HUD/Container/HBoxContainer3"]
-layout_mode = 2
-text = "step"
-
-[node name="Label4" type="Label" parent="Components/HUD/Container/HBoxContainer3"]
-layout_mode = 2
-text = "stop"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

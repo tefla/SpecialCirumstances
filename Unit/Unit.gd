@@ -4,8 +4,6 @@ class_name Unit
 var selected: bool = false
 const SPEED = 300.0
 @onready var destination: Vector2 = position
-@export var panel: Control
-
 #var bounce: Vector2 = Vector2.ZERO
 #
 #var is_inside = false

@@ -1,6 +1,8 @@
 extends Component
 class_name MemoryComponent
 
+@export var memoryUI: PackedScene
+
 func _ready() -> void:
 	#features = ComponentFeatures.UI_PROVIDER
 

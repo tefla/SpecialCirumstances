@@ -32,7 +32,6 @@ script = ExtResource("2_0hcwk")
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
 [node name="InfoPanel" parent="Camera2D/CanvasLayer" instance=ExtResource("1_autge")]
-visible = false
 
 [node name="Toolbar" parent="Camera2D/CanvasLayer" instance=ExtResource("2_5tslf")]
 visible = false
