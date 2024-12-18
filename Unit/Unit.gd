@@ -4,6 +4,8 @@ class_name Unit
 var selected: bool = false
 const SPEED = 300.0
 @onready var destination: Vector2 = position
+@export var panel: Control
+
 #var bounce: Vector2 = Vector2.ZERO
 #
 #var is_inside = false
@@ -27,14 +29,3 @@ func _process(delta: float) -> void:
 		modulate = Color.RED
 	else:
 		modulate = Color.WHITE 
-
-func get_panels():
-	var panels = []
-	for comp in components:
-		if comp.features & Component.ComponentFeatures.UI_PROVIDER:
-			print("Generate UI for: %s" % [comp.get_class()])
-			panels.append(comp.get_ui())
-	
-	for comp in components:
-		comp.initialise()
-	return panels

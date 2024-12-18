@@ -22,9 +22,7 @@ func actor_setup():
 	## Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
 
-func get_ui():
-	pass
-	
+
 func initialise(): pass
 
 func get_tasks() -> Array[Task]:
