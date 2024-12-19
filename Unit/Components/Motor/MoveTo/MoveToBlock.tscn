@@ -17,6 +17,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("1_nuvm3")
 script = ExtResource("1_swrdt")
+display_name = null
 
 [node name="MoveToTask" type="HBoxContainer" parent="."]
 layout_mode = 2

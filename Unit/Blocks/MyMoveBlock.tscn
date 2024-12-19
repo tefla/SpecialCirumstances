@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b50xe88p33hb0"]
+
+[ext_resource type="Script" path="res://Tasks/Task.gd" id="1_3082e"]
+
+[node name="MyMoveBlock" type="Node2D"]
+script = ExtResource("1_3082e")

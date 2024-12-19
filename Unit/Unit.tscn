@@ -1,51 +1,26 @@
-[gd_scene load_steps=23 format=3 uid="uid://cy30xxeibl4ms"]
+[gd_scene load_steps=13 format=3 uid="uid://cy30xxeibl4ms"]
 
 [ext_resource type="Script" path="res://Unit/Unit.gd" id="1_x564y"]
 [ext_resource type="Texture2D" uid="uid://dt163nr8xf3g1" path="res://Assets/kenny-assets/Default size/tankBody_blue.png" id="2_nkeru"]
 [ext_resource type="Script" path="res://Unit/Components/CPU/CPUComponent.gd" id="3_rcme6"]
 [ext_resource type="Script" path="res://Unit/Components/Memory/MemoryComponent.gd" id="4_7ygos"]
 [ext_resource type="Script" path="res://Tasks/Task.gd" id="4_b1cmp"]
-[ext_resource type="Script" path="res://Unit/Components/CPU/Repeat/RepeatTask.gd" id="5_3tnx7"]
-[ext_resource type="Script" path="res://Unit/Components/CPU/Sequence.gd" id="6_3ytlq"]
-[ext_resource type="PackedScene" uid="uid://c8al27qjqdg7s" path="res://Unit/Components/Memory/MemoryUI.tscn" id="8_kh2ta"]
 [ext_resource type="Script" path="res://Unit/Components/Motor/MoveTo/MoveToTask.gd" id="9_16r8y"]
-[ext_resource type="Script" path="res://Unit/Components/Scanner/ScanFor/ScanForTask.gd" id="11_5570m"]
-[ext_resource type="Script" path="res://Unit/Components/Manipulator/PickUp/PickUpTask.gd" id="13_yor6t"]
-[ext_resource type="Script" path="res://Unit/Components/Manipulator/UseTask/UseTask.gd" id="14_0r6w2"]
+[ext_resource type="PackedScene" uid="uid://ckkbq818ce10f" path="res://Unit/Components/Motor/MoveTo/MoveToBlock.tscn" id="12_hwnqd"]
 [ext_resource type="Script" path="res://Unit/Components/Motor/MotorComponent.gd" id="14_kr1k5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6uul"]
 size = Vector2(28, 28)
 
-[sub_resource type="Resource" id="Resource_vwbh1"]
-script = ExtResource("5_3tnx7")
-LIMIT = 5
-children = Array[ExtResource("4_b1cmp")]([])
-
-[sub_resource type="Resource" id="Resource_hg4dd"]
-script = ExtResource("6_3ytlq")
-children = Array[ExtResource("4_b1cmp")]([])
-
 [sub_resource type="Resource" id="Resource_jextn"]
 script = ExtResource("9_16r8y")
 children = Array[ExtResource("4_b1cmp")]([])
 
-[sub_resource type="Resource" id="Resource_4x138"]
-script = ExtResource("13_yor6t")
-children = Array[ExtResource("4_b1cmp")]([])
-
-[sub_resource type="Resource" id="Resource_2oqjv"]
-script = ExtResource("5_3tnx7")
-LIMIT = 5
-children = Array[ExtResource("4_b1cmp")]([])
-
-[sub_resource type="Resource" id="Resource_ueig5"]
-script = ExtResource("11_5570m")
-children = Array[ExtResource("4_b1cmp")]([])
-
-[sub_resource type="Resource" id="Resource_aok3i"]
-script = ExtResource("14_0r6w2")
-children = Array[ExtResource("4_b1cmp")]([])
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxgsh"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
 
 [sub_resource type="Resource" id="Resource_fe5hq"]
 script = ExtResource("9_16r8y")
@@ -76,23 +51,71 @@ texture = ExtResource("2_nkeru")
 script = ExtResource("3_rcme6")
 CLOCK_SPEED = 0
 features = 6
-tasks = Array[ExtResource("4_b1cmp")]([SubResource("Resource_vwbh1"), SubResource("Resource_hg4dd")])
 
-[node name="MemoryComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("memoryUI", "unit")]
+[node name="MemoryComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("unit")]
 script = ExtResource("4_7ygos")
-memoryUI = NodePath("CanvasLayer/MemoryUI")
 unit = NodePath("../..")
 features = 3
-tasks = Array[ExtResource("4_b1cmp")]([SubResource("Resource_jextn"), SubResource("Resource_4x138"), SubResource("Resource_2oqjv"), SubResource("Resource_ueig5"), SubResource("Resource_aok3i")])
+tasks = Array[ExtResource("4_b1cmp")]([SubResource("Resource_jextn")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Components/MemoryComponent"]
 
-[node name="MemoryUI" parent="Components/MemoryComponent/CanvasLayer" instance=ExtResource("8_kh2ta")]
-custom_minimum_size = Vector2(600, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="Components/MemoryComponent/CanvasLayer"]
 anchors_preset = 11
 anchor_left = 1.0
-offset_left = -177.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -54.0
 grow_horizontal = 0
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Toolkit"
+
+[node name="Palette" type="VBoxContainer" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Palette" instance=ExtResource("12_hwnqd")]
+layout_mode = 2
+display_name = "Move To"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Code Editor"
+
+[node name="PanelContainer" type="PanelContainer" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cxgsh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Run" type="Button" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Run"
+
+[node name="Stop" type="Button" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Stop"
+
+[node name="Step" type="Button" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Step"
+
+[node name="Reset" type="Button" parent="Components/MemoryComponent/CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Reset"
 
 [node name="MotorComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("navigation_agent")]
 script = ExtResource("14_kr1k5")

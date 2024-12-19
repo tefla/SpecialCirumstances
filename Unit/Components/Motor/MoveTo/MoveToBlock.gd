@@ -2,7 +2,10 @@
 extends BaseBlock
 class_name MoveToBlock
 
+@export var display_name: String
 
+func _ready() -> void:
+	%Name.text = display_name
 
 func set_task(task: Task):
 	_task = task

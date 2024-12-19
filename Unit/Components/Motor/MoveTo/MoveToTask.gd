@@ -1,15 +1,9 @@
 extends Task
 class_name MoveToTask
 
-func add_child(task: Task):
-	task.removed.connect(remove_child)
-
-	children.clear()
-	children.append(task)
 
 func _init() -> void:
 	name = "Move To:"
-	block = preload("MoveToBlock.tscn")
 
 func child_success():
 	if status != RUNNING:
@@ -25,10 +19,6 @@ func child_success():
 		fail()
 
 
-func get_block():
-	var _block =  super.get_block()
-	# Attach listeners
-	return _block
 
 func run():
 	if children.size() != 1:
