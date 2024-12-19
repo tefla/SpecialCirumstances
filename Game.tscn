@@ -1,9 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://eyjao2ky0fku"]
+[gd_scene load_steps=9 format=3 uid="uid://eyjao2ky0fku"]
 
-[ext_resource type="PackedScene" uid="uid://cr2bsr17fewrr" path="res://Unit/UI/InfoPanel.tscn" id="1_autge"]
 [ext_resource type="Script" path="res://Game.gd" id="1_mjcl4"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="2_0hcwk"]
-[ext_resource type="PackedScene" uid="uid://2exh5qya8ayq" path="res://Unit/UI/Toolbar.tscn" id="2_5tslf"]
 [ext_resource type="PackedScene" uid="uid://cy30xxeibl4ms" path="res://Unit/Unit.tscn" id="5_gj66s"]
 [ext_resource type="PackedScene" uid="uid://blijnoisdmsyu" path="res://Map/Stick.tscn" id="7_h20xx"]
 [ext_resource type="PackedScene" uid="uid://i2uhbdpe21jo" path="res://Map/Rock.tscn" id="8_v1blu"]
@@ -28,23 +26,6 @@ environment = SubResource("Environment_y200v")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, 4)
 script = ExtResource("2_0hcwk")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-
-[node name="InfoPanel" parent="Camera2D/CanvasLayer" instance=ExtResource("1_autge")]
-
-[node name="Toolbar" parent="Camera2D/CanvasLayer" instance=ExtResource("2_5tslf")]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -54.0
-offset_top = -24.0
-offset_right = 54.0
-grow_horizontal = 2
-grow_vertical = 0
 
 [node name="Unit" parent="." instance=ExtResource("5_gj66s")]
 position = Vector2(-135, 0)

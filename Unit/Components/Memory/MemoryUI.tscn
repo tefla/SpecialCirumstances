@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Unit/Components/Memory/MemoryUI.gd" id="1_5jxcf"]
 [ext_resource type="Script" path="res://Unit/Components/Memory/ProgramEditor/ProgramEditor.gd" id="2_faw13"]
 
-[node name="MemoryUI" type="VBoxContainer"]
+[node name="MemoryUI" type="VBoxContainer" node_paths=PackedStringArray("palette", "program_editor")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,6 +12,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_5jxcf")
+palette = NodePath("HBoxContainer/Palette")
+program_editor = NodePath("HBoxContainer/VBoxContainer/ProgramEditor")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

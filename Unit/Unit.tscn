@@ -78,11 +78,21 @@ CLOCK_SPEED = 0
 features = 6
 tasks = Array[ExtResource("4_b1cmp")]([SubResource("Resource_vwbh1"), SubResource("Resource_hg4dd")])
 
-[node name="MemoryComponent" type="Node2D" parent="Components"]
+[node name="MemoryComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("memoryUI", "unit")]
 script = ExtResource("4_7ygos")
-memoryUI = ExtResource("8_kh2ta")
+memoryUI = NodePath("CanvasLayer/MemoryUI")
+unit = NodePath("../..")
 features = 3
 tasks = Array[ExtResource("4_b1cmp")]([SubResource("Resource_jextn"), SubResource("Resource_4x138"), SubResource("Resource_2oqjv"), SubResource("Resource_ueig5"), SubResource("Resource_aok3i")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Components/MemoryComponent"]
+
+[node name="MemoryUI" parent="Components/MemoryComponent/CanvasLayer" instance=ExtResource("8_kh2ta")]
+custom_minimum_size = Vector2(600, 0)
+anchors_preset = 11
+anchor_left = 1.0
+offset_left = -177.0
+grow_horizontal = 0
 
 [node name="MotorComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("navigation_agent")]
 script = ExtResource("14_kr1k5")

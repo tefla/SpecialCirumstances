@@ -1,7 +1,8 @@
 extends VBoxContainer
 class_name MemoryUI
-@onready var palette = %Palette
-@onready var program_editor = %ProgramEditor
+@export var palette: BoxContainer
+
+@export var program_editor: Container
 var entity: Entity
 signal is_ready
 
