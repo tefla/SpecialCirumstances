@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://8si55x8qk7im"]
+
+[ext_resource type="Texture2D" uid="uid://lcl4jgd068c7" path="res://Assets/treeGreen_large.png" id="1_2cd20"]
+[ext_resource type="Script" path="res://Health.gd" id="2_wv5sg"]
+[ext_resource type="Script" path="res://Damagable.gd" id="3_w1yv4"]
+[ext_resource type="Script" path="res://Death.gd" id="4_wicmt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1uf0a"]
+radius = 30.0
+
+[node name="Tree" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2cd20")
+
+[node name="Health" type="Node2D" parent="." node_paths=PackedStringArray("health_bar", "root_node")]
+script = ExtResource("2_wv5sg")
+health_bar = NodePath("ProgressBar")
+root_node = NodePath("..")
+
+[node name="ProgressBar" type="ProgressBar" parent="Health"]
+custom_minimum_size = Vector2(60, 15)
+offset_left = -29.0
+offset_top = 24.0
+offset_right = 31.0
+offset_bottom = 51.0
+
+[node name="Damagable" type="Node2D" parent="." node_paths=PackedStringArray("area", "health")]
+script = ExtResource("3_w1yv4")
+area = NodePath("Area2D")
+health = NodePath("../Health")
+
+[node name="Area2D" type="Area2D" parent="Damagable"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damagable/Area2D"]
+shape = SubResource("CircleShape2D_1uf0a")
+
+[node name="Death" type="Node2D" parent="." node_paths=PackedStringArray("health", "root_node")]
+script = ExtResource("4_wicmt")
+health = NodePath("../Health")
+root_node = NodePath("..")

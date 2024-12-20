@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7lxx7h8sm5cs"]
+
+[ext_resource type="Script" path="res://unit_playground.gd" id="1_5tj26"]
+[ext_resource type="PackedScene" uid="uid://8si55x8qk7im" path="res://Tree/Tree.tscn" id="1_mvwu2"]
+[ext_resource type="PackedScene" uid="uid://du2egy7wh8ox0" path="res://Unit/Unit.tscn" id="2_tngf6"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_q8plq"]
+vertices = PackedVector2Array(8236.1, 5504.09, -4000.98, 5622.91, -4795.92, -2070.09, 8320.88, -2188.9)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4807, -2080, 8331, -2199, 8246, 5514, -4010, 5633)])
+
+[node name="UnitPlayground" type="Node2D" node_paths=PackedStringArray("unit")]
+script = ExtResource("1_5tj26")
+unit = NodePath("Unit")
+
+[node name="Tree" parent="." instance=ExtResource("1_mvwu2")]
+position = Vector2(278, 216)
+
+[node name="Tree2" parent="." instance=ExtResource("1_mvwu2")]
+position = Vector2(669, 274)
+
+[node name="Tree3" parent="." instance=ExtResource("1_mvwu2")]
+position = Vector2(83, 122)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_q8plq")
+
+[node name="Unit" parent="." instance=ExtResource("2_tngf6")]
+position = Vector2(373, 110)

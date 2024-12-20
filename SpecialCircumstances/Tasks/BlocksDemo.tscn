@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dkdb0n2v52qp4"]
 
 [ext_resource type="PackedScene" uid="uid://b5hj4c3fyono4" path="res://Tasks/ContainerTask.tscn" id="1_lttog"]
-[ext_resource type="Script" path="res://BlocksDemo.gd" id="1_rit6s"]
+[ext_resource type="Script" path="res://Tasks/BlocksDemo.gd" id="1_rit6s"]
 [ext_resource type="PackedScene" uid="uid://dnnuf3l6reb37" path="res://Tasks/Task.tscn" id="2_4s4k3"]
 [ext_resource type="Script" path="res://Tasks/Seq.gd" id="2_li1aw"]
 [ext_resource type="Script" path="res://Tasks/Success.gd" id="5_2omij"]
@@ -26,6 +26,15 @@ script = ExtResource("5_2omij")
 
 [node name="ContainerTask" parent="ContainerTask/ChildrenContainer/Children" index="2" instance=ExtResource("1_lttog")]
 layout_mode = 2
+script = ExtResource("2_li1aw")
+
+[node name="Task" parent="ContainerTask/ChildrenContainer/Children/ContainerTask/ChildrenContainer/Children" index="0" instance=ExtResource("2_4s4k3")]
+layout_mode = 2
+script = ExtResource("5_2omij")
+
+[node name="Task2" parent="ContainerTask/ChildrenContainer/Children/ContainerTask/ChildrenContainer/Children" index="1" instance=ExtResource("2_4s4k3")]
+layout_mode = 2
+script = ExtResource("5_2omij")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -40,3 +49,5 @@ text = "Run"
 [editable path="ContainerTask/ChildrenContainer/Children/Task"]
 [editable path="ContainerTask/ChildrenContainer/Children/Task2"]
 [editable path="ContainerTask/ChildrenContainer/Children/ContainerTask"]
+[editable path="ContainerTask/ChildrenContainer/Children/ContainerTask/ChildrenContainer/Children/Task"]
+[editable path="ContainerTask/ChildrenContainer/Children/ContainerTask/ChildrenContainer/Children/Task2"]
