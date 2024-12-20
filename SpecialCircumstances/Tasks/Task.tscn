@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnnuf3l6reb37"]
+
+[ext_resource type="Script" path="res://Tasks/Task.gd" id="1_1rd1k"]
+[ext_resource type="Texture2D" uid="uid://b1d62lkerc2or" path="res://Assets/blocks.svg" id="2_i7wpv"]
+[ext_resource type="PackedScene" uid="uid://27hujidena3j" path="res://Tasks/Status.tscn" id="3_k27ce"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rq7gb"]
+texture = ExtResource("2_i7wpv")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 17.0
+texture_margin_bottom = 17.0
+region_rect = Rect2(414, 1005, 155, 56)
+
+[node name="Task" type="VBoxContainer" node_paths=PackedStringArray("child_container")]
+offset_right = 57.0
+offset_bottom = 54.0
+script = ExtResource("1_1rd1k")
+child_container = NodePath("PanelContainer/HBoxContainer/ChildContainer")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rq7gb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Status" parent="PanelContainer/HBoxContainer" node_paths=PackedStringArray("task") instance=ExtResource("3_k27ce")]
+layout_mode = 2
+task = NodePath("../../..")
+
+[node name="Name" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Task Name
+"
+
+[node name="ChildContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2

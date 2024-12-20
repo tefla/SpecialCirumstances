@@ -1,21 +1,13 @@
-extends Node2D
+@tool
+extends Control
 class_name Task
 
-enum ResultType {
-	NONE,
-	ANY,
-	POSITION
-}
 
-var result_type: ResultType = ResultType.NONE
-signal removed(task: Task)
-
-@export var child_container: Container
-
+@export var child_container: BoxContainer
 
 
 # States
-enum {
+enum State {
 	FRESH,
 	RUNNING,
 	FAILED,
@@ -24,35 +16,38 @@ enum {
 }
 var control = null
 var tree = null
+signal status_changed(state)
 # var guard = null
-var status = FRESH
-var entity: Entity
-
-func get_task_name():
-	return name
-	
+var status: State = State.FRESH :
+	get : return status
+	set (x): 
+		status = x
+		status_changed.emit(status)
+	 
+func _ready() -> void:
+	get_parent().set_editable_instance(self, true)
 # Final methods
 func running():
-	status = RUNNING
+	status = State.RUNNING
 	if control != null:
 		control.child_running()
 
 func success():
 	print("success", name)
-	status = SUCCEEDED
+	status = State.SUCCEEDED
 	if control != null:
 		control.child_success()
 
 func fail():
 	print("fail", name)
-	status = FAILED
+	status = State.FAILED
 	if control != null:
 		control.child_fail()
 
 func cancel():
 	print("cancel", name)
-	if status == RUNNING:
-		status = CANCELLED
+	if status == State.RUNNING:
+		status = State.CANCELLED
 		# Cancel child tasks
 		for child in child_container.get_children():
 			child.cancel()
@@ -75,19 +70,12 @@ func child_running():
 # Non-final non-abstact methods
 func start():
 	print("starting task", name)
-	status = FRESH
+	status = State.FRESH
 	for child in child_container.get_children():
 		child.control = self
 		child.tree = self.tree
-		child.entity = entity
 		child.start()
 
 func reset():
 	cancel()
-	status = FRESH
-
-
-	
-	
-func wait() -> void:
-	await entity.get_component(CPUComponent).tick()
+	status = State.FRESH

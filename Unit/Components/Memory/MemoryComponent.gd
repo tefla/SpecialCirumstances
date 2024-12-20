@@ -1,7 +1,7 @@
 extends Component
 class_name MemoryComponent
 
-@export var memoryUI: MemoryUI
+@export var memoryUI: CanvasLayer
 @export var unit: Unit
 
 func _ready() -> void:

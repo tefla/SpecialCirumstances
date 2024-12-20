@@ -1,30 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy30xxeibl4ms"]
+[gd_scene load_steps=9 format=3 uid="uid://cy30xxeibl4ms"]
 
 [ext_resource type="Script" path="res://Unit/Unit.gd" id="1_x564y"]
 [ext_resource type="Texture2D" uid="uid://dt163nr8xf3g1" path="res://Assets/kenny-assets/Default size/tankBody_blue.png" id="2_nkeru"]
 [ext_resource type="Script" path="res://Unit/Components/CPU/CPUComponent.gd" id="3_rcme6"]
 [ext_resource type="Script" path="res://Unit/Components/Memory/MemoryComponent.gd" id="4_7ygos"]
-[ext_resource type="Script" path="res://Tasks/Task.gd" id="4_b1cmp"]
-[ext_resource type="Script" path="res://Unit/Components/Motor/MoveTo/MoveToTask.gd" id="9_16r8y"]
 [ext_resource type="PackedScene" uid="uid://ckkbq818ce10f" path="res://Unit/Components/Motor/MoveTo/MoveToBlock.tscn" id="12_hwnqd"]
 [ext_resource type="Script" path="res://Unit/Components/Motor/MotorComponent.gd" id="14_kr1k5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6uul"]
 size = Vector2(28, 28)
 
-[sub_resource type="Resource" id="Resource_jextn"]
-script = ExtResource("9_16r8y")
-children = Array[ExtResource("4_b1cmp")]([])
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxgsh"]
 content_margin_left = 16.0
 content_margin_top = 16.0
 content_margin_right = 16.0
 content_margin_bottom = 16.0
-
-[sub_resource type="Resource" id="Resource_fe5hq"]
-script = ExtResource("9_16r8y")
-children = Array[ExtResource("4_b1cmp")]([])
 
 [node name="Unit" type="CharacterBody2D" node_paths=PackedStringArray("components") groups=["selectable"]]
 editor_description = "Da Player!"
@@ -52,11 +42,11 @@ script = ExtResource("3_rcme6")
 CLOCK_SPEED = 0
 features = 6
 
-[node name="MemoryComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("unit")]
+[node name="MemoryComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("memoryUI", "unit")]
 script = ExtResource("4_7ygos")
+memoryUI = NodePath("CanvasLayer")
 unit = NodePath("../..")
 features = 3
-tasks = Array[ExtResource("4_b1cmp")]([SubResource("Resource_jextn")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Components/MemoryComponent"]
 
@@ -121,7 +111,6 @@ text = "Reset"
 script = ExtResource("14_kr1k5")
 navigation_agent = NodePath("NavigationAgent2D")
 features = 2
-tasks = Array[ExtResource("4_b1cmp")]([SubResource("Resource_fe5hq")])
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Components/MotorComponent"]
 
