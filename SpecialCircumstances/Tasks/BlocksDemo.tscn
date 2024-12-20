@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://b5hj4c3fyono4" path="res://Tasks/ContainerTask.tscn" id="1_lttog"]
 [ext_resource type="Script" path="res://Tasks/BlocksDemo.gd" id="1_rit6s"]
 [ext_resource type="PackedScene" uid="uid://dnnuf3l6reb37" path="res://Tasks/Task.tscn" id="2_4s4k3"]
-[ext_resource type="Script" path="res://Tasks/Seq.gd" id="2_li1aw"]
-[ext_resource type="Script" path="res://Tasks/Success.gd" id="5_2omij"]
+[ext_resource type="Script" path="res://Tasks/Types/Seq.gd" id="2_li1aw"]
+[ext_resource type="Script" path="res://Tasks/Types/Success.gd" id="5_2omij"]
 
 [node name="BlocksDemo" type="VBoxContainer" node_paths=PackedStringArray("root_task")]
 offset_right = 355.0

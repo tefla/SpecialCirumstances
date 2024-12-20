@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ivmrume2c0ov"]
+
+[ext_resource type="PackedScene" uid="uid://dnnuf3l6reb37" path="res://Tasks/Task.tscn" id="1_o20c2"]
+[ext_resource type="Script" path="res://Tasks/LaserTask.gd" id="2_nxtdp"]
+
+[node name="Task" instance=ExtResource("1_o20c2")]
+script = ExtResource("2_nxtdp")
+
+[node name="Name" parent="PanelContainer/HBoxContainer" index="1"]
+text = "Lazer!!!
+"

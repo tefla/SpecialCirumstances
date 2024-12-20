@@ -1,24 +1,78 @@
-[gd_scene load_steps=10 format=3 uid="uid://du2egy7wh8ox0"]
+[gd_scene load_steps=20 format=3 uid="uid://du2egy7wh8ox0"]
 
 [ext_resource type="Script" path="res://Unit/Unit.gd" id="1_3nu70"]
 [ext_resource type="Texture2D" uid="uid://12saswfqmfq0" path="res://Assets/tank_blue.png" id="1_5huqg"]
-[ext_resource type="Script" path="res://Movable.gd" id="2_uu8bx"]
+[ext_resource type="Script" path="res://Components/Movable.gd" id="2_uu8bx"]
 [ext_resource type="PackedScene" uid="uid://b5hj4c3fyono4" path="res://Tasks/ContainerTask.tscn" id="4_780wi"]
-[ext_resource type="Script" path="res://Tasks/Seq.gd" id="5_8v0q0"]
-[ext_resource type="PackedScene" uid="uid://dnnuf3l6reb37" path="res://Tasks/Task.tscn" id="5_h5pfi"]
-[ext_resource type="Script" path="res://Tasks/MoveTo.gd" id="7_c1vn8"]
+[ext_resource type="Script" path="res://Tasks/Types/Repeat.gd" id="5_thvmf"]
+[ext_resource type="PackedScene" uid="uid://dqabk3jw8jdes" path="res://Tasks/MoveTo.tscn" id="6_gqp6g"]
+[ext_resource type="PackedScene" uid="uid://bp7tknhrwom3a" path="res://Tasks/ScanFor.tscn" id="7_eh3n5"]
+[ext_resource type="Script" path="res://Unit/Scanner.gd" id="7_l4b4r"]
+[ext_resource type="PackedScene" uid="uid://ivmrume2c0ov" path="res://Tasks/LaserTask.tscn" id="8_mimvg"]
+[ext_resource type="Script" path="res://Unit/Laser.gd" id="9_a6822"]
+[ext_resource type="Texture2D" uid="uid://b1d62lkerc2or" path="res://Assets/blocks.svg" id="9_rc746"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xjd21"]
 radius = 23.84
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhn4j"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_q5si6"]
+radius = 2000.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xegh0"]
+atlas = ExtResource("9_rc746")
+region = Rect2(473.302, 188.208, 268.878, 13.9952)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4gea"]
+size = Vector2(145, 12)
+
+[sub_resource type="Animation" id="Animation_r5b2y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cp1ps"]
+resource_name = "phew_phew"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.174533]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dbnje"]
+_data = {
+"RESET": SubResource("Animation_r5b2y"),
+"phew_phew": SubResource("Animation_cp1ps")
+}
+
 [node name="Unit" type="CharacterBody2D" node_paths=PackedStringArray("movable", "root")]
 script = ExtResource("1_3nu70")
 movable = NodePath("Movable")
 root = NodePath("GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xjd21")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
 texture = ExtResource("1_5huqg")
 
 [node name="Movable" type="Node2D" parent="." node_paths=PackedStringArray("agent", "root")]
@@ -27,9 +81,8 @@ agent = NodePath("NavigationAgent2D")
 root = NodePath("..")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Movable"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xjd21")
+target_desired_distance = 60.0
+avoidance_enabled = true
 
 [node name="GUI" type="Node2D" parent="."]
 
@@ -55,19 +108,20 @@ size_flags_vertical = 3
 
 [node name="ContainerTask" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer" instance=ExtResource("4_780wi")]
 layout_mode = 2
-script = ExtResource("5_8v0q0")
+script = ExtResource("5_thvmf")
+num_repeats = 3
 
-[node name="Task" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="0" node_paths=PackedStringArray("movable") instance=ExtResource("5_h5pfi")]
+[node name="Task" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="0" node_paths=PackedStringArray("movable") instance=ExtResource("6_gqp6g")]
 layout_mode = 2
-script = ExtResource("7_c1vn8")
 movable = NodePath("../../../../../../../../../Movable")
-pos = Vector2(0, 0)
 
-[node name="Task2" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="1" node_paths=PackedStringArray("movable") instance=ExtResource("5_h5pfi")]
+[node name="Task" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task/PanelContainer/HBoxContainer/ChildContainer" index="0" node_paths=PackedStringArray("scanner") instance=ExtResource("7_eh3n5")]
 layout_mode = 2
-script = ExtResource("7_c1vn8")
-movable = NodePath("../../../../../../../../../Movable")
-pos = Vector2(300, 300)
+scanner = NodePath("../../../../../../../../../../../../../Scanner")
+
+[node name="Task2" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="1" node_paths=PackedStringArray("laser") instance=ExtResource("8_mimvg")]
+layout_mode = 2
+laser = NodePath("../../../../../../../../../Laser")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI/CanvasGroup/Panel/VBoxContainer"]
 layout_mode = 2
@@ -77,6 +131,40 @@ size_flags_horizontal = 4
 layout_mode = 2
 text = "Run
 "
+
+[node name="Scanner" type="Node2D" parent="." node_paths=PackedStringArray("area")]
+script = ExtResource("7_l4b4r")
+area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="Scanner"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scanner/Area2D"]
+shape = SubResource("CircleShape2D_q5si6")
+
+[node name="Laser" type="Node2D" parent="." node_paths=PackedStringArray("area", "colShape", "anim")]
+visible = false
+script = ExtResource("9_a6822")
+area = NodePath("Area2D")
+colShape = NodePath("Area2D/CollisionShape2D")
+anim = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="Laser"]
+position = Vector2(9.95149, 0)
+scale = Vector2(0.526119, 1)
+texture = SubResource("AtlasTexture_xegh0")
+offset = Vector2(155, 0)
+
+[node name="Area2D" type="Area2D" parent="Laser"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/Area2D"]
+position = Vector2(90.5, 0)
+shape = SubResource("RectangleShape2D_q4gea")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Laser"]
+libraries = {
+"": SubResource("AnimationLibrary_dbnje")
+}
 
 [connection signal="pressed" from="GUI/CanvasGroup/Panel/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 

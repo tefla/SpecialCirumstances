@@ -16,6 +16,9 @@ enum State {
 }
 var control = null
 var tree = null
+
+var result = null
+
 signal status_changed(state)
 # var guard = null
 var status: State = State.FRESH :

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp7tknhrwom3a"]
+
+[ext_resource type="PackedScene" uid="uid://dnnuf3l6reb37" path="res://Tasks/Task.tscn" id="1_8xq4y"]
+[ext_resource type="Script" path="res://Tasks/ScanFor.gd" id="2_pyyow"]
+[ext_resource type="Script" path="res://Tasks/ScanForTypeOption.gd" id="3_yvxov"]
+
+[node name="Task" instance=ExtResource("1_8xq4y")]
+script = ExtResource("2_pyyow")
+
+[node name="Name" parent="PanelContainer/HBoxContainer" index="1"]
+text = "Scan For"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/HBoxContainer" index="2" node_paths=PackedStringArray("task")]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Tree"
+popup/item_1/text = "Stick"
+popup/item_1/id = 1
+script = ExtResource("3_yvxov")
+task = NodePath("../../..")
+
+[connection signal="item_selected" from="PanelContainer/HBoxContainer/OptionButton" to="PanelContainer/HBoxContainer/OptionButton" method="_on_item_selected"]
