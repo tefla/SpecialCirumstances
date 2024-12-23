@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://Tasks/MoveTo.gd" id="2_k5v82"]
 
 [node name="Task" instance=ExtResource("1_b57rx")]
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource("2_k5v82")
 
 [node name="Name" parent="PanelContainer/HBoxContainer" index="1"]

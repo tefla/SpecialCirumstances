@@ -74,13 +74,24 @@ num_repeats = 3
 layout_mode = 2
 movable = NodePath("../../../../../../../../../Movable")
 
+[node name="PanelContainer" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task" index="0"]
+mouse_filter = 0
+
+[node name="Status" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task/PanelContainer/HBoxContainer" index="0"]
+mouse_filter = 0
+
 [node name="Task" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task/PanelContainer/HBoxContainer/ChildContainer" index="0" node_paths=PackedStringArray("scanner") instance=ExtResource("7_eh3n5")]
 layout_mode = 2
 scanner = NodePath("../../../../../../../../../../../../../Scanner")
 
-[node name="Task2" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="1" node_paths=PackedStringArray("laser") instance=ExtResource("8_mimvg")]
+[node name="Task2" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="1" instance=ExtResource("8_mimvg")]
 layout_mode = 2
-laser = NodePath("")
+
+[node name="PanelContainer" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task2" index="0"]
+mouse_filter = 0
+
+[node name="Status" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task2/PanelContainer/HBoxContainer" index="0"]
+mouse_filter = 0
 
 [node name="Task3" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="2" instance=ExtResource("9_1pob8")]
 layout_mode = 2
