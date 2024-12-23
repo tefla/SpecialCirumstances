@@ -11,5 +11,5 @@ config_version=5
 [application]
 
 config/name="SpecialCircumstances"
-run/main_scene="res://Unit/Manipulator.tscn"
+run/main_scene="res://Unit/Manipulator/Manipulator.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")

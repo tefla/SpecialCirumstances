@@ -1,8 +1,8 @@
 extends Node2D
 
 # Lengths of the poles
-@export var pole1_length: float = 270.0
-@export var pole2_length: float = 270.0
+@export var pole1_length: float = 260.0
+@export var pole2_length: float = 260.0
 
 # Nodes
 @onready var pole1 = $Pole1
@@ -11,7 +11,7 @@ extends Node2D
 
 func _process(delta: float):
 	# Get the target position from the mouse or other logic
-	var target_position = get_local_mouse_position()
+	var target_position = get_global_mouse_position()
 	calculate_ik(target_position)
 
 func calculate_ik(target_position: Vector2):
@@ -42,9 +42,10 @@ func calculate_ik(target_position: Vector2):
 	var beta = acos(clamp(cos_beta, -1.0, 1.0))
 	angle1 = alpha - beta
 
-	# Apply rotations
+	# Apply the angles
 	pole1.rotation = angle1
-	pole2.rotation = angle2
+	pole2.rotation = angle2  # Directly set the second pole's rotation
+
 	update_grabber_position()
 
 func update_grabber_position():

@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmfudvwfq303d"]
+
+[ext_resource type="Script" path="res://Unit/Laser.gd" id="1_xkenf"]
+[ext_resource type="Texture2D" uid="uid://b1d62lkerc2or" path="res://Assets/blocks.svg" id="2_k4ooe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xegh0"]
+atlas = ExtResource("2_k4ooe")
+region = Rect2(473.302, 188.208, 268.878, 13.9952)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4gea"]
+size = Vector2(145, 12)
+
+[sub_resource type="Animation" id="Animation_r5b2y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cp1ps"]
+resource_name = "phew_phew"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.174533]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dbnje"]
+_data = {
+"RESET": SubResource("Animation_r5b2y"),
+"phew_phew": SubResource("Animation_cp1ps")
+}
+
+[node name="Laser" type="Node2D" node_paths=PackedStringArray("area", "colShape", "anim")]
+visible = false
+script = ExtResource("1_xkenf")
+area = NodePath("Area2D")
+colShape = NodePath("Area2D/CollisionShape2D")
+anim = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.95149, 0)
+scale = Vector2(0.526119, 1)
+texture = SubResource("AtlasTexture_xegh0")
+offset = Vector2(155, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(90.5, 0)
+shape = SubResource("RectangleShape2D_q4gea")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dbnje")
+}

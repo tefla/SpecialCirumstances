@@ -3,4 +3,4 @@ class_name Item
 
 
 @export var texture: Texture2D
-@export var count = 1
+@export var type: String
