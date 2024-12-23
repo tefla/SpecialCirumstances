@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://8si55x8qk7im"]
+[gd_scene load_steps=9 format=3 uid="uid://8si55x8qk7im"]
 
 [ext_resource type="Texture2D" uid="uid://lcl4jgd068c7" path="res://Assets/treeGreen_large.png" id="1_2cd20"]
 [ext_resource type="Script" path="res://Components/Health.gd" id="2_wv5sg"]
 [ext_resource type="Script" path="res://Components/Damagable.gd" id="3_w1yv4"]
-[ext_resource type="Script" path="res://Components/Scannable.gd" id="4_spjim"]
 [ext_resource type="Script" path="res://Components/Areas/DamagableArea.gd" id="4_voy4t"]
 [ext_resource type="Script" path="res://Components/Death.gd" id="4_wicmt"]
 [ext_resource type="Script" path="res://Components/Areas/ScannableArea.gd" id="6_s0isl"]
@@ -50,9 +49,10 @@ root_node = NodePath("..")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 radius = 40.0
+affect_navigation_mesh = true
+carve_navigation_mesh = true
 
 [node name="Scannable" type="Node2D" parent="."]
-script = ExtResource("4_spjim")
 
 [node name="Area2D" type="Area2D" parent="Scannable" node_paths=PackedStringArray("root")]
 script = ExtResource("6_s0isl")

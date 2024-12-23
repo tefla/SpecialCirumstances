@@ -1,16 +1,19 @@
-[gd_scene load_steps=20 format=3 uid="uid://du2egy7wh8ox0"]
+[gd_scene load_steps=23 format=3 uid="uid://du2egy7wh8ox0"]
 
 [ext_resource type="Script" path="res://Unit/Unit.gd" id="1_3nu70"]
 [ext_resource type="Texture2D" uid="uid://12saswfqmfq0" path="res://Assets/tank_blue.png" id="1_5huqg"]
 [ext_resource type="Script" path="res://Components/Movable.gd" id="2_uu8bx"]
 [ext_resource type="PackedScene" uid="uid://b5hj4c3fyono4" path="res://Tasks/ContainerTask.tscn" id="4_780wi"]
 [ext_resource type="Script" path="res://Tasks/Types/Repeat.gd" id="5_thvmf"]
-[ext_resource type="PackedScene" uid="uid://dqabk3jw8jdes" path="res://Tasks/MoveTo.tscn" id="6_gqp6g"]
-[ext_resource type="PackedScene" uid="uid://bp7tknhrwom3a" path="res://Tasks/ScanFor.tscn" id="7_eh3n5"]
+[ext_resource type="PackedScene" uid="uid://blp8i1dna4340" path="res://Tasks/MoveTo.tscn" id="6_gqp6g"]
+[ext_resource type="PackedScene" uid="uid://c0e760flkcofy" path="res://Tasks/ScanFor.tscn" id="7_eh3n5"]
 [ext_resource type="Script" path="res://Unit/Scanner.gd" id="7_l4b4r"]
-[ext_resource type="PackedScene" uid="uid://ivmrume2c0ov" path="res://Tasks/LaserTask.tscn" id="8_mimvg"]
+[ext_resource type="PackedScene" path="res://Tasks/LaserTask.tscn" id="8_mimvg"]
+[ext_resource type="PackedScene" uid="uid://f3la1dwxx4sb" path="res://Tasks/Pickup.tscn" id="9_1pob8"]
 [ext_resource type="Script" path="res://Unit/Laser.gd" id="9_a6822"]
 [ext_resource type="Texture2D" uid="uid://b1d62lkerc2or" path="res://Assets/blocks.svg" id="9_rc746"]
+[ext_resource type="PackedScene" uid="uid://cmh774pja8rjt" path="res://Inventory/InventoryItem.tscn" id="10_lea80"]
+[ext_resource type="Script" path="res://Unit/Manipulator.gd" id="14_0uscs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xjd21"]
 radius = 23.84
@@ -123,6 +126,9 @@ scanner = NodePath("../../../../../../../../../../../../../Scanner")
 layout_mode = 2
 laser = NodePath("../../../../../../../../../Laser")
 
+[node name="Task3" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="2" instance=ExtResource("9_1pob8")]
+layout_mode = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI/CanvasGroup/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -131,6 +137,25 @@ size_flags_horizontal = 4
 layout_mode = 2
 text = "Run
 "
+
+[node name="Inventory" type="HBoxContainer" parent="GUI/CanvasGroup/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Item" parent="GUI/CanvasGroup/Panel/VBoxContainer/Inventory" instance=ExtResource("10_lea80")]
+layout_mode = 2
+
+[node name="Item2" parent="GUI/CanvasGroup/Panel/VBoxContainer/Inventory" instance=ExtResource("10_lea80")]
+layout_mode = 2
+
+[node name="Item3" parent="GUI/CanvasGroup/Panel/VBoxContainer/Inventory" instance=ExtResource("10_lea80")]
+layout_mode = 2
+
+[node name="Item4" parent="GUI/CanvasGroup/Panel/VBoxContainer/Inventory" instance=ExtResource("10_lea80")]
+layout_mode = 2
+
+[node name="Item5" parent="GUI/CanvasGroup/Panel/VBoxContainer/Inventory" instance=ExtResource("10_lea80")]
+layout_mode = 2
 
 [node name="Scanner" type="Node2D" parent="." node_paths=PackedStringArray("area")]
 script = ExtResource("7_l4b4r")
@@ -165,6 +190,9 @@ disabled = true
 libraries = {
 "": SubResource("AnimationLibrary_dbnje")
 }
+
+[node name="Manipulator" type="Node2D" parent="."]
+script = ExtResource("14_0uscs")
 
 [connection signal="pressed" from="GUI/CanvasGroup/Panel/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 

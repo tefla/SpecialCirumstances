@@ -33,7 +33,6 @@ task = NodePath("../../..")
 
 [node name="Name" type="Label" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
-text = "Base Task Name"
 
 [node name="ChildContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
