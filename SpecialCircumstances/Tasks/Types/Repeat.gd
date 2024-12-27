@@ -15,7 +15,7 @@ func child_success():
 	current_child += 1
 	if current_child >= children.size():
 		current_child = 0
-		if count < num_repeats:
+		if not count >= num_repeats:
 			count += 1
 			children[current_child].run()
 		else:
