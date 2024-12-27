@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7lxx7h8sm5cs"]
+[gd_scene load_steps=6 format=3 uid="uid://biuotiubnu8vk"]
 
 [ext_resource type="Script" path="res://unit_playground.gd" id="1_5tj26"]
 [ext_resource type="PackedScene" uid="uid://8si55x8qk7im" path="res://Tree/Tree.tscn" id="1_mvwu2"]
 [ext_resource type="PackedScene" uid="uid://du2egy7wh8ox0" path="res://Unit/Unit.tscn" id="2_tngf6"]
+[ext_resource type="PackedScene" uid="uid://cx5jx1ix6pkyi" path="res://Branches/Branch.tscn" id="4_s6uau"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_q8plq"]
 vertices = PackedVector2Array(8236.1, 5504.09, -4000.98, 5622.91, -4795.92, -2070.09, 8320.88, -2188.9)
@@ -28,3 +29,12 @@ navigation_polygon = SubResource("NavigationPolygon_q8plq")
 
 [node name="Unit" parent="." instance=ExtResource("2_tngf6")]
 position = Vector2(373, 110)
+
+[node name="Branch" parent="." instance=ExtResource("4_s6uau")]
+position = Vector2(410, 264)
+
+[node name="Branch2" parent="." instance=ExtResource("4_s6uau")]
+position = Vector2(118, 294)
+
+[node name="Branch3" parent="." instance=ExtResource("4_s6uau")]
+position = Vector2(176, 72)

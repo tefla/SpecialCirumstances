@@ -12,7 +12,7 @@ func area_entered(other_area):
 		
 func _ready() -> void:
 	area.area_entered.connect(area_entered)
-	
+	visible = false
 func activate():
 	colShape.set_deferred("disabled", false)
 	visible = true

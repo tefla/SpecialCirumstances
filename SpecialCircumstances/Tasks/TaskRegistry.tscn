@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://dclokx2yuyymb"]
+
+[ext_resource type="Script" path="res://Tasks/TaskRegistry.gd" id="1_4y3dw"]
+[ext_resource type="PackedScene" uid="uid://blp8i1dna4340" path="res://Tasks/MoveTo.tscn" id="2_5r0lc"]
+[ext_resource type="Script" path="res://Components/Draggable.gd" id="2_77ssq"]
+[ext_resource type="PackedScene" uid="uid://f3la1dwxx4sb" path="res://Tasks/Pickup.tscn" id="3_iihgw"]
+[ext_resource type="PackedScene" uid="uid://c0e760flkcofy" path="res://Tasks/ScanFor.tscn" id="4_07jej"]
+[ext_resource type="PackedScene" uid="uid://b5hj4c3fyono4" path="res://Tasks/ContainerTask.tscn" id="5_lijc3"]
+
+[node name="TaskRegistry" type="PanelContainer"]
+script = ExtResource("1_4y3dw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Container" type="PanelContainer" parent="VBoxContainer" node_paths=PackedStringArray("root")]
+layout_mode = 2
+script = ExtResource("2_77ssq")
+root = NodePath("Task")
+
+[node name="Task" parent="VBoxContainer/Container" instance=ExtResource("2_5r0lc")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" node_paths=PackedStringArray("root")]
+layout_mode = 2
+script = ExtResource("2_77ssq")
+root = NodePath("Task2")
+
+[node name="Task2" parent="VBoxContainer/PanelContainer" instance=ExtResource("3_iihgw")]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer" node_paths=PackedStringArray("root")]
+layout_mode = 2
+script = ExtResource("2_77ssq")
+root = NodePath("Task3")
+
+[node name="Task3" parent="VBoxContainer/PanelContainer2" instance=ExtResource("4_07jej")]
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer" node_paths=PackedStringArray("root")]
+layout_mode = 2
+script = ExtResource("2_77ssq")
+root = NodePath("ContainerTask")
+
+[node name="ContainerTask" parent="VBoxContainer/PanelContainer3" instance=ExtResource("5_lijc3")]
+layout_mode = 2
+
+[editable path="VBoxContainer/PanelContainer3/ContainerTask"]

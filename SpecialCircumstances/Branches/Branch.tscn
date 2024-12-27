@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://cx5jx1ix6pkyi"]
+
+[ext_resource type="Script" path="res://Components/Scannable.gd" id="1_mxjtr"]
+[ext_resource type="Script" path="res://Components/Areas/ScannableArea.gd" id="2_p03fg"]
+[ext_resource type="Texture2D" uid="uid://bg0dqijfo1c1y" path="res://Assets/treeGreen_twigs.png" id="3_vvjjm"]
+[ext_resource type="Script" path="res://Components/Pickupable.gd" id="4_30mhy"]
+[ext_resource type="Script" path="res://Components/Areas/PickupableArea.gd" id="5_6qkvx"]
+[ext_resource type="Resource" uid="uid://dxsoyfx3b08f2" path="res://Branches/Branch.tres" id="5_qaxwh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m3xd3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jf3tr"]
+radius = 42.0
+
+[node name="Branch" type="Node2D"]
+
+[node name="ScannableComponent" type="Node2D" parent="."]
+script = ExtResource("1_mxjtr")
+
+[node name="ScannableArea" type="Area2D" parent="ScannableComponent" node_paths=PackedStringArray("root")]
+script = ExtResource("2_p03fg")
+root = NodePath("../..")
+type = "Stick"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScannableComponent/ScannableArea"]
+shape = SubResource("CircleShape2D_m3xd3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_vvjjm")
+
+[node name="PickupableComponent" type="Node2D" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("4_30mhy")
+item = ExtResource("5_qaxwh")
+root = NodePath("..")
+
+[node name="PickupableArea" type="Area2D" parent="PickupableComponent" node_paths=PackedStringArray("pickable")]
+script = ExtResource("5_6qkvx")
+pickable = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupableComponent/PickupableArea"]
+shape = SubResource("CircleShape2D_jf3tr")

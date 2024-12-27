@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5hj4c3fyono4"]
+[gd_scene load_steps=8 format=3 uid="uid://b5hj4c3fyono4"]
 
 [ext_resource type="Script" path="res://Tasks/Types/Task.gd" id="1_xh0om"]
 [ext_resource type="Texture2D" uid="uid://b1d62lkerc2or" path="res://Assets/blocks.svg" id="2_otegi"]
 [ext_resource type="PackedScene" uid="uid://27hujidena3j" path="res://Tasks/Status.tscn" id="3_qqarf"]
+[ext_resource type="Script" path="res://Components/DropZone.gd" id="4_5ytik"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8y0dx"]
 content_margin_left = 18.0
@@ -38,6 +39,7 @@ child_container = NodePath("ChildrenContainer/Children")
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_8y0dx")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Header"]
@@ -55,16 +57,20 @@ text = "Task Namesdfsdfsdfsdfsdfsdfsf"
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_dsqfk")
 
 [node name="Children" type="VBoxContainer" parent="ChildrenContainer"]
+custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
+script = ExtResource("4_5ytik")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(81, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_3aglj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]

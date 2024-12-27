@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkdb0n2v52qp4"]
+[gd_scene load_steps=6 format=3 uid="uid://dux7g53ip6i8y"]
 
 [ext_resource type="PackedScene" uid="uid://b5hj4c3fyono4" path="res://Tasks/ContainerTask.tscn" id="1_lttog"]
 [ext_resource type="Script" path="res://Tasks/BlocksDemo.gd" id="1_rit6s"]

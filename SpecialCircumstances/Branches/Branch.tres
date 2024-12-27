@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dxsoyfx3b08f2"]
+
+[ext_resource type="Script" path="res://Inventory/Item.gd" id="1_pie3w"]
+[ext_resource type="Texture2D" uid="uid://bg0dqijfo1c1y" path="res://Assets/treeGreen_twigs.png" id="2_np5yv"]
+
+[resource]
+script = ExtResource("1_pie3w")
+texture = ExtResource("2_np5yv")
+type = "Stick"
