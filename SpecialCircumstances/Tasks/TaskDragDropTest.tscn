@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgfqlly5sene1"]
 
-[ext_resource type="PackedScene" uid="uid://dclokx2yuyymb" path="res://Tasks/TaskRegistry.tscn" id="1_jgghv"]
-[ext_resource type="Script" path="res://Tasks/Types/Seq.gd" id="2_ongvh"]
-[ext_resource type="Script" path="res://Components/DropZone.gd" id="3_aluug"]
+[ext_resource type="PackedScene" uid="uid://dclokx2yuyymb" path="res://Tasks/TaskRegistry.tscn" id="1_llmuu"]
+[ext_resource type="Script" path="res://Tasks/Types/Seq.gd" id="2_axuwq"]
+[ext_resource type="Script" path="res://Components/DropZone.gd" id="3_v48gu"]
 
 [node name="InventoryPlayground" type="PanelContainer"]
 anchors_preset = 15
@@ -17,7 +17,7 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="TaskRegistry" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_jgghv")]
+[node name="TaskRegistry" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_llmuu")]
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
@@ -26,7 +26,7 @@ size_flags_horizontal = 3
 
 [node name="Sequence" type="Control" parent="VBoxContainer/HBoxContainer/PanelContainer" node_paths=PackedStringArray("child_container")]
 layout_mode = 2
-script = ExtResource("2_ongvh")
+script = ExtResource("2_axuwq")
 child_container = NodePath("VBoxContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/Sequence"]
@@ -36,4 +36,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_aluug")
+script = ExtResource("3_v48gu")

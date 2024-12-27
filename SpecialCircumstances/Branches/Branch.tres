@@ -6,3 +6,4 @@
 [resource]
 script = ExtResource("1_pie3w")
 texture = ExtResource("2_np5yv")
+type = "Stick"

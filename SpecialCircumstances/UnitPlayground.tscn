@@ -32,3 +32,9 @@ position = Vector2(373, 110)
 
 [node name="Branch" parent="." instance=ExtResource("4_s6uau")]
 position = Vector2(410, 264)
+
+[node name="Branch2" parent="." instance=ExtResource("4_s6uau")]
+position = Vector2(118, 294)
+
+[node name="Branch3" parent="." instance=ExtResource("4_s6uau")]
+position = Vector2(176, 72)

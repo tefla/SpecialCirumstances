@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://du2egy7wh8ox0"]
+[gd_scene load_steps=18 format=3 uid="uid://du2egy7wh8ox0"]
 
 [ext_resource type="Script" path="res://Unit/Unit.gd" id="1_3nu70"]
 [ext_resource type="Texture2D" uid="uid://12saswfqmfq0" path="res://Assets/tank_blue.png" id="1_5huqg"]
@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://blp8i1dna4340" path="res://Tasks/MoveTo.tscn" id="6_gqp6g"]
 [ext_resource type="PackedScene" uid="uid://c0e760flkcofy" path="res://Tasks/ScanFor.tscn" id="7_eh3n5"]
 [ext_resource type="Script" path="res://Unit/Scanner.gd" id="7_l4b4r"]
-[ext_resource type="PackedScene" uid="uid://ivmrume2c0ov" path="res://Tasks/LaserTask.tscn" id="8_mimvg"]
+[ext_resource type="PackedScene" path="res://Tasks/LaserTask.tscn" id="8_mimvg"]
 [ext_resource type="PackedScene" uid="uid://f3la1dwxx4sb" path="res://Tasks/Pickup.tscn" id="9_1pob8"]
-[ext_resource type="PackedScene" uid="uid://cmh774pja8rjt" path="res://Inventory/InventoryItem.tscn" id="10_lea80"]
+[ext_resource type="PackedScene" uid="uid://behs1jdsrjq5v" path="res://Inventory/Inventory.tscn" id="10_k14ao"]
 [ext_resource type="PackedScene" uid="uid://cmfudvwfq303d" path="res://Unit/Laser.tscn" id="12_cwv0g"]
 [ext_resource type="Script" path="res://Unit/Manipulator.gd" id="14_0uscs"]
 
@@ -21,6 +21,9 @@ radius = 23.84
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q5si6"]
 radius = 2000.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ly7v"]
+size = Vector2(78, 43)
 
 [node name="Unit" type="CharacterBody2D" node_paths=PackedStringArray("movable", "root")]
 script = ExtResource("1_3nu70")
@@ -84,8 +87,9 @@ mouse_filter = 0
 layout_mode = 2
 scanner = NodePath("../../../../../../../../../../../../../Scanner")
 
-[node name="Task2" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="1" instance=ExtResource("8_mimvg")]
+[node name="Task2" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="1" node_paths=PackedStringArray("laser") instance=ExtResource("8_mimvg")]
 layout_mode = 2
+laser = NodePath("../../../../../../../../../Laser")
 
 [node name="PanelContainer" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task2" index="0"]
 mouse_filter = 0
@@ -93,8 +97,9 @@ mouse_filter = 0
 [node name="Status" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task2/PanelContainer/HBoxContainer" index="0"]
 mouse_filter = 0
 
-[node name="Task3" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="2" instance=ExtResource("9_1pob8")]
+[node name="Task3" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="2" node_paths=PackedStringArray("manipulator") instance=ExtResource("9_1pob8")]
 layout_mode = 2
+manipulator = NodePath("../../../../../../../../../Manipulator")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI/CanvasGroup/Panel/VBoxContainer"]
 layout_mode = 2
@@ -105,23 +110,7 @@ layout_mode = 2
 text = "Run
 "
 
-[node name="Inventory" type="HBoxContainer" parent="GUI/CanvasGroup/Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Item" parent="GUI/CanvasGroup/Panel/VBoxContainer/Inventory" instance=ExtResource("10_lea80")]
-layout_mode = 2
-
-[node name="Item2" parent="GUI/CanvasGroup/Panel/VBoxContainer/Inventory" instance=ExtResource("10_lea80")]
-layout_mode = 2
-
-[node name="Item3" parent="GUI/CanvasGroup/Panel/VBoxContainer/Inventory" instance=ExtResource("10_lea80")]
-layout_mode = 2
-
-[node name="Item4" parent="GUI/CanvasGroup/Panel/VBoxContainer/Inventory" instance=ExtResource("10_lea80")]
-layout_mode = 2
-
-[node name="Item5" parent="GUI/CanvasGroup/Panel/VBoxContainer/Inventory" instance=ExtResource("10_lea80")]
+[node name="Inventory" parent="GUI/CanvasGroup/Panel/VBoxContainer" instance=ExtResource("10_k14ao")]
 layout_mode = 2
 
 [node name="Scanner" type="Node2D" parent="." node_paths=PackedStringArray("area")]
@@ -135,8 +124,16 @@ shape = SubResource("CircleShape2D_q5si6")
 
 [node name="Laser" parent="." instance=ExtResource("12_cwv0g")]
 
-[node name="Manipulator" type="Node2D" parent="."]
+[node name="Manipulator" type="Node2D" parent="." node_paths=PackedStringArray("area", "inventory")]
 script = ExtResource("14_0uscs")
+area = NodePath("Area2D")
+inventory = NodePath("../GUI/CanvasGroup/Panel/VBoxContainer/Inventory")
+
+[node name="Area2D" type="Area2D" parent="Manipulator"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Manipulator/Area2D"]
+position = Vector2(29, -0.5)
+shape = SubResource("RectangleShape2D_7ly7v")
 
 [connection signal="pressed" from="GUI/CanvasGroup/Panel/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 

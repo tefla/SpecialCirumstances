@@ -1,7 +1,11 @@
 extends Task
 
+@export var manipulator: Manipulator
 
 func run():
 	running()
-	success()
+	if manipulator.pickup("Stick"):
+		success()
+	else:
+		fail()
 	

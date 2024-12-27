@@ -47,7 +47,6 @@ _data = {
 }
 
 [node name="Laser" type="Node2D" node_paths=PackedStringArray("area", "colShape", "anim")]
-visible = false
 script = ExtResource("1_xkenf")
 area = NodePath("Area2D")
 colShape = NodePath("Area2D/CollisionShape2D")

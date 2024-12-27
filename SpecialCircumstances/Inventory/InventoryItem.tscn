@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmh774pja8rjt"]
-
-[ext_resource type="Script" path="res://Inventory/InventoryItem.gd" id="1_t7gq4"]
-
-[node name="Item" type="PanelContainer"]
-custom_minimum_size = Vector2(40, 40)
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_t7gq4")
