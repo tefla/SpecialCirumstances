@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cmf6su2wl80xm"]
+
+[ext_resource type="Script" path="res://Inventory/Item.gd" id="1_u010s"]
+[ext_resource type="Texture2D" uid="uid://lcl4jgd068c7" path="res://Assets/treeGreen_large.png" id="2_xlcfu"]
+
+[resource]
+script = ExtResource("1_u010s")
+texture = ExtResource("2_xlcfu")
+type = "RedStick"

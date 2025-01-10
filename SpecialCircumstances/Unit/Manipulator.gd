@@ -2,7 +2,7 @@ extends Node2D
 class_name Manipulator
 
 @export var area: Area2D
-@export var inventory: Inventory
+@export var inventory: UnitInventory
 
 
 func sort_nodes_by_distance(reference_point: Vector2, nodes: Array):
@@ -21,7 +21,18 @@ func pickup(type: String) -> bool:
 			return true
 	# error
 	return false
+
+func deposit():
+	var areas = area.get_overlapping_areas()
+	var slot: Slot = inventory.slots_container.get_child(0)
+	var item = slot.item
 	
+	for area in areas:
+		if area is InventoryArea:
+			area.inventory.add_item(item, 0)
+			slot.count -= 1
+			return true
+	return false
 func scan(type: String) -> PickupableComponent:
 	var areas = area.get_overlapping_areas()
 	sort_nodes_by_distance(position, areas)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://du2egy7wh8ox0"]
+[gd_scene load_steps=20 format=3 uid="uid://du2egy7wh8ox0"]
 
 [ext_resource type="Script" path="res://Unit/Unit.gd" id="1_3nu70"]
 [ext_resource type="Texture2D" uid="uid://12saswfqmfq0" path="res://Assets/tank_blue.png" id="1_5huqg"]
@@ -8,11 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://blp8i1dna4340" path="res://Tasks/MoveTo.tscn" id="6_gqp6g"]
 [ext_resource type="PackedScene" uid="uid://c0e760flkcofy" path="res://Tasks/ScanFor.tscn" id="7_eh3n5"]
 [ext_resource type="Script" path="res://Unit/Scanner.gd" id="7_l4b4r"]
-[ext_resource type="PackedScene" path="res://Tasks/LaserTask.tscn" id="8_mimvg"]
 [ext_resource type="PackedScene" uid="uid://f3la1dwxx4sb" path="res://Tasks/Pickup.tscn" id="9_1pob8"]
-[ext_resource type="PackedScene" uid="uid://behs1jdsrjq5v" path="res://Inventory/Inventory.tscn" id="10_k14ao"]
+[ext_resource type="PackedScene" uid="uid://dkuthykqc3es7" path="res://Tasks/Craft.tscn" id="9_533a5"]
+[ext_resource type="PackedScene" uid="uid://dnracep1bbu4y" path="res://Tasks/Deposit.tscn" id="9_miegt"]
+[ext_resource type="PackedScene" uid="uid://behs1jdsrjq5v" path="res://Inventory/UnitInventory.tscn" id="10_k14ao"]
 [ext_resource type="PackedScene" uid="uid://cmfudvwfq303d" path="res://Unit/Laser.tscn" id="12_cwv0g"]
 [ext_resource type="Script" path="res://Unit/Manipulator.gd" id="14_0uscs"]
+[ext_resource type="Script" path="res://Unit/Crafter.gd" id="14_tskkd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xjd21"]
 radius = 23.84
@@ -87,17 +89,23 @@ mouse_filter = 0
 layout_mode = 2
 scanner = NodePath("../../../../../../../../../../../../../Scanner")
 
-[node name="Task2" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="1" node_paths=PackedStringArray("laser") instance=ExtResource("8_mimvg")]
+[node name="Task3" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="1" node_paths=PackedStringArray("manipulator") instance=ExtResource("9_1pob8")]
 layout_mode = 2
-laser = NodePath("../../../../../../../../../Laser")
+manipulator = NodePath("../../../../../../../../../Manipulator")
 
-[node name="PanelContainer" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task2" index="0"]
-mouse_filter = 0
+[node name="Task5" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="2" node_paths=PackedStringArray("crafter") instance=ExtResource("9_533a5")]
+layout_mode = 2
+crafter = NodePath("../../../../../../../../../Crafter")
 
-[node name="Status" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task2/PanelContainer/HBoxContainer" index="0"]
-mouse_filter = 0
+[node name="Task4" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="3" node_paths=PackedStringArray("movable") instance=ExtResource("6_gqp6g")]
+layout_mode = 2
+movable = NodePath("../../../../../../../../../Movable")
 
-[node name="Task3" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="2" node_paths=PackedStringArray("manipulator") instance=ExtResource("9_1pob8")]
+[node name="Task" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task4/PanelContainer/HBoxContainer/ChildContainer" index="0" node_paths=PackedStringArray("scanner") instance=ExtResource("7_eh3n5")]
+layout_mode = 2
+scanner = NodePath("../../../../../../../../../../../../../Scanner")
+
+[node name="Task2" parent="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children" index="4" node_paths=PackedStringArray("manipulator") instance=ExtResource("9_miegt")]
 layout_mode = 2
 manipulator = NodePath("../../../../../../../../../Manipulator")
 
@@ -118,6 +126,7 @@ script = ExtResource("7_l4b4r")
 area = NodePath("Area2D")
 
 [node name="Area2D" type="Area2D" parent="Scanner"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scanner/Area2D"]
 shape = SubResource("CircleShape2D_q5si6")
@@ -135,8 +144,13 @@ inventory = NodePath("../GUI/CanvasGroup/Panel/VBoxContainer/Inventory")
 position = Vector2(29, -0.5)
 shape = SubResource("RectangleShape2D_7ly7v")
 
+[node name="Crafter" type="Node2D" parent="." node_paths=PackedStringArray("inventory")]
+script = ExtResource("14_tskkd")
+inventory = NodePath("../GUI/CanvasGroup/Panel/VBoxContainer/Inventory")
+
 [connection signal="pressed" from="GUI/CanvasGroup/Panel/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 
 [editable path="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask"]
 [editable path="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task"]
-[editable path="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task2"]
+[editable path="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task4"]
+[editable path="GUI/CanvasGroup/Panel/VBoxContainer/VBoxContainer/ContainerTask/ChildrenContainer/Children/Task4/PanelContainer/HBoxContainer/ChildContainer/Task"]

@@ -14,10 +14,12 @@ text = "Scan For"
 
 [node name="OptionButton" type="OptionButton" parent="PanelContainer/HBoxContainer" index="2" node_paths=PackedStringArray("task")]
 layout_mode = 2
-item_count = 2
+item_count = 3
 popup/item_0/text = "Tree"
 popup/item_1/text = "Stick"
 popup/item_1/id = 1
+popup/item_2/text = "Chest"
+popup/item_2/id = 2
 script = ExtResource("3_yvxov")
 task = NodePath("../../..")
 
