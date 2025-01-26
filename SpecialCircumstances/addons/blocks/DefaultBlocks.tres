@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BlockLibrary" load_steps=4 format=3 uid="uid://djpkqnljmjp6a"]
+
+[ext_resource type="PackedScene" uid="uid://cpt2uj8n7kuop" path="res://addons/blocks/Task.tscn" id="1_fq4v7"]
+[ext_resource type="Script" path="res://addons/blocks/Library.gd" id="1_gim76"]
+[ext_resource type="PackedScene" uid="uid://4iwbryh55uf1" path="res://addons/blocks/ContainerTask.tscn" id="2_e0ay1"]
+
+[resource]
+script = ExtResource("1_gim76")
+blocks = Array[PackedScene]([ExtResource("1_fq4v7"), ExtResource("2_e0ay1")])

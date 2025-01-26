@@ -11,5 +11,9 @@ config_version=5
 [application]
 
 config/name="SpecialCircumstances"
-run/main_scene="res://UnitPlayground.tscn"
+run/main_scene="res://addons/blocks/BlockEditor.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/blocks/plugin.cfg")

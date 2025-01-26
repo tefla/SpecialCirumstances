@@ -1,14 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://27hujidena3j"]
+[gd_scene load_steps=4 format=3 uid="uid://bl4a8viwqibp6"]
 
-[ext_resource type="Script" path="res://Tasks/Status.gd" id="1_ut2j1"]
 [ext_resource type="Texture2D" uid="uid://bd12j80p00oq" path="res://Assets/path316-7.png" id="2_0c3yi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bnglt"]
 
+[sub_resource type="GDScript" id="GDScript_q6krx"]
+script/source = "extends PanelContainer
+class_name Status
+
+@export var is_running: Control
+@export var task: Task
+
+func _ready() -> void:
+	task.status_changed.connect(_on_task_status_changed)
+
+func _on_task_status_changed(state: Task.State) -> void:
+	if state == Task.State.RUNNING:
+		is_running.visible = true
+	else :
+		is_running.visible = false
+"
+
 [node name="Status" type="PanelContainer" node_paths=PackedStringArray("is_running")]
 custom_minimum_size = Vector2(17, 22)
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bnglt")
-script = ExtResource("1_ut2j1")
+script = SubResource("GDScript_q6krx")
 is_running = NodePath("TextureRect")
 
 [node name="TextureRect" type="TextureRect" parent="."]

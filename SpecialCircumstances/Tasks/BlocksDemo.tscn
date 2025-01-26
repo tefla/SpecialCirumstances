@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dux7g53ip6i8y"]
+[gd_scene load_steps=4 format=3 uid="uid://dux7g53ip6i8y"]
 
-[ext_resource type="PackedScene" uid="uid://b5hj4c3fyono4" path="res://Tasks/ContainerTask.tscn" id="1_lttog"]
 [ext_resource type="Script" path="res://Tasks/BlocksDemo.gd" id="1_rit6s"]
-[ext_resource type="PackedScene" uid="uid://dnnuf3l6reb37" path="res://Tasks/Task.tscn" id="2_4s4k3"]
-[ext_resource type="Script" path="res://Tasks/Types/Seq.gd" id="2_li1aw"]
-[ext_resource type="Script" path="res://Tasks/Types/Success.gd" id="5_2omij"]
+[ext_resource type="Script" path="res://addons/blocks/Seq.gd" id="2_li1aw"]
+[ext_resource type="Script" path="res://addons/blocks/Success.gd" id="5_2omij"]
 
 [node name="BlocksDemo" type="VBoxContainer" node_paths=PackedStringArray("root_task")]
 offset_right = 355.0
@@ -12,29 +10,83 @@ offset_bottom = 346.0
 script = ExtResource("1_rit6s")
 root_task = NodePath("ContainerTask")
 
-[node name="ContainerTask" parent="." instance=ExtResource("1_lttog")]
+[node name="ContainerTask_ChildrenContainer_Children_ContainerTask_ChildrenContainer_Children#Task" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+layout_mode = 2
+script = ExtResource("5_2omij")
+
+[node name="ContainerTask_ChildrenContainer_Children_ContainerTask_ChildrenContainer_Children#Task2" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+layout_mode = 2
+script = ExtResource("5_2omij")
+
+[node name="ContainerTask_ChildrenContainer_Children#Task" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+layout_mode = 2
+script = ExtResource("5_2omij")
+
+[node name="ContainerTask_ChildrenContainer_Children#Task2" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+layout_mode = 2
+script = ExtResource("5_2omij")
+
+[node name="ContainerTask_ChildrenContainer_Children#ContainerTask2" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 2
 script = ExtResource("2_li1aw")
 
-[node name="Task" parent="ContainerTask/ChildrenContainer/Children" index="0" instance=ExtResource("2_4s4k3")]
-layout_mode = 2
-script = ExtResource("5_2omij")
-
-[node name="Task2" parent="ContainerTask/ChildrenContainer/Children" index="1" instance=ExtResource("2_4s4k3")]
-layout_mode = 2
-script = ExtResource("5_2omij")
-
-[node name="ContainerTask" parent="ContainerTask/ChildrenContainer/Children" index="2" instance=ExtResource("1_lttog")]
+[node name="ContainerTask" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 2
 script = ExtResource("2_li1aw")
-
-[node name="Task" parent="ContainerTask/ChildrenContainer/Children/ContainerTask/ChildrenContainer/Children" index="0" instance=ExtResource("2_4s4k3")]
-layout_mode = 2
-script = ExtResource("5_2omij")
-
-[node name="Task2" parent="ContainerTask/ChildrenContainer/Children/ContainerTask/ChildrenContainer/Children" index="1" instance=ExtResource("2_4s4k3")]
-layout_mode = 2
-script = ExtResource("5_2omij")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -44,10 +96,3 @@ layout_mode = 2
 text = "Run"
 
 [connection signal="pressed" from="HBoxContainer/Run" to="." method="_on_run_pressed"]
-
-[editable path="ContainerTask"]
-[editable path="ContainerTask/ChildrenContainer/Children/Task"]
-[editable path="ContainerTask/ChildrenContainer/Children/Task2"]
-[editable path="ContainerTask/ChildrenContainer/Children/ContainerTask"]
-[editable path="ContainerTask/ChildrenContainer/Children/ContainerTask/ChildrenContainer/Children/Task"]
-[editable path="ContainerTask/ChildrenContainer/Children/ContainerTask/ChildrenContainer/Children/Task2"]

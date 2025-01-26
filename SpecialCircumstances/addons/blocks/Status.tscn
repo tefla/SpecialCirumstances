@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://oe3k4iofb75d"]
+
+[ext_resource type="Script" path="res://addons/blocks/Status.gd" id="1_x2k4s"]
+[ext_resource type="Texture2D" uid="uid://bd12j80p00oq" path="res://Assets/path316-7.png" id="2_nce0f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bnglt"]
+
+[node name="Status" type="PanelContainer"]
+custom_minimum_size = Vector2(17, 22)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bnglt")
+script = ExtResource("1_x2k4s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_nce0f")
