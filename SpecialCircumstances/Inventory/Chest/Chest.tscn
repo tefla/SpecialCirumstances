@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://11sf67oll7v"]
+
+[ext_resource type="Script" path="res://Inventory/Chest/Chest.gd" id="1_hfwun"]
+[ext_resource type="Texture2D" uid="uid://dqflkbm0phtfw" path="res://Inventory/Chest/crateWood.png" id="1_rugcy"]
+[ext_resource type="Script" path="res://Components/Areas/InventoryArea.gd" id="3_lfrib"]
+[ext_resource type="Script" path="res://Inventory/Inventory.gd" id="4_5hpbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8d1d"]
+size = Vector2(40, 40)
+
+[node name="Chest" type="Node2D"]
+script = ExtResource("1_hfwun")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rugcy")
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("inventory", "root")]
+script = ExtResource("3_lfrib")
+inventory = NodePath("../Inventory")
+root = NodePath("..")
+type = "Chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_l8d1d")
+
+[node name="Inventory" type="Node2D" parent="." node_paths=PackedStringArray("label")]
+script = ExtResource("4_5hpbr")
+label = NodePath("../Label")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0

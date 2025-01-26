@@ -31,3 +31,4 @@ is_running = NodePath("TextureRect")
 visible = false
 layout_mode = 2
 texture = ExtResource("2_0c3yi")
+stretch_mode = 3

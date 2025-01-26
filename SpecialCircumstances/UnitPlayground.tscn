@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://biuotiubnu8vk"]
+[gd_scene load_steps=7 format=3 uid="uid://biuotiubnu8vk"]
 
 [ext_resource type="Script" path="res://unit_playground.gd" id="1_5tj26"]
 [ext_resource type="PackedScene" uid="uid://8si55x8qk7im" path="res://Tree/Tree.tscn" id="1_mvwu2"]
 [ext_resource type="PackedScene" uid="uid://du2egy7wh8ox0" path="res://Unit/Unit.tscn" id="2_tngf6"]
 [ext_resource type="PackedScene" uid="uid://cx5jx1ix6pkyi" path="res://Branches/Branch.tscn" id="4_s6uau"]
+[ext_resource type="PackedScene" uid="uid://11sf67oll7v" path="res://Inventory/Chest/Chest.tscn" id="5_jflj7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_q8plq"]
 vertices = PackedVector2Array(8236.1, 5504.09, -4000.98, 5622.91, -4795.92, -2070.09, 8320.88, -2188.9)
@@ -38,3 +39,6 @@ position = Vector2(118, 294)
 
 [node name="Branch3" parent="." instance=ExtResource("4_s6uau")]
 position = Vector2(176, 72)
+
+[node name="Chest" parent="." instance=ExtResource("5_jflj7")]
+position = Vector2(400, 43)

@@ -11,7 +11,7 @@ extends Node2D
 
 func _process(delta: float):
 	# Get the target position from the mouse or other logic
-	var target_position = get_global_mouse_position()
+	var target_position = get_local_mouse_position()
 	calculate_ik(target_position)
 
 func calculate_ik(target_position: Vector2):
@@ -44,7 +44,7 @@ func calculate_ik(target_position: Vector2):
 
 	# Apply the angles
 	pole1.rotation = angle1
-	pole2.rotation = angle2  # Directly set the second pole's rotation
+	pole2.rotation = angle2 -angle1  # Directly set the second pole's rotation
 
 	update_grabber_position()
 
