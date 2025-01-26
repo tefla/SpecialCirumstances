@@ -82,3 +82,15 @@ func start():
 func reset():
 	cancel()
 	status = State.FRESH
+
+#
+## Get drag data
+#func _get_drag_data(at_position: Vector2) -> Variant:
+	#set_drag_preview(self.duplicate())
+	#return self
+#
+#func _can_drop_data(at_position: Vector2, data: Variant) -> bool: 
+	#return false
+#
+#func _drop_data(at_position: Vector2, data: Variant) -> void:
+	#pass	

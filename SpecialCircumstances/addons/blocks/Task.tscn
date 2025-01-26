@@ -12,10 +12,11 @@ texture_margin_right = 17.0
 texture_margin_bottom = 17.0
 region_rect = Rect2(414, 1005, 155, 56)
 
-[node name="Task" type="VBoxContainer"]
+[node name="Task" type="VBoxContainer" node_paths=PackedStringArray("child_container")]
 offset_right = 57.0
 offset_bottom = 54.0
 script = ExtResource("1_n5t2t")
+child_container = NodePath("PanelContainer/HBoxContainer/ChildContainer")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2

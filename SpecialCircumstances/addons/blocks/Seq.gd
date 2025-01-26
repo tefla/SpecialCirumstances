@@ -29,3 +29,11 @@ func cancel():
 func start():
 	current_child = 0
 	super.start()
+
+
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool: 
+	return true
+
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	if data is Task:
+		child_container.add_child(data)
